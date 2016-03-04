@@ -1,0 +1,9 @@
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\bin\Release\TriviaCrack.exe.config
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\bin\Release\TriviaCrack.exe
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\bin\Release\TriviaCrack.pdb
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.csprojResolveAssemblyReference.cache
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.Game.resources
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.Properties.Resources.resources
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.csproj.GenerateResource.Cache
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.exe
+C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.pdb
