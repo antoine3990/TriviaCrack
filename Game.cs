@@ -38,9 +38,9 @@ namespace TriviaCrack
             InitializeComponent();
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
-            PNL_main.BringToFront();
-            //PNL_wheel.BringToFront();
-            //PNL_wheel.Visible = true;
+            //PNL_main.BringToFront();
+            PNL_wheel.BringToFront();
+            PNL_wheel.Visible = true;
         }
 
         public void InitMain(int minPlayers, int maxPlayers, int minPointsToWin, int maxPointsToWin)
@@ -126,9 +126,7 @@ namespace TriviaCrack
                 PB_wheel.Cursor = Cursors.WaitCursor;
                 wheelClicked = true;
 
-                RotateWheel();
-                FlashText();
-                ShowQuestionWindow();
+                BW_rotateWheel.RunWorkerAsync();
             }
         }
         private void BT_answer_Click(object send, EventArgs e)
@@ -300,43 +298,26 @@ namespace TriviaCrack
                 this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
         }
 
-        private void FlashText()
+        private void flashText()
         {
             int flashes = 5;
             for (int i = 0; i < flashes; i++)
             {
                 Color textColor = LB_category.ForeColor;
                 LB_category.ForeColor = textColor == Color.White ? Color.FromArgb(90, 90, 90) : Color.White;
-                Update();
+                Invoke(new Action(() => this.Update()));
                 System.Threading.Thread.Sleep(500);
             }
             System.Threading.Thread.Sleep(500);
         }
-
-        // Roue (catégories)
-        private void RotateWheel()
-        {
-            List<int> times = GetRotatingTimes();
-            List<int> degrees = GetDegrees(times);
-
-            for (int i = 0; i < times.Count; i++)
-            {
-                rotation = degrees[i];
-                for (int j = 0; j < times[i]; j++)
-                {
-                    rotate();
-                    Update();
-                    System.Threading.Thread.Sleep(20);
-                }
-            }
-        }
+        
         private void rotate()
         {
             currentRotation += rotation;
-            LB_category.Text = getCategoryFromAngle(currentRotation);
+            LB_category.Invoke(new Action(() => LB_category.Text = getCategoryFromAngle(currentRotation)));
 
             PB_wheel.Image = Properties.Resources.wheel;
-            PB_wheel.Image = RotateImage(PB_wheel.Image, currentRotation);
+            PB_wheel.Invoke(new Action(() => PB_wheel.Image = RotateImage(PB_wheel.Image, currentRotation)));
         }
 
         private Image RotateImage(Image img, float rotationAngle)
@@ -603,6 +584,30 @@ namespace TriviaCrack
             answerClicked = false;
             currentRotation = 0;
             PB_wheel.Image = Properties.Resources.wheel;
+        }
+
+        private void BW_rotateWheel_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<int> times = GetRotatingTimes();
+            List<int> degrees = GetDegrees(times);
+
+            for (int i = 0; i < times.Count; i++)
+            {
+                rotation = degrees[i];
+                for (int j = 0; j < times[i]; j++)
+                {
+                    rotate();
+                    Invoke(new Action(() => this.Update()));
+                    System.Threading.Thread.Sleep(20);
+                }
+            }
+
+            flashText();
+        }
+
+        private void BW_rotateWheel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ShowQuestionWindow();
         }
     }
 }
