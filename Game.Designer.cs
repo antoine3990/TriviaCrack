@@ -136,7 +136,6 @@
             this.BT_answer2.Size = new System.Drawing.Size(377, 81);
             this.BT_answer2.TabIndex = 2;
             this.BT_answer2.Tag = "incorrect";
-            this.BT_answer2.Text = "Answer 2";
             this.BT_answer2.UseVisualStyleBackColor = true;
             this.BT_answer2.Click += new System.EventHandler(this.BT_answer_Click);
             this.BT_answer2.MouseEnter += new System.EventHandler(this.BT_answer_MouseEnter);
@@ -156,7 +155,6 @@
             this.BT_answer3.Size = new System.Drawing.Size(377, 81);
             this.BT_answer3.TabIndex = 3;
             this.BT_answer3.Tag = "incorrect";
-            this.BT_answer3.Text = "Answer 3";
             this.BT_answer3.UseVisualStyleBackColor = true;
             this.BT_answer3.Click += new System.EventHandler(this.BT_answer_Click);
             this.BT_answer3.MouseEnter += new System.EventHandler(this.BT_answer_MouseEnter);
@@ -176,7 +174,6 @@
             this.BT_answer4.Size = new System.Drawing.Size(377, 81);
             this.BT_answer4.TabIndex = 4;
             this.BT_answer4.Tag = "incorrect";
-            this.BT_answer4.Text = "Answer 4";
             this.BT_answer4.UseVisualStyleBackColor = true;
             this.BT_answer4.Click += new System.EventHandler(this.BT_answer_Click);
             this.BT_answer4.MouseEnter += new System.EventHandler(this.BT_answer_MouseEnter);
@@ -208,7 +205,6 @@
             this.BT_answer1.Size = new System.Drawing.Size(377, 81);
             this.BT_answer1.TabIndex = 7;
             this.BT_answer1.Tag = "incorrect";
-            this.BT_answer1.Text = "Answer 1";
             this.BT_answer1.UseVisualStyleBackColor = true;
             this.BT_answer1.Click += new System.EventHandler(this.BT_answer_Click);
             this.BT_answer1.MouseEnter += new System.EventHandler(this.BT_answer_MouseEnter);
@@ -1229,12 +1225,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_category);
             this.Controls.Add(this.PNL_scores);
             this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_wheel);
-            this.Controls.Add(this.PNL_questions);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(550, 700);

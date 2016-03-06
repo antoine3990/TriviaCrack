@@ -12,7 +12,7 @@ namespace TriviaCrack
     class Player
     {
         private string Name; // Nom du joueur
-        private List<Points> points; // Liste de pointage des catégories
+        public List<Points> points { get; private set; } // Liste de pointage des catégories
 
         // Accesseurs/Mutateurs
         public string name {

@@ -68,5 +68,14 @@ namespace TriviaCrack
 
             return categories;
         }
+
+        public static Category getCategory(string name_)
+        {
+            foreach (Category c in categories)
+                if (c.name == name_)
+                    return c;
+
+            return null;
+        }
     }
 }

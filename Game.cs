@@ -217,7 +217,7 @@ namespace TriviaCrack
             Button correctAnswer = GetCorrectAnswer();
             correctAnswer.FlatAppearance.BorderColor = Color.White;
         }
-
+        
         // Keypress
         private void TB_newName_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -253,17 +253,6 @@ namespace TriviaCrack
 
 
         // Questions/Réponses
-        private string GetQuestion(string category)
-        {
-            string question = "";
-
-            // Sélectionner une question au hasard dans la liste de question de la catégorie
-            // passée en paramètre + qui n'a pas déja été répondu. Si toute les questions ont
-            // étés répondues, en prendre une au hasard de celles qui n'a pas été répondu
-            // correctement.
-
-            return question;
-        }
         private List<string> GetAnswers(string question)
         {
             List<string> answers = new List<string>();
@@ -320,24 +309,22 @@ namespace TriviaCrack
                 PB_question.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(category);
 
                 // Afficher la question et les réponses
-                ShowAnswers(ShowQuestion(category));
+                showAnswers(showQuestion(category));
 
                 // Afficher le score du joueur
                 LB_pointsCategory.Text = getCategoryPoints(category);
             }
         }
-        private string ShowQuestion(string category)
+        private Question showQuestion(string category)
         {
-            string question = GetQuestion(category);
-            LB_question.Text = question;
+            Question question = Program.getCategory(category).getQuestion();
+            LB_question.Text = question.name;
             return question;
         }
-        private void ShowAnswers(string question)
+        private void showAnswers(Question question)
         {
-            List<string> answers = GetAnswers(question);
-
-            for (int i = 0; i < answers.Count; i++)
-                this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
+            for (int i = 0; i < question.answers.Count; i++)
+                this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = question.answers[i].name;
         }
 
         private void flashText()
@@ -469,18 +456,18 @@ namespace TriviaCrack
             if (TB_newName.TextLength > 2 && NameIsValid(TB_newName.Text)) // Si le nom du joueur a au moins 2 char.
             {
                 Program.players.Add(new Player(AddUppercases(FilterName(TB_newName.Text)))); // Ajoute le nom à la liste.
-                //Program.players.Add(TB_newName.Text);
-                TB_newName.Text = String.Empty; // Vide le TxtBox.
+
+                TB_newName.Text = String.Empty; // Vide le TextBox
 
                 if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
                 {
-                    PNL_nameSelection.Visible = false; // Fermer ce menu.
+                    PNL_nameSelection.Visible = false; // Fermer ce menu
                     ShowPlayerScore();
                 }
                 else Program.changePlayer(); // Prochain Joueur
 
                 string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
-                LB_nameCount.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur.
+                LB_nameCount.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
             }
             else
             {

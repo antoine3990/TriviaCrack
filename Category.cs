@@ -31,7 +31,7 @@ namespace TriviaCrack
         public int color
         {
             get { return Color; }
-            set
+            private set
             {
                 if (value < Enum.GetNames(typeof(colors)).Length)
                     Color = value;
@@ -159,6 +159,21 @@ namespace TriviaCrack
             }
 
             return exists;
+        }
+
+       
+        /// <summary>
+        /// Prend une question au hasard dans la liste de questions.
+        /// </summary>
+        /// <returns>La question prise au hasard</returns>
+        public Question getQuestion()
+        {
+            Random rand = new Random();
+
+            Question question;
+            do question = questions[rand.Next(0, questions.Count - 1)]; while (question.answered == true);
+
+            return question;
         }
     }
 }

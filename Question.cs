@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace TriviaCrack
 {
+    /// <summary>
+    /// Contient les informations d'une question; son texte, ses réponses et son status (répondue ou non)
+    /// </summary>
     class Question
     {
         private string Name; // Texte de la question
-        private List<Answer> answers = new List<Answer>(); // Liste de réponse à la question
+        public bool answered { get; set; } // La question a été répondue
+        public List<Answer> answers { get; private set; } // Liste de réponse à la question
 
         // Accesseurs/Mutateurs
         public string name
@@ -26,7 +30,12 @@ namespace TriviaCrack
         }
         
         // Constructeur paramétrique
-        public Question(string name_) { name = name_; }
+        public Question(string name_)
+        {
+            name = name_;
+            answered = false;
+            answers = new List<Answer>();
+        }
 
         /// <summary>
         /// Ajoute une réponse à la question.
