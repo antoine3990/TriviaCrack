@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace TriviaCrack
 {
+    /// <summary>
+    /// Contient les informations d'un joueur; son nom et ses points.
+    /// </summary>
     class Player
     {
-        private string Name;
+        private string Name; // Nom du joueur
+        private List<Points> points; // Liste de pointage des catégories
+
+        // Accesseurs/Mutateurs
         public string name {
             get { return Name; }
             private set
@@ -19,18 +25,23 @@ namespace TriviaCrack
                     throw new InvalidOperationException("Le nom du joueur contient trop de caractères.");
             }
         }
-        public List<Points> points { get; private set; }
 
+        // Constructeur paramétrique
         public Player(string name_)
         {
             name = name_;
 
             points = new List<Points>();
             for (int i = 0; i < Program.categories.Count; i++)
-                points.Add(new Points(Program.categories[i])); // MODIFIER CETTE LIGNE (new Category())
+                points.Add(new Points(Program.categories[i]));
+
             // insert into joueur ---------------------------------------------------- INSERT BD
         }
 
+        /// <summary>
+        /// Ajoute un point dans la catégorie passée en paramètre.
+        /// </summary>
+        /// <param name="category_">La catégorie du point à ajouter</param>
         public void addPoint(Category category_)
         {
             int pos = categoryPos(category_.name);
@@ -44,6 +55,11 @@ namespace TriviaCrack
                 throw new InvalidOperationException("La catégorie entrée est invalide.");
         }
 
+        /// <summary>
+        /// Trouve la position d'une catégorie, selon son nom, dans la liste de catégories.
+        /// </summary>
+        /// <param name="name_">Nom de la catégorie</param>
+        /// <returns>Position (index) de la catégorie</returns>
         private int categoryPos(string name_)
         {
             int exists = -1;

@@ -11,7 +11,6 @@ namespace TriviaCrack
         public static int maxTextLength = 60;
         public static int nbAnswers = 4;
         public static List<Player> players = new List<Player>();
-        //public static List<string> players = new List<string>();
         public static List<Category> categories = new List<Category>();
         public static int nbPlayers { get; set; }
         public static int pointsToWin { get; set; }
@@ -28,8 +27,8 @@ namespace TriviaCrack
 
             // TEST
             nbPlayers = 2;
-            //players.Add(new Player("Antoine"));
-            //players.Add(new Player("Samuel"));
+            players.Add(new Player("Antoine"));
+            players.Add(new Player("Samuel"));
 
             int minPlayers = 2;
             int maxPlayers = 4;

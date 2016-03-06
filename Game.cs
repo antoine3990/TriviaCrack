@@ -396,7 +396,7 @@ namespace TriviaCrack
             if (posCategory != -1)
                 return Program.players[Program.currentPlayer].points[posCategory].points.ToString();
 
-            return "";
+            return "0";
         }
         private int getCategoryPos(string name_)
         {
