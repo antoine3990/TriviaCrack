@@ -22,6 +22,9 @@ wheel degrees (360/7)
 
 namespace TriviaCrack
 {
+    /// <summary>
+    /// Classe principale du jeu. Représente la fenêtre de jeu.
+    /// </summary>
     public partial class Game : Form
     {
         // Position des catégories (en degrées) sur la roue
@@ -117,6 +120,11 @@ namespace TriviaCrack
                 sender.FlatAppearance.BorderColor = Color.FromArgb(65, 65, 65);
             }
         }
+        private void BT_chooseCategory_MouseLeave(object send, EventArgs e)
+        {
+            Button sender = (Button)send;
+            sender.FlatAppearance.BorderColor = sender.BackColor;
+        }
 
         // OnClick
         private void PB_wheel_Click(object sender, EventArgs e)
@@ -209,7 +217,41 @@ namespace TriviaCrack
             Button correctAnswer = GetCorrectAnswer();
             correctAnswer.FlatAppearance.BorderColor = Color.White;
         }
-        
+
+        // Keypress
+        private void TB_newName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !((IsAlpha(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-' || e.KeyChar == '\b') && FilterSpaces(e.KeyChar));
+        }
+        private void TB_newName_TextChanged(object sender, EventArgs e)
+        {
+            error_addPlayer = false;
+            LB_newName_error.Visible = false;
+
+            if (TB_newName.TextLength > 2)
+            {
+                BT_addPlayer.Enabled = true;
+                BT_MouseLeave(BT_addPlayer, new EventArgs());
+            }
+            else
+                DisableBT_addPlayer();
+        }
+
+        private void BT_chooseCategory_MouseDown(object send, MouseEventArgs e)
+        {
+            Button sender = (Button)send;
+            List<int> col = GetRGBBackground(sender, true);
+            sender.FlatAppearance.MouseDownBackColor = Color.FromArgb(col[0], col[1], col[2]);
+            sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
+        }
+        private void BT_chooseCategory_MouseUp(object send, MouseEventArgs e)
+        {
+            Button sender = (Button)send;
+            BT_chooseCategory_MouseEnter(send, new EventArgs());
+            sender.ForeColor = Color.White;
+        }
+
+
         // Questions/Réponses
         private string GetQuestion(string category)
         {
@@ -405,8 +447,7 @@ namespace TriviaCrack
 
             return -1;
         }
-
-
+        
         private void DrawWinnerScore(string playerName)
         {
             Control pName = this.PNL_scores.Controls["PNL_score_J1"].Controls["LB_score_name1"];
@@ -421,32 +462,6 @@ namespace TriviaCrack
             PB_score.Location = new Point(PB_score.Location.X, pName.Parent.Location.Y + pName.Location.Y + 10);
             PB_score.Visible = true;
             PB_score.BringToFront();
-        }
-
-
-        private string AddUppercases(string s)
-        {
-            // Mettre la première lettre en MAJ.
-            s = s[0].ToString().ToUpper() + s.Substring(1);
-
-            for (int i = 0; i < s.Length - 1; i++)
-            {
-                // Si le char est un espace, changer la prochaine lettre pour une majuscule.
-                if (s[i] == ' ')
-                    s = s.Substring(0, i) + ' ' + s[i + 1].ToString().ToUpper() + (i + 2 < s.Length ? s.Substring(i + 2) : "");
-            }
-
-            return s;
-        }
-
-        private string FilterName(string s)
-        {
-            if (s[0] == ' ' || s[0] == '-')
-                s = s.Substring(1);
-            if (s[s.Length - 1] == ' ' || s[s.Length - 1] == '-')
-                s = s.Substring(0, s.Length - 2);
-
-            return s;
         }
 
         private void AddPlayer()
@@ -474,6 +489,29 @@ namespace TriviaCrack
             }
         }
 
+        private string AddUppercases(string s)
+        {
+            // Mettre la première lettre en MAJ.
+            s = s[0].ToString().ToUpper() + s.Substring(1);
+
+            for (int i = 0; i < s.Length - 1; i++)
+            {
+                // Si le char est un espace, changer la prochaine lettre pour une majuscule.
+                if (s[i] == ' ')
+                    s = s.Substring(0, i) + ' ' + s[i + 1].ToString().ToUpper() + (i + 2 < s.Length ? s.Substring(i + 2) : "");
+            }
+
+            return s;
+        }
+        private string FilterName(string s)
+        {
+            if (s[0] == ' ' || s[0] == '-')
+                s = s.Substring(1);
+            if (s[s.Length - 1] == ' ' || s[s.Length - 1] == '-')
+                s = s.Substring(0, s.Length - 2);
+
+            return s;
+        }
         private bool NameIsValid(string name)
         {
             for (int i = 0; i < name.Length; i++)
@@ -482,17 +520,11 @@ namespace TriviaCrack
 
             return true;
         }
-
-        private void TB_newName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !((IsAlpha(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-' || e.KeyChar == '\b') && FilterSpaces(e.KeyChar));
-        }
         private static bool IsAlpha(char c)
         {
             String AjoutMultiplications = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
             return (AjoutMultiplications.IndexOf(c.ToString()) != -1);
         }
-
         private bool FilterSpaces(char e)
         {
             if (TB_newName.TextLength > 0)
@@ -502,14 +534,7 @@ namespace TriviaCrack
             }
             return true;
         }
-
-        private void DisableBT_addPlayer()
-        {
-            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_darkgrey");
-            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(50, 50, 50);
-            BT_addPlayer.Enabled = false;
-        }
-
+        
         private bool error_addPlayer = false;
         private void ErrorBT_addPlayer()
         {
@@ -517,54 +542,19 @@ namespace TriviaCrack
             BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
             error_addPlayer = true;
         }
-
-
-        private void BT_chooseCategory_MouseLeave(object send, EventArgs e)
+        private void DisableBT_addPlayer()
         {
-            Button sender = (Button)send;
-            sender.FlatAppearance.BorderColor = sender.BackColor;
+            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_darkgrey");
+            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(50, 50, 50);
+            BT_addPlayer.Enabled = false;
         }
-
-
-        private void TB_newName_TextChanged(object sender, EventArgs e)
-        {
-            error_addPlayer = false;
-            LB_newName_error.Visible = false;
-
-            if (TB_newName.TextLength > 2)
-            {
-                BT_addPlayer.Enabled = true;
-                BT_MouseLeave(BT_addPlayer, new EventArgs());
-            }
-            else
-                DisableBT_addPlayer();
-        }
-
-
-
-
+        
         private List<int> GetRGBBackground(Button s, bool MouseClick)
         {
             double x = MouseClick ? 0.75 : 0.8;
             return new List<int>() { (int)(s.BackColor.R * x), (int)(s.BackColor.G * x), (int)(s.BackColor.B * x) };
         }
-
-        private void BT_chooseCategory_MouseDown(object send, MouseEventArgs e)
-        {
-            Button sender = (Button)send;
-            List<int> col = GetRGBBackground(sender, true);
-            sender.FlatAppearance.MouseDownBackColor = Color.FromArgb(col[0], col[1], col[2]);
-            sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
-        }
-
-        private void BT_chooseCategory_MouseUp(object send, MouseEventArgs e)
-        {
-            Button sender = (Button)send;
-            BT_chooseCategory_MouseEnter(send, new EventArgs());
-            sender.ForeColor = Color.White;
-        }
-
-
+        
         private void ResetApp()
         {
             PNL_questions.BackColor = PNL_scores.BackColor;
@@ -604,7 +594,6 @@ namespace TriviaCrack
 
             flashText();
         }
-
         private void BW_rotateWheel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ShowQuestionWindow();
