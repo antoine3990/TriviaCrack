@@ -7,3 +7,12 @@ C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.Prope
 C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.csproj.GenerateResource.Cache
 C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.exe
 C:\Users\zskyl\Dropbox\Exercices\_Session 4\BD\TP1\obj\Release\TriviaCrack.pdb
+C:\Users\Antoine\Documents\Git\TriviaCrack\bin\Release\TriviaCrack.exe.config
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.exe
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.pdb
+C:\Users\Antoine\Documents\Git\TriviaCrack\bin\Release\TriviaCrack.exe
+C:\Users\Antoine\Documents\Git\TriviaCrack\bin\Release\TriviaCrack.pdb
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.csprojResolveAssemblyReference.cache
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.Game.resources
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.Properties.Resources.resources
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.csproj.GenerateResource.Cache

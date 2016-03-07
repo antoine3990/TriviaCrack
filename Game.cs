@@ -157,20 +157,27 @@ namespace TriviaCrack
         {
             Button sender = (Button)send;
 
-            for (int i = 1; i <= Program.nbAnswers; i++)
-                this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
-
-            bool correct = sender.Tag.ToString() == "correct";
-            if (!answerClicked)
+            try
             {
-                if (correct)
-                    correctAnswer(sender);
-                else
-                    incorrectAnswer(sender);
-            }
-            answerClicked = true;
+                Button correct = getCorrectAnswer(LB_category.Text, LB_question.Text);
+                if (!answerClicked)
+                {
+                    if (correct.Name == sender.Name)
+                        correctAnswer(sender);
+                    else
+                        incorrectAnswer(sender, correct);
+                }
+                answerClicked = true;
 
-            ShowNextTurn(correct);
+                for (int i = 1; i <= Program.nbAnswers; i++)
+                    this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
+
+                ShowNextTurn(correct.Name == sender.Name);
+            }
+            catch (InvalidOperationException ioe)
+            {
+                MessageBox.Show(ioe.Message.ToString());
+            }
         }
         private async void ShowNextTurn(bool correct)
         {
@@ -324,10 +331,17 @@ namespace TriviaCrack
         /// <returns></returns>
         private Button getCorrectAnswer(string category, string question)
         {
-            List<Answer> answers = Program.getCategory(category).getQuestion(question).answers;
-            for (int i = 0; i < answers.Count; i++)
-                if (answers[i].correct)
-                    return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
+            try
+            {
+                List<Answer> answers = Program.getCategory(category).getQuestion(question).answers;
+                for (int i = 0; i < answers.Count; i++)
+                    if (answers[i].correct)
+                        return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
+            }
+            catch (InvalidOperationException ioe)
+            {
+                throw ioe;
+            }
 
             return null;
         }
@@ -352,14 +366,20 @@ namespace TriviaCrack
         /// Modifie l'apparence de la fenêtre du questionnaire (PNL_question).
         /// </summary>
         /// <param name="sender">Le bouton cliqué</param>
-        private void incorrectAnswer(Button sender)
+        private void incorrectAnswer(Button sender, Button correct)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
 
-            Button correctAnswer = getCorrectAnswer(LB_category.Text.Replace('é', 'e'), LB_question.Text);
-            correctAnswer.FlatAppearance.BorderColor = Color.White;
-
-            changePlayer();
+            try
+            {
+                Button correctAnswer = getCorrectAnswer(LB_category.Text.Replace('é', 'e'), LB_question.Text);
+                correctAnswer.FlatAppearance.BorderColor = Color.White;
+                changePlayer();
+            }
+            catch (InvalidOperationException ioe)
+            {
+                MessageBox.Show(ioe.Message.ToString());
+            }
         }
 
         #endregion
