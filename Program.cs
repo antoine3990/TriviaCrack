@@ -26,9 +26,9 @@ namespace TriviaCrack
             categories = getCategories();
 
             // TEST
-            nbPlayers = 2;
-            players.Add(new Player("Antoine"));
-            players.Add(new Player("Samuel"));
+           // nbPlayers = 2;
+           // players.Add(new Player("Antoine"));
+           // players.Add(new Player("Samuel"));
 
             int minPlayers = 2;
             int maxPlayers = 4;

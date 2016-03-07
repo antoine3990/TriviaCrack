@@ -12,7 +12,7 @@ namespace TriviaCrack
     class Answer
     {
         private string Name; // Texte de la réponse
-        private bool correct; // L'état de la réponse (Bonne/mauvaise)
+        public bool correct { get; private set; } // L'état de la réponse (Bonne/mauvaise)
 
         // Accesseurs/Mutateurs
         public string name

@@ -27,8 +27,6 @@ namespace TriviaCrack
     /// </summary>
     public partial class Game : Form
     {
-        // Position des catégories (en degrées) sur la roue
-        enum categoriesWheel : int { SCIENCE=334, DIVERTISSEMENT=26, GEOGRAPHIE=77, HISTOIRE=128, AUTRE=180, SPORT=231, ART=283 };
         Random rand = new Random();
 
         private int rotation;
@@ -41,11 +39,10 @@ namespace TriviaCrack
             InitializeComponent();
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
-            //PNL_main.BringToFront();
-            PNL_wheel.BringToFront();
-            PNL_wheel.Visible = true;
+            PNL_main.BringToFront();
+            //PNL_wheel.BringToFront();
+            //PNL_wheel.Visible = true;
         }
-
         public void InitMain(int minPlayers, int maxPlayers, int minPointsToWin, int maxPointsToWin)
         {
             for (int i = minPlayers; i <= maxPlayers; i++) CB_nbJoueurs.Items.Add(i); // Ajout des nombres de joueurs dans le CB
@@ -55,28 +52,8 @@ namespace TriviaCrack
             CB_nbPoints.SelectedIndex = 0; // Selectioner la valeur par defaut pour le CB
         }
 
-        private void ShowPlayerScore()
-        {
-            for (int i = 1; i <= Program.nbPlayers; i++)
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
-            
-            List<string> players = GetPlayerNames();
+        #region MouseEnter
 
-            for (int i = 1; i <= players.Count; i++)
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = players[i - 1];
-        }
-
-        private List<string> GetPlayerNames()
-        {
-            List<string> names = new List<string>();
-
-            foreach (Player j in Program.players)
-                names.Add(j.name);
-
-            return names;
-        }
-
-        // MouseEnter
         private void BT_answer_MouseEnter(object send, EventArgs e)
         {
             if (!answerClicked)
@@ -104,7 +81,10 @@ namespace TriviaCrack
             sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
         }
 
-        // MouseLeave
+        #endregion
+
+        #region MouseLeave
+
         private void BT_answer_MouseLeave(object send, EventArgs e)
         {
             if (!answerClicked)
@@ -126,7 +106,28 @@ namespace TriviaCrack
             sender.FlatAppearance.BorderColor = sender.BackColor;
         }
 
-        // OnClick
+        #endregion
+
+        #region MouseDownUp
+
+        private void BT_chooseCategory_MouseDown(object send, MouseEventArgs e)
+        {
+            Button sender = (Button)send;
+            List<int> col = GetRGBBackground(sender, true);
+            sender.FlatAppearance.MouseDownBackColor = Color.FromArgb(col[0], col[1], col[2]);
+            sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
+        }
+        private void BT_chooseCategory_MouseUp(object send, MouseEventArgs e)
+        {
+            Button sender = (Button)send;
+            BT_chooseCategory_MouseEnter(send, new EventArgs());
+            sender.ForeColor = Color.White;
+        }
+
+        #endregion
+
+        #region On click
+
         private void PB_wheel_Click(object sender, EventArgs e)
         {
             if (!wheelClicked)
@@ -137,6 +138,7 @@ namespace TriviaCrack
                 BW_rotateWheel.RunWorkerAsync();
             }
         }
+
         private void BT_answer_Click(object send, EventArgs e)
         {
             Button sender = (Button)send;
@@ -156,6 +158,14 @@ namespace TriviaCrack
 
             ShowNextTurn(correct);
         }
+        private async void ShowNextTurn(bool correct)
+        {
+            await Task.Delay(3000);
+            PNL_questions.BackColor = BT_nextTurn.BackColor;
+            BT_nextTurn.Text = correct ? "Tourner la roulette à nouveau" : "Tour du prochain joueur";
+            BT_nextTurn.Visible = true;
+        }
+
         private void BT_start_Click(object sender, EventArgs e)
         {
             PNL_main.Visible = false;
@@ -177,7 +187,7 @@ namespace TriviaCrack
         }
         private void BT_addPlayer_Click(object sender, EventArgs e)
         {
-            AddPlayer();
+            addPlayer();
         }
         private void BT_chooseCategory_Click(object sender, EventArgs e)
         {
@@ -193,35 +203,13 @@ namespace TriviaCrack
             ResetApp();
         }
 
-        private async void ShowNextTurn(bool correct)
-        {
-            await Task.Delay(3000);
-            PNL_questions.BackColor = BT_nextTurn.BackColor;
-            BT_nextTurn.Text = correct ? "Tourner la roulette à nouveau" : "Tour du prochain joueur";
-            BT_nextTurn.Visible = true;
-        }
+        #endregion
 
-        private void CorrectAnswer(Button sender)
-        {
-            sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
-            Program.players[Program.currentPlayer].addPoint(Program.categories[getCategoryPos(getCategoryFromAngle(currentRotation))]);
-            
-            LB_pointsCategory.Text = getCategoryPoints(getCategoryFromAngle(currentRotation));
-            LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
-            Update();
-        }
-        private void IncorrectAnswer(Button sender)
-        {
-            sender.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
+        #region Keypress
 
-            Button correctAnswer = GetCorrectAnswer();
-            correctAnswer.FlatAppearance.BorderColor = Color.White;
-        }
-        
-        // Keypress
         private void TB_newName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !((IsAlpha(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-' || e.KeyChar == '\b') && FilterSpaces(e.KeyChar));
+            e.Handled = !((isAlpha(e.KeyChar) || e.KeyChar == ' ' || e.KeyChar == '-' || e.KeyChar == '\b') && filterSpaces(e.KeyChar));
         }
         private void TB_newName_TextChanged(object sender, EventArgs e)
         {
@@ -237,109 +225,224 @@ namespace TriviaCrack
                 DisableBT_addPlayer();
         }
 
-        private void BT_chooseCategory_MouseDown(object send, MouseEventArgs e)
-        {
-            Button sender = (Button)send;
-            List<int> col = GetRGBBackground(sender, true);
-            sender.FlatAppearance.MouseDownBackColor = Color.FromArgb(col[0], col[1], col[2]);
-            sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
-        }
-        private void BT_chooseCategory_MouseUp(object send, MouseEventArgs e)
-        {
-            Button sender = (Button)send;
-            BT_chooseCategory_MouseEnter(send, new EventArgs());
-            sender.ForeColor = Color.White;
-        }
-
-
-        // Questions/Réponses
-        private List<string> GetAnswers(string question)
-        {
-            List<string> answers = new List<string>();
-
-            // Temporaire
-            answers.Add("Answer 1");
-            answers.Add("Answer 2");
-            answers.Add("Answer 3");
-            answers.Add("Answer 4");
-            SetCorrectAnswer(question, answers);
-
-            // Sélectionner la liste de réponses à la question passée en paramètre
-
-            return answers;
-        }
-
-        private void SetCorrectAnswer(string question, List<string> answers)
-        {
-            // string correctAnswerTxt = Prendre la réponse à la question ayant la valeur EstBonne à Y
-            // int correctAnswer = answers.IndexOf(correctAnswerTxt) + 1;
-            int correctAnswer = 3;
-            
-            ((Button)this.Controls["PNL_questions"].Controls["BT_answer" + correctAnswer.ToString()]).Tag = "correct";
-        }
-
-        private Button GetCorrectAnswer()
-        {
-            if (BT_answer1.Tag.ToString() == "correct")
-                return BT_answer1;
-            else if (BT_answer2.Tag.ToString() == "correct")
-                return BT_answer2;
-            else if (BT_answer3.Tag.ToString() == "correct")
-                return BT_answer3;
-            else
-                return BT_answer4;
-        }
+        #endregion
         
-        // Apparences
+        #region Fenetre de question
+
         private void ShowQuestionWindow()
         {
-            PNL_questions.Enabled = true;
+            PNL_wheel.Visible = false; // Cacher la fenetre de la roue
+            PNL_questions.Enabled = true; // Activer le panel de la question/réponses
+
             PNL_questions.BringToFront();
             PNL_category.BringToFront();
-            PNL_wheel.Visible = false;
 
-            string category = LB_category.Text.ToLower().Replace('é', 'e');
+            string category = LB_category.Text.ToLower().Replace('é', 'e'); // Nom de la catégorie
             if (category == "autre")
-                PNL_category.Visible = true;
+                PNL_category.Visible = true; // Afficher le choix de catégories
             else
             {
-                PNL_questions.Visible = true;
-
+                PNL_questions.Visible = true; // Afficher la question et les réponses
+                
                 // Modifier l'image du picturebox selon la catégorie
                 PB_question.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(category);
 
-                // Afficher la question et les réponses
-                showAnswers(showQuestion(category));
-
-                // Afficher le score du joueur
-                LB_pointsCategory.Text = getCategoryPoints(category);
+                try
+                {
+                    showAnswers(showQuestion(category)); // Afficher la question et les réponses
+                }
+                catch (NullReferenceException nre)
+                {
+                    MessageBox.Show(nre.Message.ToString());
+                }
+                
+                LB_pointsCategory.Text = getCategoryPoints(category); // Afficher le score du joueur
             }
         }
         private Question showQuestion(string category)
         {
-            Question question = Program.getCategory(category).getQuestion();
-            LB_question.Text = question.name;
-            return question;
+            try
+            {
+                Question question = Program.getCategory(category).getQuestion();
+                LB_question.Text = question.name;
+                return question;
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Cette catégorie ne contient aucune question.");
+            }
+
+            return null;
         }
         private void showAnswers(Question question)
         {
+            if (question == null)
+                throw new NullReferenceException("La question est nulle. Impossible d'importer les réponses.");
+
             for (int i = 0; i < question.answers.Count; i++)
                 this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = question.answers[i].name;
         }
 
-        private void flashText()
+        private Button GetCorrectAnswer(string category)
         {
-            int flashes = 5;
-            for (int i = 0; i < flashes; i++)
-            {
-                Color textColor = LB_category.ForeColor;
-                LB_category.ForeColor = textColor == Color.White ? Color.FromArgb(90, 90, 90) : Color.White;
-                Invoke(new Action(() => this.Update()));
-                System.Threading.Thread.Sleep(500);
-            }
-            System.Threading.Thread.Sleep(500);
+            List<Answer> answers = Program.getCategory(category).getQuestion().answers;
+            for (int i = 0; i < answers.Count; i++)
+                if (answers[i].correct)
+                    return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
+
+            return null;
         }
-        
+        private void CorrectAnswer(Button sender)
+        {
+            sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
+            Program.players[Program.currentPlayer].addPoint(Program.categories[getCategoryPos(getCategoryFromAngle(currentRotation))]);
+
+            LB_pointsCategory.Text = getCategoryPoints(getCategoryFromAngle(currentRotation));
+            LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
+            Update();
+        }
+        private void IncorrectAnswer(Button sender)
+        {
+            sender.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
+
+            Button correctAnswer = GetCorrectAnswer(LB_category.Text.Replace('é', 'e'));
+            correctAnswer.FlatAppearance.BorderColor = Color.White;
+        }
+
+        #endregion
+
+        #region Ajout d'un joueur
+
+        private void addPlayer()
+        {
+            if (TB_newName.TextLength > 2 && nameIsValid(TB_newName.Text)) // Si le nom du joueur contient au moins 2 char et est valide.
+            {
+                try
+                {
+                    Program.players.Add(new Player(addUpperCase(filterName(TB_newName.Text)))); // Ajoute le nom à la liste.
+
+                    if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
+                    {
+                        PNL_nameSelection.Visible = false; // Fermer ce menu
+                        showPlayerScores();
+                        changePlayer();
+                    }
+                    else Program.changePlayer(); // Prochain Joueur
+                }
+                catch (InvalidOperationException ioe)
+                {
+                    MessageBox.Show(ioe.Message.ToString());
+                }
+
+                DisableBT_addPlayer();
+                TB_newName.Text = String.Empty; // Vide le TextBox
+                
+                string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
+                LB_nameCount.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
+            }
+            else
+            {
+                LB_newName_error.Visible = true;
+                ErrorBT_addPlayer();
+            }
+        }
+        private void showPlayerScores()
+        {
+            for (int i = 1; i <= Program.nbPlayers; i++)
+                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
+
+            for (int i = 1; i <= Program.players.Count; i++)
+                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1].name;
+        }
+
+        private bool nameIsValid(string name)
+        {
+            for (int i = 0; i < name.Length; i++)
+                if (!(isAlpha(name[i]) || name[i] == ' ' || name[i] == '-'))
+                    return false;
+
+            return true;
+        }
+        private string addUpperCase(string s)
+        {
+            // Mettre la première lettre en MAJ.
+            s = s[0].ToString().ToUpper() + s.Substring(1);
+
+            for (int i = 0; i < s.Length - 1; i++)
+            {
+                // Si le char est un espace, changer la prochaine lettre pour une majuscule.
+                if (s[i] == ' ')
+                    s = s.Substring(0, i) + ' ' + s[i + 1].ToString().ToUpper() + (i + 2 < s.Length ? s.Substring(i + 2) : "");
+            }
+
+            return s;
+        }
+        private string filterName(string s)
+        {
+            if (s[0] == ' ' || s[0] == '-')
+                s = s.Substring(1);
+            if (s[s.Length - 1] == ' ' || s[s.Length - 1] == '-')
+                s = s.Substring(0, s.Length - 2);
+
+            return s;
+        }
+
+        private bool filterSpaces(char e)
+        {
+            if (TB_newName.TextLength > 0)
+            {
+                if ((e == ' ' || e == '-') && (TB_newName.Text[TB_newName.TextLength - 1] == ' ' || TB_newName.Text[TB_newName.TextLength - 1] == '-'))
+                    return false;
+            }
+            return true;
+        }
+        private static bool isAlpha(char c)
+        {
+            String alphas = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return (alphas.IndexOf(c.ToString()) != -1);
+        }
+
+        private bool error_addPlayer = false;
+        private void ErrorBT_addPlayer()
+        {
+            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_red");
+            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
+            error_addPlayer = true;
+        }
+        private void DisableBT_addPlayer()
+        {
+            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_darkgrey");
+            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(50, 50, 50);
+            BT_addPlayer.Enabled = false;
+        }
+
+        #endregion
+
+        #region Animation de la roue
+
+        private void BW_rotateWheel_DoWork(object sender, DoWorkEventArgs e)
+        {
+            List<int> times = GetRotatingTimes();
+            List<int> degrees = GetDegrees(times);
+
+            for (int i = 0; i < times.Count; i++)
+            {
+                rotation = degrees[i];
+                for (int j = 0; j < times[i]; j++)
+                {
+                    rotate();
+                    Invoke(new Action(() => this.Update()));
+                    System.Threading.Thread.Sleep(20);
+                }
+            }
+
+            flashText();
+        }
+        private void BW_rotateWheel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            ShowQuestionWindow();
+        }
+
         private void rotate()
         {
             currentRotation += rotation;
@@ -348,7 +451,6 @@ namespace TriviaCrack
             PB_wheel.Image = Properties.Resources.wheel;
             PB_wheel.Invoke(new Action(() => PB_wheel.Image = RotateImage(PB_wheel.Image, currentRotation)));
         }
-
         private Image RotateImage(Image img, float rotationAngle)
         {
             // Bitmap de la taille de l'image
@@ -368,6 +470,19 @@ namespace TriviaCrack
             gfx.Dispose();
 
             return bmp;
+        }
+
+        private void flashText()
+        {
+            int flashes = 5;
+            for (int i = 0; i < flashes; i++)
+            {
+                Color textColor = LB_category.ForeColor;
+                LB_category.ForeColor = textColor == Color.White ? Color.FromArgb(90, 90, 90) : Color.White;
+                Invoke(new Action(() => this.Update()));
+                System.Threading.Thread.Sleep(500);
+            }
+            System.Threading.Thread.Sleep(500);
         }
 
         private List<int> GetRotatingTimes()
@@ -397,23 +512,33 @@ namespace TriviaCrack
             return degrees;
         }
 
+        #endregion
+
+        #region Divers
+
+        private List<int> GetRGBBackground(Button s, bool MouseClick)
+        {
+            double x = MouseClick ? 0.75 : 0.8;
+            return new List<int>() { (int)(s.BackColor.R * x), (int)(s.BackColor.G * x), (int)(s.BackColor.B * x) };
+        }
+
         private string getCategoryFromAngle(int deg)
         {
             deg %= 360;
 
-            if (deg >= (int)categoriesWheel.SCIENCE)
+            if (deg >= (int)Category.degrees.SCIENCE)
                 return "Science";
-            else if (deg >= (int)categoriesWheel.ART)
+            else if (deg >= (int)Category.degrees.ART)
                 return "Divertissement";
-            else if (deg >= (int)categoriesWheel.SPORT)
+            else if (deg >= (int)Category.degrees.SPORT)
                 return "Géographie";
-            else if (deg >= (int)categoriesWheel.AUTRE)
+            else if (deg >= (int)Category.degrees.AUTRE)
                 return "Histoire";
-            else if (deg >= (int)categoriesWheel.HISTOIRE)
+            else if (deg >= (int)Category.degrees.HISTOIRE)
                 return "Autre";
-            else if (deg >= (int)categoriesWheel.GEOGRAPHIE)
+            else if (deg >= (int)Category.degrees.GEOGRAPHIE)
                 return "Sport";
-            else if (deg >= (int)categoriesWheel.DIVERTISSEMENT)
+            else if (deg >= (int)Category.degrees.DIVERTISSEMENT)
                 return "Art";
             else
                 return "Science";
@@ -434,114 +559,14 @@ namespace TriviaCrack
 
             return -1;
         }
-        
-        private void DrawWinnerScore(string playerName)
-        {
-            Control pName = this.PNL_scores.Controls["PNL_score_J1"].Controls["LB_score_name1"];
-            for (int i = 2; i <= Program.nbPlayers; i++)
-            {
-                if (playerName == pName.Text)
-                    break;
-                pName = this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()];
-            }
 
-            pName.ForeColor = Color.White;
-            PB_score.Location = new Point(PB_score.Location.X, pName.Parent.Location.Y + pName.Location.Y + 10);
-            PB_score.Visible = true;
-            PB_score.BringToFront();
-        }
-
-        private void AddPlayer()
+        private void changePlayer()
         {
-            if (TB_newName.TextLength > 2 && NameIsValid(TB_newName.Text)) // Si le nom du joueur a au moins 2 char.
-            {
-                Program.players.Add(new Player(AddUppercases(FilterName(TB_newName.Text)))); // Ajoute le nom à la liste.
-
-                TB_newName.Text = String.Empty; // Vide le TextBox
-
-                if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
-                {
-                    PNL_nameSelection.Visible = false; // Fermer ce menu
-                    ShowPlayerScore();
-                }
-                else Program.changePlayer(); // Prochain Joueur
-
-                string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
-                LB_nameCount.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
-            }
-            else
-            {
-                LB_newName_error.Visible = true;
-                ErrorBT_addPlayer();
-            }
+            Program.changePlayer();
+            LB_questions_playerName.Text = Program.players[Program.currentPlayer].name;
+            LB_wheel_playerName.Text = Program.players[Program.currentPlayer].name;
+            Update();
         }
-
-        private string AddUppercases(string s)
-        {
-            // Mettre la première lettre en MAJ.
-            s = s[0].ToString().ToUpper() + s.Substring(1);
-
-            for (int i = 0; i < s.Length - 1; i++)
-            {
-                // Si le char est un espace, changer la prochaine lettre pour une majuscule.
-                if (s[i] == ' ')
-                    s = s.Substring(0, i) + ' ' + s[i + 1].ToString().ToUpper() + (i + 2 < s.Length ? s.Substring(i + 2) : "");
-            }
-
-            return s;
-        }
-        private string FilterName(string s)
-        {
-            if (s[0] == ' ' || s[0] == '-')
-                s = s.Substring(1);
-            if (s[s.Length - 1] == ' ' || s[s.Length - 1] == '-')
-                s = s.Substring(0, s.Length - 2);
-
-            return s;
-        }
-        private bool NameIsValid(string name)
-        {
-            for (int i = 0; i < name.Length; i++)
-                if (!(IsAlpha(name[i]) || name[i] == ' ' || name[i] == '-'))
-                    return false;
-
-            return true;
-        }
-        private static bool IsAlpha(char c)
-        {
-            String AjoutMultiplications = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            return (AjoutMultiplications.IndexOf(c.ToString()) != -1);
-        }
-        private bool FilterSpaces(char e)
-        {
-            if (TB_newName.TextLength > 0)
-            {
-                if ((e == ' ' || e == '-') && (TB_newName.Text[TB_newName.TextLength - 1] == ' ' || TB_newName.Text[TB_newName.TextLength - 1] == '-'))
-                    return false;
-            }
-            return true;
-        }
-        
-        private bool error_addPlayer = false;
-        private void ErrorBT_addPlayer()
-        {
-            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_red");
-            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
-            error_addPlayer = true;
-        }
-        private void DisableBT_addPlayer()
-        {
-            BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_darkgrey");
-            BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(50, 50, 50);
-            BT_addPlayer.Enabled = false;
-        }
-        
-        private List<int> GetRGBBackground(Button s, bool MouseClick)
-        {
-            double x = MouseClick ? 0.75 : 0.8;
-            return new List<int>() { (int)(s.BackColor.R * x), (int)(s.BackColor.G * x), (int)(s.BackColor.B * x) };
-        }
-        
         private void ResetApp()
         {
             PNL_questions.BackColor = PNL_scores.BackColor;
@@ -552,6 +577,7 @@ namespace TriviaCrack
                 BT.Cursor = Cursors.Hand;
                 BT.FlatAppearance.BorderColor = Color.FromArgb(120, 120, 120);
             }
+
             LB_pointsCategory.ForeColor = Color.White;
             PNL_questions.Enabled = false;
             PNL_wheel.BringToFront();
@@ -563,27 +589,6 @@ namespace TriviaCrack
             PB_wheel.Image = Properties.Resources.wheel;
         }
 
-        private void BW_rotateWheel_DoWork(object sender, DoWorkEventArgs e)
-        {
-            List<int> times = GetRotatingTimes();
-            List<int> degrees = GetDegrees(times);
-
-            for (int i = 0; i < times.Count; i++)
-            {
-                rotation = degrees[i];
-                for (int j = 0; j < times[i]; j++)
-                {
-                    rotate();
-                    Invoke(new Action(() => this.Update()));
-                    System.Threading.Thread.Sleep(20);
-                }
-            }
-
-            flashText();
-        }
-        private void BW_rotateWheel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            ShowQuestionWindow();
-        }
+        #endregion
     }
 }

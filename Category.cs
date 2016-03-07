@@ -11,6 +11,8 @@ namespace TriviaCrack
     /// </summary>
     class Category
     {
+        // Position des catégories (en degrées) sur la roue
+        public enum degrees : int { SCIENCE = 334, DIVERTISSEMENT = 26, GEOGRAPHIE = 77, HISTOIRE = 128, AUTRE = 180, SPORT = 231, ART = 283 };
         public enum colors { blue, pink, green, purple, red, orange }
         private string Name; // Nom de la catégorie
         private int Color; // Couleur de la catégorie
@@ -161,19 +163,24 @@ namespace TriviaCrack
             return exists;
         }
 
-       
+
         /// <summary>
         /// Prend une question au hasard dans la liste de questions.
         /// </summary>
         /// <returns>La question prise au hasard</returns>
         public Question getQuestion()
         {
-            Random rand = new Random();
+            if (questions.Count > 0)
+            {
+                Random rand = new Random();
 
-            Question question;
-            do question = questions[rand.Next(0, questions.Count - 1)]; while (question.answered == true);
+                Question question;
+                do question = questions[rand.Next(0, questions.Count - 1)]; while (question.answered == true);
 
-            return question;
+                return question;
+            }
+            else
+                throw new InvalidOperationException("La catégorie ne contient aucune questions.");
         }
     }
 }
