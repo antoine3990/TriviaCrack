@@ -27,13 +27,19 @@ namespace TriviaCrack
     /// </summary>
     public partial class Game : Form
     {
-        Random rand = new Random();
+        Random rand = new Random(); // Générateur de nombre aléatoire
+        
+        private int currentRotation = 0; // Rotation (en degrées) de la roue
+        private bool wheelClicked = false; // Vrai si la roue a été cliquée
+        private bool answerClicked = false; // Vrai si une réponse a été cliquée
 
-        private int rotation;
-        private int currentRotation = 0;
-        private bool wheelClicked = false;
-        private bool answerClicked = false;
-
+        /// <summary>
+        /// Constructeur paramétrique de la fenêtre principale de jeu.
+        /// </summary>
+        /// <param name="minPlayers">Nombre minimal de joueurs</param>
+        /// <param name="maxPlayers">Nombre maximal de joueurs</param>
+        /// <param name="minPointsToWin">Nombre minimal de points pour gagner</param>
+        /// <param name="maxPointsToWin">Nombre maximal de points pour gagner</param>
         public Game(int minPlayers, int maxPlayers, int minPointsToWin, int maxPointsToWin)
         {
             InitializeComponent();
@@ -43,13 +49,21 @@ namespace TriviaCrack
             //PNL_wheel.BringToFront();
             //PNL_wheel.Visible = true;
         }
+
+        /// <summary>
+        /// Initialisation de la fenêtre de sélection du nombre de joueurs/points pour gagner.
+        /// </summary>
+        /// <param name="minPlayers">Nombre minimal de joueurs</param>
+        /// <param name="maxPlayers">Nombre maximal de joueurs</param>
+        /// <param name="minPointsToWin">Nombre minimal de points pour gagner</param>
+        /// <param name="maxPointsToWin">Nombre maximal de points pour gagner</param>
         public void InitMain(int minPlayers, int maxPlayers, int minPointsToWin, int maxPointsToWin)
         {
             for (int i = minPlayers; i <= maxPlayers; i++) CB_nbJoueurs.Items.Add(i); // Ajout des nombres de joueurs dans le CB
             for (int i = minPointsToWin; i <= maxPointsToWin; i++) CB_nbPoints.Items.Add(i); // Ajout des nombre de trimestres dans le CB
 
             CB_nbJoueurs.SelectedIndex = 0; // Selectioner la valeur par defaut pour le CB
-            CB_nbPoints.SelectedIndex = 0; // Selectioner la valeur par defaut pour le CB
+            CB_nbPoints.SelectedIndex = 2; // Selectioner la valeur par defaut pour le CB
         }
 
         #region MouseEnter
@@ -76,7 +90,7 @@ namespace TriviaCrack
         private void BT_chooseCategory_MouseEnter(object send, EventArgs e)
         {
             Button sender = (Button)send;
-            List<int> col = GetRGBBackground(sender, false);
+            List<int> col = getRGBBackground(sender, false);
             sender.FlatAppearance.MouseOverBackColor = Color.FromArgb(col[0], col[1], col[2]);
             sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
         }
@@ -113,7 +127,7 @@ namespace TriviaCrack
         private void BT_chooseCategory_MouseDown(object send, MouseEventArgs e)
         {
             Button sender = (Button)send;
-            List<int> col = GetRGBBackground(sender, true);
+            List<int> col = getRGBBackground(sender, true);
             sender.FlatAppearance.MouseDownBackColor = Color.FromArgb(col[0], col[1], col[2]);
             sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
         }
@@ -150,9 +164,9 @@ namespace TriviaCrack
             if (!answerClicked)
             {
                 if (correct)
-                    CorrectAnswer(sender);
+                    correctAnswer(sender);
                 else
-                    IncorrectAnswer(sender);
+                    incorrectAnswer(sender);
             }
             answerClicked = true;
 
@@ -192,7 +206,7 @@ namespace TriviaCrack
         private void BT_chooseCategory_Click(object sender, EventArgs e)
         {
             LB_category.Text = ((Button)sender).Text;
-            ShowQuestionWindow();
+            showQuestionWindow();
             PNL_category.Visible = false;
         }
         private void BT_nextTurn_Click(object sender, EventArgs e)
@@ -200,7 +214,7 @@ namespace TriviaCrack
             // UPDATE BD si la réponse est bonne
             //if (BT_nextTurn.Text == "Tourner la roulette à nouveau")
             BT_nextTurn.Visible = false;
-            ResetApp();
+            resetApp();
         }
 
         #endregion
@@ -229,7 +243,12 @@ namespace TriviaCrack
         
         #region Fenetre de question
 
-        private void ShowQuestionWindow()
+        /// <summary>
+        /// S'exécute lorsque la roue arrête de tourner.
+        /// Affiche la fenêtre où sont afficher la question et les réponses .
+        /// OU La fenêtre de choix de catégories.
+        /// </summary>
+        private void showQuestionWindow()
         {
             PNL_wheel.Visible = false; // Cacher la fenetre de la roue
             PNL_questions.Enabled = true; // Activer le panel de la question/réponses
@@ -259,6 +278,15 @@ namespace TriviaCrack
                 LB_pointsCategory.Text = getCategoryPoints(category); // Afficher le score du joueur
             }
         }
+
+        /// <summary>
+        /// Affiche la question dans la fenêtre du questionnaire (PNL_question).
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <returns>
+        /// La question choisie au hasard selon la catégorie 
+        /// OU null (si la catégorie est inexistante)
+        /// </returns>
         private Question showQuestion(string category)
         {
             try
@@ -274,6 +302,11 @@ namespace TriviaCrack
 
             return null;
         }
+
+        /// <summary>
+        /// Affiche les réponses à la question dans les boutons de la fenêtre du questionnaire (PNL_question).
+        /// </summary>
+        /// <param name="question">La question à retrouver les réponses</param>
         private void showAnswers(Question question)
         {
             if (question == null)
@@ -283,16 +316,28 @@ namespace TriviaCrack
                 this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = question.answers[i].name;
         }
 
-        private Button GetCorrectAnswer(string category)
+        /// <summary>
+        /// Trouve le bouton qui contient la bonne réponse.
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <param name="question">Texte de la question</param>
+        /// <returns></returns>
+        private Button getCorrectAnswer(string category, string question)
         {
-            List<Answer> answers = Program.getCategory(category).getQuestion().answers;
+            List<Answer> answers = Program.getCategory(category).getQuestion(question).answers;
             for (int i = 0; i < answers.Count; i++)
                 if (answers[i].correct)
                     return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
 
             return null;
         }
-        private void CorrectAnswer(Button sender)
+
+        /// <summary>
+        /// S'active lorsque l'usager clique sur le bouton de la bonne réponse.
+        /// Modifie l'apparence de la fenêtre du questionnaire (PNL_question).
+        /// </summary>
+        /// <param name="sender">Le bouton cliqué</param>
+        private void correctAnswer(Button sender)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
             Program.players[Program.currentPlayer].addPoint(Program.categories[getCategoryPos(getCategoryFromAngle(currentRotation))]);
@@ -301,18 +346,30 @@ namespace TriviaCrack
             LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
             Update();
         }
-        private void IncorrectAnswer(Button sender)
+
+        /// <summary>
+        /// S'active lorsque l'usager clique sur le bouton d'une mauvaise réponse.
+        /// Modifie l'apparence de la fenêtre du questionnaire (PNL_question).
+        /// </summary>
+        /// <param name="sender">Le bouton cliqué</param>
+        private void incorrectAnswer(Button sender)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
 
-            Button correctAnswer = GetCorrectAnswer(LB_category.Text.Replace('é', 'e'));
+            Button correctAnswer = getCorrectAnswer(LB_category.Text.Replace('é', 'e'), LB_question.Text);
             correctAnswer.FlatAppearance.BorderColor = Color.White;
+
+            changePlayer();
         }
 
         #endregion
 
+        // TO DO -- showPlayerScores()
         #region Ajout d'un joueur
 
+        /// <summary>
+        /// Ajoute un joueur à la liste de joueurs.
+        /// </summary>
         private void addPlayer()
         {
             if (TB_newName.TextLength > 2 && nameIsValid(TB_newName.Text)) // Si le nom du joueur contient au moins 2 char et est valide.
@@ -346,6 +403,10 @@ namespace TriviaCrack
                 ErrorBT_addPlayer();
             }
         }
+
+        /// <summary>
+        /// Modifie l'apparence de la fenêtre des scores (PNL_scores) selon le nombre de joueurs.
+        /// </summary>
         private void showPlayerScores()
         {
             for (int i = 1; i <= Program.nbPlayers; i++)
@@ -353,8 +414,17 @@ namespace TriviaCrack
 
             for (int i = 1; i <= Program.players.Count; i++)
                 this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1].name;
-        }
 
+            //for (int i = 0; i < Program.categories.Count; i++)
+            // Afficher le score des joueurs
+        }
+        
+
+        /// <summary>
+        /// Détermine si le nom en paramètre est valide.
+        /// </summary>
+        /// <param name="name">Nom du joueur</param>
+        /// <returns>L'état du nom</returns>
         private bool nameIsValid(string name)
         {
             for (int i = 0; i < name.Length; i++)
@@ -363,6 +433,12 @@ namespace TriviaCrack
 
             return true;
         }
+
+        /// <summary>
+        /// Ajoute une majuscule aux premières lettres des mots.
+        /// </summary>
+        /// <param name="s">Nom du joueur</param>
+        /// <returns>Le nom, avec majuscules</returns>
         private string addUpperCase(string s)
         {
             // Mettre la première lettre en MAJ.
@@ -377,6 +453,12 @@ namespace TriviaCrack
 
             return s;
         }
+
+        /// <summary>
+        /// Retire les espaces/tirets au début/fin du nom.
+        /// </summary>
+        /// <param name="s">Nom du joueur</param>
+        /// <returns>Le nom validé</returns>
         private string filterName(string s)
         {
             if (s[0] == ' ' || s[0] == '-')
@@ -387,6 +469,11 @@ namespace TriviaCrack
             return s;
         }
 
+        /// <summary>
+        /// Filtre l'entrée du nom d'un joueur pour éviter la répétition d'espaces ou de tirets.
+        /// </summary>
+        /// <param name="e">Le nom du joueur</param>
+        /// <returns>Le nom filtré</returns>
         private bool filterSpaces(char e)
         {
             if (TB_newName.TextLength > 0)
@@ -396,6 +483,12 @@ namespace TriviaCrack
             }
             return true;
         }
+
+        /// <summary>
+        /// Indique si le caractère en paramètre est une lettre.
+        /// </summary>
+        /// <param name="c">Le caractère à valider</param>
+        /// <returns>Le caractère est une lettre ou non</returns>
         private static bool isAlpha(char c)
         {
             String alphas = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -403,12 +496,20 @@ namespace TriviaCrack
         }
 
         private bool error_addPlayer = false;
+
+        /// <summary>
+        /// Modifie l'apparence du bouton d'ajout de joueur (BT_addPlayer) en cas d'erreur dans le nom.
+        /// </summary>
         private void ErrorBT_addPlayer()
         {
             BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_red");
             BT_addPlayer.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
             error_addPlayer = true;
         }
+
+        /// <summary>
+        /// Modifie l'apparence du bouton d'ajout de joueur (BT_addPlayer) en cas d'un nom contenant moins de 3 caractères.
+        /// </summary>
         private void DisableBT_addPlayer()
         {
             BT_addPlayer.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject("addPlayer_darkgrey");
@@ -420,17 +521,21 @@ namespace TriviaCrack
 
         #region Animation de la roue
 
+        /// <summary>
+        /// BackgroundWorker. S'exécute sur un thread secondaire.
+        /// Fait tourner la roue puis modifie l'apparence du texte.
+        /// </summary>
         private void BW_rotateWheel_DoWork(object sender, DoWorkEventArgs e)
         {
-            List<int> times = GetRotatingTimes();
-            List<int> degrees = GetDegrees(times);
+            List<int> times = getRotatingTimes();
+            List<int> degrees = getDegrees(times);
 
             for (int i = 0; i < times.Count; i++)
             {
-                rotation = degrees[i];
+                int rotation = degrees[i];
                 for (int j = 0; j < times[i]; j++)
                 {
-                    rotate();
+                    rotate(rotation);
                     Invoke(new Action(() => this.Update()));
                     System.Threading.Thread.Sleep(20);
                 }
@@ -438,20 +543,37 @@ namespace TriviaCrack
 
             flashText();
         }
+
+        /// <summary>
+        /// BackgroundWorker. S'exécute quand le backgroundWorker a complété son exécution.
+        /// Affiche la fenêtre du questionnaire.
+        /// </summary>
         private void BW_rotateWheel_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            ShowQuestionWindow();
+            showQuestionWindow();
         }
 
-        private void rotate()
+        /// <summary>
+        /// Fait tourner la roue d'un certain nombre de degrées (passé en paramètre)
+        /// puis modifie le texte de la catégorie selon le degrée de rotation.
+        /// </summary>
+        /// <param name="rotation">Rotation de la roue en degrées</param>
+        private void rotate(int rotation)
         {
             currentRotation += rotation;
             LB_category.Invoke(new Action(() => LB_category.Text = getCategoryFromAngle(currentRotation)));
 
             PB_wheel.Image = Properties.Resources.wheel;
-            PB_wheel.Invoke(new Action(() => PB_wheel.Image = RotateImage(PB_wheel.Image, currentRotation)));
+            PB_wheel.Invoke(new Action(() => PB_wheel.Image = rotateImage(PB_wheel.Image, currentRotation)));
         }
-        private Image RotateImage(Image img, float rotationAngle)
+
+        /// <summary>
+        /// Modifie l'image(1) selon le degrée(2). C'est cette fonction qui effectue réellement la rotation de l'image.
+        /// </summary>
+        /// <param name="img"></param>
+        /// <param name="rotationAngle"></param>
+        /// <returns></returns>
+        private Image rotateImage(Image img, float rotationAngle)
         {
             // Bitmap de la taille de l'image
             Bitmap bmp = new Bitmap(img.Width, img.Height);
@@ -472,6 +594,9 @@ namespace TriviaCrack
             return bmp;
         }
 
+        /// <summary>
+        /// S'exécute lorsque la roue arrête de tourner. Fait "flasher" le texte de la catégorie en blanc/gris.
+        /// </summary>
         private void flashText()
         {
             int flashes = 5;
@@ -485,7 +610,11 @@ namespace TriviaCrack
             System.Threading.Thread.Sleep(500);
         }
 
-        private List<int> GetRotatingTimes()
+        /// <summary>
+        /// Obtient une liste de temps de rotation choisi au hasard. Permet à la roue de s'arrêter à différentes positions.
+        /// </summary>
+        /// <returns>La liste de temps chosi au hasard</returns>
+        private List<int> getRotatingTimes()
         {
             List<int> times = new List<int>();
             int limit = 125;
@@ -500,7 +629,13 @@ namespace TriviaCrack
 
             return times;
         }
-        private List<int> GetDegrees(List<int> times)
+
+        /// <summary>
+        /// Obtient une liste de degrées de rotation selon le nombre de temps dans la liste passée en paramètre.
+        /// </summary>
+        /// <param name="times">Liste de temps de rotation</param>
+        /// <returns>La liste de degrées de rotation</returns>
+        private List<int> getDegrees(List<int> times)
         {
             List<int> degrees = new List<int>();
             int max = 25;
@@ -516,12 +651,23 @@ namespace TriviaCrack
 
         #region Divers
 
-        private List<int> GetRGBBackground(Button s, bool MouseClick)
+        /// <summary>
+        /// Retourne le BackColor du bouton passé en paramètre, mais plus foncé, pour donner une indication de Hover/Click.
+        /// </summary>
+        /// <param name="s">Le bouton survolé/cliqué</param>
+        /// <param name="MouseClick">Vrai si le bouton est cliqué (!survolé)</param>
+        /// <returns>La nouvelle couleur</returns>
+        private List<int> getRGBBackground(Button s, bool MouseClick)
         {
             double x = MouseClick ? 0.75 : 0.8;
             return new List<int>() { (int)(s.BackColor.R * x), (int)(s.BackColor.G * x), (int)(s.BackColor.B * x) };
         }
 
+        /// <summary>
+        /// Trouve le nom de la catégorie selon l'angle de rotation de la roue.
+        /// </summary>
+        /// <param name="deg">L'angle de rotation</param>
+        /// <returns>Le nom de la catégorie</returns>
         private string getCategoryFromAngle(int deg)
         {
             deg %= 360;
@@ -543,6 +689,12 @@ namespace TriviaCrack
             else
                 return "Science";
         }
+
+        /// <summary>
+        /// Trouve le nombre de points du joueur courant selon la catégorie passée en paramètre.
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <returns>Le pointage du joueur dans la catégorie choisie</returns>
         private string getCategoryPoints(string category)
         {
             int posCategory = getCategoryPos(category);
@@ -552,6 +704,12 @@ namespace TriviaCrack
 
             return "0";
         }
+
+        /// <summary>
+        /// Trouve la position de la catégorie dans la liste de catégories.
+        /// </summary>
+        /// <param name="name_">Nom de la catégorie</param>
+        /// <returns>La position de la catégorie</returns>
         private int getCategoryPos(string name_)
         {
             for (int i = 0; i < Program.categories.Count; i++)
@@ -560,6 +718,9 @@ namespace TriviaCrack
             return -1;
         }
 
+        /// <summary>
+        /// Change de joueur. S'exécute lorsqu'un joueur sélectionne une mauvaise réponse.
+        /// </summary>
         private void changePlayer()
         {
             Program.changePlayer();
@@ -567,7 +728,11 @@ namespace TriviaCrack
             LB_wheel_playerName.Text = Program.players[Program.currentPlayer].name;
             Update();
         }
-        private void ResetApp()
+
+        /// <summary>
+        /// Réinitialise la fenêtre de jeu à son état d'origine. S'exécute quand un joueur clique une réponse.
+        /// </summary>
+        private void resetApp()
         {
             PNL_questions.BackColor = PNL_scores.BackColor;
 

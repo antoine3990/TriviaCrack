@@ -26,7 +26,10 @@ namespace TriviaCrack
             }
         }
 
-        // Constructeur paramétrique
+        /// <summary>
+        /// Constructeur paramétrique d'un joueur.
+        /// </summary>
+        /// <param name="name_">Nom du joueur</param>
         public Player(string name_)
         {
             name = name_;

@@ -8,10 +8,12 @@ namespace TriviaCrack
 {
     static class Program
     {
-        public static int maxTextLength = 60;
-        public static int nbAnswers = 4;
+        public static int maxTextLength = 60; // Longeur maximale des questions/réponses
+        public const int nbAnswers = 4; // Nombre de questions
+
         public static List<Player> players = new List<Player>();
         public static List<Category> categories = new List<Category>();
+
         public static int nbPlayers { get; set; }
         public static int pointsToWin { get; set; }
         public static int currentPlayer { get; private set; }
@@ -48,14 +50,15 @@ namespace TriviaCrack
         private static List<Category> getCategories()
         {
             List<Category> categories = new List<Category>();
+
             try
             {
-                categories.Add(new Category("Science", 0));
-                categories.Add(new Category("Divertissement", 1));
-                categories.Add(new Category("Géographie", 2));
-                categories.Add(new Category("Histoire", 3));
-                categories.Add(new Category("Sport", 4));
-                categories.Add(new Category("Art", 5));
+                categories.Add(new Category("Science", (int)Category.colors.blue));
+                categories.Add(new Category("Divertissement", (int)Category.colors.pink));
+                categories.Add(new Category("Géographie", (int)Category.colors.green));
+                categories.Add(new Category("Histoire", (int)Category.colors.purple));
+                categories.Add(new Category("Sport", (int)Category.colors.red));
+                categories.Add(new Category("Art", (int)Category.colors.orange));
 
                 // Get les catégories de la BD --------------------------- GET BD
                 // Get les questions pour tout les catégories

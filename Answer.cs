@@ -27,7 +27,11 @@ namespace TriviaCrack
             }
         }
 
-        // Constructeur paramétrique
+        /// <summary>
+        /// Constructeur paramétrique d'une réponse.
+        /// </summary>
+        /// <param name="name_">Texte de la réponse</param>
+        /// <param name="correct_">État de la question</param>
         public Answer(string name_, bool correct_ = false)
         {
             name = name_;

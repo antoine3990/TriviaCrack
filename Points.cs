@@ -14,7 +14,11 @@ namespace TriviaCrack
         public int points { get;  private set; } // Nombre de points
         public Category category { get; private set; } // Catégorie
 
-        // Constructeur paramétrique
+        /// <summary>
+        /// Constructeur paramétrique d'un pointage d'une catégorie.
+        /// </summary>
+        /// <param name="category_">Nom de la catégorie</param>
+        /// <param name="points_">Nombre de points</param>
         public Points(Category category_, int points_ = 0)
         {
             category = category_;

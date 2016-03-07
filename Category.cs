@@ -42,7 +42,11 @@ namespace TriviaCrack
             }
         }
 
-        // Constructeur paramétrique
+        /// <summary>
+        /// Constructeur paramétrique d'une catégorie.
+        /// </summary>
+        /// <param name="name_">Nom de la catégorie</param>
+        /// <param name="color_">Couleur de la catégorie</param>
         public Category(string name_, int color_)
         {
             name = name_;
@@ -153,7 +157,7 @@ namespace TriviaCrack
 
             for (int i = 0; i < questions.Count; i++)
             {
-                if (questions[i].name == name_)
+                if (questions[i].name.ToLower().Trim() == name_.ToLower().Trim())
                 {
                     exists = i;
                     break;
@@ -179,6 +183,19 @@ namespace TriviaCrack
 
                 return question;
             }
+            else
+                throw new InvalidOperationException("La catégorie ne contient aucune questions.");
+        }
+
+        /// <summary>
+        /// Prend la question qui a le même texte que celui passé en paramètre.
+        /// </summary>
+        /// <param name="name_">Texte de la question</param>
+        /// <returns>La question recherchée</returns>
+        public Question getQuestion(string name_)
+        { 
+            if (questions.Count > 0)
+                return questions[questionPos(name_)];
             else
                 throw new InvalidOperationException("La catégorie ne contient aucune questions.");
         }

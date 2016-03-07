@@ -29,7 +29,10 @@ namespace TriviaCrack
             }
         }
         
-        // Constructeur paramétrique
+        /// <summary>
+        /// Constructeur paramétrique d'une question.
+        /// </summary>
+        /// <param name="name_">Texte de la question</param>
         public Question(string name_)
         {
             name = name_;
