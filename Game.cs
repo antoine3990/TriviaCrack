@@ -106,13 +106,14 @@ namespace TriviaCrack
         }
         private void BT_MouseLeave(object send, EventArgs e)
         {
-            if (!error_addPlayer)
+            if ((!error_addPlayer && (PNL_nameSelection.Visible == true && TB_newName.TextLength > 2)) || PNL_main.Visible == true)
             {
                 Button sender = (Button)send;
                 string name = sender.Name.Substring(3) + "_grey";
                 sender.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(name);
                 sender.FlatAppearance.BorderColor = Color.FromArgb(65, 65, 65);
             }
+
         }
         private void BT_chooseCategory_MouseLeave(object send, EventArgs e)
         {
@@ -181,7 +182,7 @@ namespace TriviaCrack
         }
         private async void ShowNextTurn(bool correct)
         {
-            await Task.Delay(3000);
+            await Task.Delay(4000);
             PNL_questions.BackColor = BT_nextTurn.BackColor;
             BT_nextTurn.Text = correct ? "Tourner la roulette à nouveau" : "Tour du prochain joueur";
             BT_nextTurn.Visible = true;
@@ -218,8 +219,6 @@ namespace TriviaCrack
         }
         private void BT_nextTurn_Click(object sender, EventArgs e)
         {
-            // UPDATE BD si la réponse est bonne
-            //if (BT_nextTurn.Text == "Tourner la roulette à nouveau")
             BT_nextTurn.Visible = false;
             resetApp();
         }
@@ -369,22 +368,12 @@ namespace TriviaCrack
         private void incorrectAnswer(Button sender, Button correct)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(205, 67, 67);
-
-            try
-            {
-                Button correctAnswer = getCorrectAnswer(LB_category.Text.Replace('é', 'e'), LB_question.Text);
-                correctAnswer.FlatAppearance.BorderColor = Color.White;
-                changePlayer();
-            }
-            catch (InvalidOperationException ioe)
-            {
-                MessageBox.Show(ioe.Message.ToString());
-            }
+            correct.FlatAppearance.BorderColor = Color.White;
+            changePlayer();
         }
 
         #endregion
-
-        // TO DO -- showPlayerScores()
+        
         #region Ajout d'un joueur
 
         /// <summary>
@@ -411,11 +400,12 @@ namespace TriviaCrack
                     MessageBox.Show(ioe.Message.ToString());
                 }
 
-                DisableBT_addPlayer();
                 TB_newName.Text = String.Empty; // Vide le TextBox
                 
                 string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
                 LB_nameCount.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
+
+                DisableBT_addPlayer();
             }
             else
             {
@@ -429,17 +419,16 @@ namespace TriviaCrack
         /// </summary>
         private void showPlayerScores()
         {
-            for (int i = 1; i <= Program.nbPlayers; i++)
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
-
             for (int i = 1; i <= Program.players.Count; i++)
+            {
+                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
                 this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1].name;
-
-            //for (int i = 0; i < Program.categories.Count; i++)
-            // Afficher le score des joueurs
+                
+                for (int j = 1; j <= Program.categories.Count; j++)
+                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Program.players[i - 1].points[j - 1].points.ToString();
+            }
         }
         
-
         /// <summary>
         /// Détermine si le nom en paramètre est valide.
         /// </summary>

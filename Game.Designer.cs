@@ -51,36 +51,36 @@
             this.LB_score_title = new System.Windows.Forms.Label();
             this.PNL_score_J4 = new System.Windows.Forms.Panel();
             this.LB_score_name4 = new System.Windows.Forms.Label();
-            this.LB_score_art4 = new System.Windows.Forms.Label();
-            this.LB_score_geographie4 = new System.Windows.Forms.Label();
-            this.LB_score_histoire4 = new System.Windows.Forms.Label();
-            this.LB_score_sport4 = new System.Windows.Forms.Label();
-            this.LB_score_divertissement4 = new System.Windows.Forms.Label();
-            this.LB_score_science4 = new System.Windows.Forms.Label();
+            this.LB_score_46 = new System.Windows.Forms.Label();
+            this.LB_score_43 = new System.Windows.Forms.Label();
+            this.LB_score_44 = new System.Windows.Forms.Label();
+            this.LB_score_45 = new System.Windows.Forms.Label();
+            this.LB_score_42 = new System.Windows.Forms.Label();
+            this.LB_score_41 = new System.Windows.Forms.Label();
             this.PNL_score_J3 = new System.Windows.Forms.Panel();
             this.LB_score_name3 = new System.Windows.Forms.Label();
-            this.LB_score_art3 = new System.Windows.Forms.Label();
-            this.LB_score_geographie3 = new System.Windows.Forms.Label();
-            this.LB_score_histoire3 = new System.Windows.Forms.Label();
-            this.LB_score_sport3 = new System.Windows.Forms.Label();
-            this.LB_score_divertissement3 = new System.Windows.Forms.Label();
-            this.LB_score_science3 = new System.Windows.Forms.Label();
+            this.LB_score_36 = new System.Windows.Forms.Label();
+            this.LB_score_33 = new System.Windows.Forms.Label();
+            this.LB_score_34 = new System.Windows.Forms.Label();
+            this.LB_score_35 = new System.Windows.Forms.Label();
+            this.LB_score_32 = new System.Windows.Forms.Label();
+            this.LB_score_31 = new System.Windows.Forms.Label();
             this.PNL_score_J2 = new System.Windows.Forms.Panel();
             this.LB_score_name2 = new System.Windows.Forms.Label();
-            this.LB_score_art2 = new System.Windows.Forms.Label();
-            this.LB_score_geographie2 = new System.Windows.Forms.Label();
-            this.LB_score_histoire2 = new System.Windows.Forms.Label();
-            this.LB_score_sport2 = new System.Windows.Forms.Label();
-            this.LB_score_divertissement2 = new System.Windows.Forms.Label();
-            this.LB_score_science2 = new System.Windows.Forms.Label();
+            this.LB_score_26 = new System.Windows.Forms.Label();
+            this.LB_score_23 = new System.Windows.Forms.Label();
+            this.LB_score_24 = new System.Windows.Forms.Label();
+            this.LB_score_25 = new System.Windows.Forms.Label();
+            this.LB_score_22 = new System.Windows.Forms.Label();
+            this.LB_score_21 = new System.Windows.Forms.Label();
             this.PNL_score_J1 = new System.Windows.Forms.Panel();
             this.LB_score_name1 = new System.Windows.Forms.Label();
-            this.LB_score_art1 = new System.Windows.Forms.Label();
-            this.LB_score_geographie1 = new System.Windows.Forms.Label();
-            this.LB_score_histoire1 = new System.Windows.Forms.Label();
-            this.LB_score_sport1 = new System.Windows.Forms.Label();
-            this.LB_score_divertissement1 = new System.Windows.Forms.Label();
-            this.LB_score_science1 = new System.Windows.Forms.Label();
+            this.LB_score_16 = new System.Windows.Forms.Label();
+            this.LB_score_13 = new System.Windows.Forms.Label();
+            this.LB_score_14 = new System.Windows.Forms.Label();
+            this.LB_score_15 = new System.Windows.Forms.Label();
+            this.LB_score_12 = new System.Windows.Forms.Label();
+            this.LB_score_11 = new System.Windows.Forms.Label();
             this.PB_score = new System.Windows.Forms.PictureBox();
             this.BT_quitScores = new System.Windows.Forms.Button();
             this.PNL_main = new System.Windows.Forms.Panel();
@@ -416,12 +416,12 @@
             // PNL_score_J4
             // 
             this.PNL_score_J4.Controls.Add(this.LB_score_name4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_art4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_geographie4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_histoire4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_sport4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_divertissement4);
-            this.PNL_score_J4.Controls.Add(this.LB_score_science4);
+            this.PNL_score_J4.Controls.Add(this.LB_score_46);
+            this.PNL_score_J4.Controls.Add(this.LB_score_43);
+            this.PNL_score_J4.Controls.Add(this.LB_score_44);
+            this.PNL_score_J4.Controls.Add(this.LB_score_45);
+            this.PNL_score_J4.Controls.Add(this.LB_score_42);
+            this.PNL_score_J4.Controls.Add(this.LB_score_41);
             this.PNL_score_J4.Location = new System.Drawing.Point(50, 471);
             this.PNL_score_J4.Name = "PNL_score_J4";
             this.PNL_score_J4.Size = new System.Drawing.Size(435, 91);
@@ -439,99 +439,99 @@
             this.LB_score_name4.TabIndex = 31;
             this.LB_score_name4.Text = "Joueur4";
             // 
-            // LB_score_art4
+            // LB_score_46
             // 
-            this.LB_score_art4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.LB_score_art4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_art4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_art4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_art4.Image = global::TriviaCrack.Properties.Resources.art_bg;
-            this.LB_score_art4.Location = new System.Drawing.Point(375, 31);
-            this.LB_score_art4.Name = "LB_score_art4";
-            this.LB_score_art4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_art4.TabIndex = 30;
-            this.LB_score_art4.Text = "0";
-            this.LB_score_art4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.LB_score_46.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_46.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_46.ForeColor = System.Drawing.Color.White;
+            this.LB_score_46.Image = global::TriviaCrack.Properties.Resources.art_bg;
+            this.LB_score_46.Location = new System.Drawing.Point(375, 31);
+            this.LB_score_46.Name = "LB_score_46";
+            this.LB_score_46.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_46.TabIndex = 30;
+            this.LB_score_46.Text = "0";
+            this.LB_score_46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_geographie4
+            // LB_score_43
             // 
-            this.LB_score_geographie4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.LB_score_geographie4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_geographie4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_geographie4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_geographie4.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
-            this.LB_score_geographie4.Location = new System.Drawing.Point(150, 31);
-            this.LB_score_geographie4.Name = "LB_score_geographie4";
-            this.LB_score_geographie4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_geographie4.TabIndex = 29;
-            this.LB_score_geographie4.Text = "0";
-            this.LB_score_geographie4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.LB_score_43.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_43.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_43.ForeColor = System.Drawing.Color.White;
+            this.LB_score_43.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
+            this.LB_score_43.Location = new System.Drawing.Point(150, 31);
+            this.LB_score_43.Name = "LB_score_43";
+            this.LB_score_43.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_43.TabIndex = 29;
+            this.LB_score_43.Text = "0";
+            this.LB_score_43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_histoire4
+            // LB_score_44
             // 
-            this.LB_score_histoire4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.LB_score_histoire4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_histoire4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_histoire4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_histoire4.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
-            this.LB_score_histoire4.Location = new System.Drawing.Point(225, 31);
-            this.LB_score_histoire4.Name = "LB_score_histoire4";
-            this.LB_score_histoire4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_histoire4.TabIndex = 28;
-            this.LB_score_histoire4.Text = "0";
-            this.LB_score_histoire4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.LB_score_44.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_44.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_44.ForeColor = System.Drawing.Color.White;
+            this.LB_score_44.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
+            this.LB_score_44.Location = new System.Drawing.Point(225, 31);
+            this.LB_score_44.Name = "LB_score_44";
+            this.LB_score_44.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_44.TabIndex = 28;
+            this.LB_score_44.Text = "0";
+            this.LB_score_44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_sport4
+            // LB_score_45
             // 
-            this.LB_score_sport4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.LB_score_sport4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_sport4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_sport4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_sport4.Image = global::TriviaCrack.Properties.Resources.sport_bg;
-            this.LB_score_sport4.Location = new System.Drawing.Point(300, 31);
-            this.LB_score_sport4.Name = "LB_score_sport4";
-            this.LB_score_sport4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_sport4.TabIndex = 27;
-            this.LB_score_sport4.Text = "0";
-            this.LB_score_sport4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.LB_score_45.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_45.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_45.ForeColor = System.Drawing.Color.White;
+            this.LB_score_45.Image = global::TriviaCrack.Properties.Resources.sport_bg;
+            this.LB_score_45.Location = new System.Drawing.Point(300, 31);
+            this.LB_score_45.Name = "LB_score_45";
+            this.LB_score_45.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_45.TabIndex = 27;
+            this.LB_score_45.Text = "0";
+            this.LB_score_45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_divertissement4
+            // LB_score_42
             // 
-            this.LB_score_divertissement4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.LB_score_divertissement4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_divertissement4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_divertissement4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_divertissement4.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.LB_score_divertissement4.Location = new System.Drawing.Point(75, 31);
-            this.LB_score_divertissement4.Name = "LB_score_divertissement4";
-            this.LB_score_divertissement4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_divertissement4.TabIndex = 26;
-            this.LB_score_divertissement4.Text = "0";
-            this.LB_score_divertissement4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.LB_score_42.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_42.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_42.ForeColor = System.Drawing.Color.White;
+            this.LB_score_42.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
+            this.LB_score_42.Location = new System.Drawing.Point(75, 31);
+            this.LB_score_42.Name = "LB_score_42";
+            this.LB_score_42.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_42.TabIndex = 26;
+            this.LB_score_42.Text = "0";
+            this.LB_score_42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_science4
+            // LB_score_41
             // 
-            this.LB_score_science4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.LB_score_science4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_science4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_science4.ForeColor = System.Drawing.Color.White;
-            this.LB_score_science4.Image = global::TriviaCrack.Properties.Resources.science_bg;
-            this.LB_score_science4.Location = new System.Drawing.Point(0, 31);
-            this.LB_score_science4.Name = "LB_score_science4";
-            this.LB_score_science4.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_science4.TabIndex = 25;
-            this.LB_score_science4.Text = "0";
-            this.LB_score_science4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.LB_score_41.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_41.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_41.ForeColor = System.Drawing.Color.White;
+            this.LB_score_41.Image = global::TriviaCrack.Properties.Resources.science_bg;
+            this.LB_score_41.Location = new System.Drawing.Point(0, 31);
+            this.LB_score_41.Name = "LB_score_41";
+            this.LB_score_41.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_41.TabIndex = 25;
+            this.LB_score_41.Text = "0";
+            this.LB_score_41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PNL_score_J3
             // 
             this.PNL_score_J3.Controls.Add(this.LB_score_name3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_art3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_geographie3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_histoire3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_sport3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_divertissement3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_science3);
+            this.PNL_score_J3.Controls.Add(this.LB_score_36);
+            this.PNL_score_J3.Controls.Add(this.LB_score_33);
+            this.PNL_score_J3.Controls.Add(this.LB_score_34);
+            this.PNL_score_J3.Controls.Add(this.LB_score_35);
+            this.PNL_score_J3.Controls.Add(this.LB_score_32);
+            this.PNL_score_J3.Controls.Add(this.LB_score_31);
             this.PNL_score_J3.Location = new System.Drawing.Point(50, 354);
             this.PNL_score_J3.Name = "PNL_score_J3";
             this.PNL_score_J3.Size = new System.Drawing.Size(435, 91);
@@ -549,99 +549,99 @@
             this.LB_score_name3.TabIndex = 31;
             this.LB_score_name3.Text = "Joueur3";
             // 
-            // LB_score_art3
+            // LB_score_36
             // 
-            this.LB_score_art3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.LB_score_art3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_art3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_art3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_art3.Image = global::TriviaCrack.Properties.Resources.art_bg;
-            this.LB_score_art3.Location = new System.Drawing.Point(375, 31);
-            this.LB_score_art3.Name = "LB_score_art3";
-            this.LB_score_art3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_art3.TabIndex = 30;
-            this.LB_score_art3.Text = "0";
-            this.LB_score_art3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.LB_score_36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_36.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_36.ForeColor = System.Drawing.Color.White;
+            this.LB_score_36.Image = global::TriviaCrack.Properties.Resources.art_bg;
+            this.LB_score_36.Location = new System.Drawing.Point(375, 31);
+            this.LB_score_36.Name = "LB_score_36";
+            this.LB_score_36.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_36.TabIndex = 30;
+            this.LB_score_36.Text = "0";
+            this.LB_score_36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_geographie3
+            // LB_score_33
             // 
-            this.LB_score_geographie3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.LB_score_geographie3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_geographie3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_geographie3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_geographie3.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
-            this.LB_score_geographie3.Location = new System.Drawing.Point(150, 31);
-            this.LB_score_geographie3.Name = "LB_score_geographie3";
-            this.LB_score_geographie3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_geographie3.TabIndex = 29;
-            this.LB_score_geographie3.Text = "0";
-            this.LB_score_geographie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.LB_score_33.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_33.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_33.ForeColor = System.Drawing.Color.White;
+            this.LB_score_33.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
+            this.LB_score_33.Location = new System.Drawing.Point(150, 31);
+            this.LB_score_33.Name = "LB_score_33";
+            this.LB_score_33.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_33.TabIndex = 29;
+            this.LB_score_33.Text = "0";
+            this.LB_score_33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_histoire3
+            // LB_score_34
             // 
-            this.LB_score_histoire3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.LB_score_histoire3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_histoire3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_histoire3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_histoire3.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
-            this.LB_score_histoire3.Location = new System.Drawing.Point(225, 31);
-            this.LB_score_histoire3.Name = "LB_score_histoire3";
-            this.LB_score_histoire3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_histoire3.TabIndex = 28;
-            this.LB_score_histoire3.Text = "0";
-            this.LB_score_histoire3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.LB_score_34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_34.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_34.ForeColor = System.Drawing.Color.White;
+            this.LB_score_34.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
+            this.LB_score_34.Location = new System.Drawing.Point(225, 31);
+            this.LB_score_34.Name = "LB_score_34";
+            this.LB_score_34.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_34.TabIndex = 28;
+            this.LB_score_34.Text = "0";
+            this.LB_score_34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_sport3
+            // LB_score_35
             // 
-            this.LB_score_sport3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.LB_score_sport3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_sport3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_sport3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_sport3.Image = global::TriviaCrack.Properties.Resources.sport_bg;
-            this.LB_score_sport3.Location = new System.Drawing.Point(300, 31);
-            this.LB_score_sport3.Name = "LB_score_sport3";
-            this.LB_score_sport3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_sport3.TabIndex = 27;
-            this.LB_score_sport3.Text = "0";
-            this.LB_score_sport3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.LB_score_35.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_35.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_35.ForeColor = System.Drawing.Color.White;
+            this.LB_score_35.Image = global::TriviaCrack.Properties.Resources.sport_bg;
+            this.LB_score_35.Location = new System.Drawing.Point(300, 31);
+            this.LB_score_35.Name = "LB_score_35";
+            this.LB_score_35.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_35.TabIndex = 27;
+            this.LB_score_35.Text = "0";
+            this.LB_score_35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_divertissement3
+            // LB_score_32
             // 
-            this.LB_score_divertissement3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.LB_score_divertissement3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_divertissement3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_divertissement3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_divertissement3.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.LB_score_divertissement3.Location = new System.Drawing.Point(75, 31);
-            this.LB_score_divertissement3.Name = "LB_score_divertissement3";
-            this.LB_score_divertissement3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_divertissement3.TabIndex = 26;
-            this.LB_score_divertissement3.Text = "0";
-            this.LB_score_divertissement3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.LB_score_32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_32.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_32.ForeColor = System.Drawing.Color.White;
+            this.LB_score_32.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
+            this.LB_score_32.Location = new System.Drawing.Point(75, 31);
+            this.LB_score_32.Name = "LB_score_32";
+            this.LB_score_32.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_32.TabIndex = 26;
+            this.LB_score_32.Text = "0";
+            this.LB_score_32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_science3
+            // LB_score_31
             // 
-            this.LB_score_science3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.LB_score_science3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_science3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_science3.ForeColor = System.Drawing.Color.White;
-            this.LB_score_science3.Image = global::TriviaCrack.Properties.Resources.science_bg;
-            this.LB_score_science3.Location = new System.Drawing.Point(0, 31);
-            this.LB_score_science3.Name = "LB_score_science3";
-            this.LB_score_science3.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_science3.TabIndex = 25;
-            this.LB_score_science3.Text = "0";
-            this.LB_score_science3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.LB_score_31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_31.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_31.ForeColor = System.Drawing.Color.White;
+            this.LB_score_31.Image = global::TriviaCrack.Properties.Resources.science_bg;
+            this.LB_score_31.Location = new System.Drawing.Point(0, 31);
+            this.LB_score_31.Name = "LB_score_31";
+            this.LB_score_31.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_31.TabIndex = 25;
+            this.LB_score_31.Text = "0";
+            this.LB_score_31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PNL_score_J2
             // 
             this.PNL_score_J2.Controls.Add(this.LB_score_name2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_art2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_geographie2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_histoire2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_sport2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_divertissement2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_science2);
+            this.PNL_score_J2.Controls.Add(this.LB_score_26);
+            this.PNL_score_J2.Controls.Add(this.LB_score_23);
+            this.PNL_score_J2.Controls.Add(this.LB_score_24);
+            this.PNL_score_J2.Controls.Add(this.LB_score_25);
+            this.PNL_score_J2.Controls.Add(this.LB_score_22);
+            this.PNL_score_J2.Controls.Add(this.LB_score_21);
             this.PNL_score_J2.Location = new System.Drawing.Point(50, 237);
             this.PNL_score_J2.Name = "PNL_score_J2";
             this.PNL_score_J2.Size = new System.Drawing.Size(435, 91);
@@ -659,99 +659,99 @@
             this.LB_score_name2.TabIndex = 31;
             this.LB_score_name2.Text = "Joueur2";
             // 
-            // LB_score_art2
+            // LB_score_26
             // 
-            this.LB_score_art2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.LB_score_art2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_art2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_art2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_art2.Image = global::TriviaCrack.Properties.Resources.art_bg;
-            this.LB_score_art2.Location = new System.Drawing.Point(375, 31);
-            this.LB_score_art2.Name = "LB_score_art2";
-            this.LB_score_art2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_art2.TabIndex = 30;
-            this.LB_score_art2.Text = "0";
-            this.LB_score_art2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.LB_score_26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_26.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_26.ForeColor = System.Drawing.Color.White;
+            this.LB_score_26.Image = global::TriviaCrack.Properties.Resources.art_bg;
+            this.LB_score_26.Location = new System.Drawing.Point(375, 31);
+            this.LB_score_26.Name = "LB_score_26";
+            this.LB_score_26.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_26.TabIndex = 30;
+            this.LB_score_26.Text = "0";
+            this.LB_score_26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_geographie2
+            // LB_score_23
             // 
-            this.LB_score_geographie2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.LB_score_geographie2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_geographie2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_geographie2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_geographie2.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
-            this.LB_score_geographie2.Location = new System.Drawing.Point(150, 31);
-            this.LB_score_geographie2.Name = "LB_score_geographie2";
-            this.LB_score_geographie2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_geographie2.TabIndex = 29;
-            this.LB_score_geographie2.Text = "0";
-            this.LB_score_geographie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.LB_score_23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_23.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_23.ForeColor = System.Drawing.Color.White;
+            this.LB_score_23.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
+            this.LB_score_23.Location = new System.Drawing.Point(150, 31);
+            this.LB_score_23.Name = "LB_score_23";
+            this.LB_score_23.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_23.TabIndex = 29;
+            this.LB_score_23.Text = "0";
+            this.LB_score_23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_histoire2
+            // LB_score_24
             // 
-            this.LB_score_histoire2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.LB_score_histoire2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_histoire2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_histoire2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_histoire2.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
-            this.LB_score_histoire2.Location = new System.Drawing.Point(225, 31);
-            this.LB_score_histoire2.Name = "LB_score_histoire2";
-            this.LB_score_histoire2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_histoire2.TabIndex = 28;
-            this.LB_score_histoire2.Text = "0";
-            this.LB_score_histoire2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.LB_score_24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_24.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_24.ForeColor = System.Drawing.Color.White;
+            this.LB_score_24.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
+            this.LB_score_24.Location = new System.Drawing.Point(225, 31);
+            this.LB_score_24.Name = "LB_score_24";
+            this.LB_score_24.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_24.TabIndex = 28;
+            this.LB_score_24.Text = "0";
+            this.LB_score_24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_sport2
+            // LB_score_25
             // 
-            this.LB_score_sport2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.LB_score_sport2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_sport2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_sport2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_sport2.Image = global::TriviaCrack.Properties.Resources.sport_bg;
-            this.LB_score_sport2.Location = new System.Drawing.Point(300, 31);
-            this.LB_score_sport2.Name = "LB_score_sport2";
-            this.LB_score_sport2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_sport2.TabIndex = 27;
-            this.LB_score_sport2.Text = "0";
-            this.LB_score_sport2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.LB_score_25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_25.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_25.ForeColor = System.Drawing.Color.White;
+            this.LB_score_25.Image = global::TriviaCrack.Properties.Resources.sport_bg;
+            this.LB_score_25.Location = new System.Drawing.Point(300, 31);
+            this.LB_score_25.Name = "LB_score_25";
+            this.LB_score_25.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_25.TabIndex = 27;
+            this.LB_score_25.Text = "0";
+            this.LB_score_25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_divertissement2
+            // LB_score_22
             // 
-            this.LB_score_divertissement2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.LB_score_divertissement2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_divertissement2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_divertissement2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_divertissement2.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.LB_score_divertissement2.Location = new System.Drawing.Point(75, 31);
-            this.LB_score_divertissement2.Name = "LB_score_divertissement2";
-            this.LB_score_divertissement2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_divertissement2.TabIndex = 26;
-            this.LB_score_divertissement2.Text = "0";
-            this.LB_score_divertissement2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.LB_score_22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_22.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_22.ForeColor = System.Drawing.Color.White;
+            this.LB_score_22.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
+            this.LB_score_22.Location = new System.Drawing.Point(75, 31);
+            this.LB_score_22.Name = "LB_score_22";
+            this.LB_score_22.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_22.TabIndex = 26;
+            this.LB_score_22.Text = "0";
+            this.LB_score_22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_science2
+            // LB_score_21
             // 
-            this.LB_score_science2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.LB_score_science2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_science2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_science2.ForeColor = System.Drawing.Color.White;
-            this.LB_score_science2.Image = global::TriviaCrack.Properties.Resources.science_bg;
-            this.LB_score_science2.Location = new System.Drawing.Point(0, 31);
-            this.LB_score_science2.Name = "LB_score_science2";
-            this.LB_score_science2.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_science2.TabIndex = 25;
-            this.LB_score_science2.Text = "0";
-            this.LB_score_science2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.LB_score_21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_21.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_21.ForeColor = System.Drawing.Color.White;
+            this.LB_score_21.Image = global::TriviaCrack.Properties.Resources.science_bg;
+            this.LB_score_21.Location = new System.Drawing.Point(0, 31);
+            this.LB_score_21.Name = "LB_score_21";
+            this.LB_score_21.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_21.TabIndex = 25;
+            this.LB_score_21.Text = "0";
+            this.LB_score_21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PNL_score_J1
             // 
             this.PNL_score_J1.Controls.Add(this.LB_score_name1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_art1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_geographie1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_histoire1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_sport1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_divertissement1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_science1);
+            this.PNL_score_J1.Controls.Add(this.LB_score_16);
+            this.PNL_score_J1.Controls.Add(this.LB_score_13);
+            this.PNL_score_J1.Controls.Add(this.LB_score_14);
+            this.PNL_score_J1.Controls.Add(this.LB_score_15);
+            this.PNL_score_J1.Controls.Add(this.LB_score_12);
+            this.PNL_score_J1.Controls.Add(this.LB_score_11);
             this.PNL_score_J1.Location = new System.Drawing.Point(50, 120);
             this.PNL_score_J1.Name = "PNL_score_J1";
             this.PNL_score_J1.Size = new System.Drawing.Size(435, 91);
@@ -769,89 +769,89 @@
             this.LB_score_name1.TabIndex = 31;
             this.LB_score_name1.Text = "Joueur1";
             // 
-            // LB_score_art1
+            // LB_score_16
             // 
-            this.LB_score_art1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.LB_score_art1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_art1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_art1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_art1.Image = global::TriviaCrack.Properties.Resources.art_bg;
-            this.LB_score_art1.Location = new System.Drawing.Point(375, 31);
-            this.LB_score_art1.Name = "LB_score_art1";
-            this.LB_score_art1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_art1.TabIndex = 30;
-            this.LB_score_art1.Text = "0";
-            this.LB_score_art1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.LB_score_16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_16.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_16.ForeColor = System.Drawing.Color.White;
+            this.LB_score_16.Image = global::TriviaCrack.Properties.Resources.art_bg;
+            this.LB_score_16.Location = new System.Drawing.Point(375, 31);
+            this.LB_score_16.Name = "LB_score_16";
+            this.LB_score_16.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_16.TabIndex = 30;
+            this.LB_score_16.Text = "0";
+            this.LB_score_16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_geographie1
+            // LB_score_13
             // 
-            this.LB_score_geographie1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.LB_score_geographie1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_geographie1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_geographie1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_geographie1.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
-            this.LB_score_geographie1.Location = new System.Drawing.Point(150, 31);
-            this.LB_score_geographie1.Name = "LB_score_geographie1";
-            this.LB_score_geographie1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_geographie1.TabIndex = 29;
-            this.LB_score_geographie1.Text = "0";
-            this.LB_score_geographie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.LB_score_13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_13.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_13.ForeColor = System.Drawing.Color.White;
+            this.LB_score_13.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
+            this.LB_score_13.Location = new System.Drawing.Point(150, 31);
+            this.LB_score_13.Name = "LB_score_13";
+            this.LB_score_13.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_13.TabIndex = 29;
+            this.LB_score_13.Text = "0";
+            this.LB_score_13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_histoire1
+            // LB_score_14
             // 
-            this.LB_score_histoire1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.LB_score_histoire1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_histoire1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_histoire1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_histoire1.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
-            this.LB_score_histoire1.Location = new System.Drawing.Point(225, 31);
-            this.LB_score_histoire1.Name = "LB_score_histoire1";
-            this.LB_score_histoire1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_histoire1.TabIndex = 28;
-            this.LB_score_histoire1.Text = "0";
-            this.LB_score_histoire1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.LB_score_14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_14.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_14.ForeColor = System.Drawing.Color.White;
+            this.LB_score_14.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
+            this.LB_score_14.Location = new System.Drawing.Point(225, 31);
+            this.LB_score_14.Name = "LB_score_14";
+            this.LB_score_14.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_14.TabIndex = 28;
+            this.LB_score_14.Text = "0";
+            this.LB_score_14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_sport1
+            // LB_score_15
             // 
-            this.LB_score_sport1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.LB_score_sport1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_sport1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_sport1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_sport1.Image = global::TriviaCrack.Properties.Resources.sport_bg;
-            this.LB_score_sport1.Location = new System.Drawing.Point(300, 31);
-            this.LB_score_sport1.Name = "LB_score_sport1";
-            this.LB_score_sport1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_sport1.TabIndex = 27;
-            this.LB_score_sport1.Text = "0";
-            this.LB_score_sport1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.LB_score_15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_15.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_15.ForeColor = System.Drawing.Color.White;
+            this.LB_score_15.Image = global::TriviaCrack.Properties.Resources.sport_bg;
+            this.LB_score_15.Location = new System.Drawing.Point(300, 31);
+            this.LB_score_15.Name = "LB_score_15";
+            this.LB_score_15.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_15.TabIndex = 27;
+            this.LB_score_15.Text = "0";
+            this.LB_score_15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_divertissement1
+            // LB_score_12
             // 
-            this.LB_score_divertissement1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.LB_score_divertissement1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_divertissement1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_divertissement1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_divertissement1.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.LB_score_divertissement1.Location = new System.Drawing.Point(75, 31);
-            this.LB_score_divertissement1.Name = "LB_score_divertissement1";
-            this.LB_score_divertissement1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_divertissement1.TabIndex = 26;
-            this.LB_score_divertissement1.Text = "0";
-            this.LB_score_divertissement1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.LB_score_12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_12.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_12.ForeColor = System.Drawing.Color.White;
+            this.LB_score_12.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
+            this.LB_score_12.Location = new System.Drawing.Point(75, 31);
+            this.LB_score_12.Name = "LB_score_12";
+            this.LB_score_12.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_12.TabIndex = 26;
+            this.LB_score_12.Text = "0";
+            this.LB_score_12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LB_score_science1
+            // LB_score_11
             // 
-            this.LB_score_science1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.LB_score_science1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LB_score_science1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_score_science1.ForeColor = System.Drawing.Color.White;
-            this.LB_score_science1.Image = global::TriviaCrack.Properties.Resources.science_bg;
-            this.LB_score_science1.Location = new System.Drawing.Point(0, 31);
-            this.LB_score_science1.Name = "LB_score_science1";
-            this.LB_score_science1.Size = new System.Drawing.Size(60, 60);
-            this.LB_score_science1.TabIndex = 25;
-            this.LB_score_science1.Text = "0";
-            this.LB_score_science1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_score_11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.LB_score_11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LB_score_11.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_score_11.ForeColor = System.Drawing.Color.White;
+            this.LB_score_11.Image = global::TriviaCrack.Properties.Resources.science_bg;
+            this.LB_score_11.Location = new System.Drawing.Point(0, 31);
+            this.LB_score_11.Name = "LB_score_11";
+            this.LB_score_11.Size = new System.Drawing.Size(60, 60);
+            this.LB_score_11.TabIndex = 25;
+            this.LB_score_11.Text = "0";
+            this.LB_score_11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PB_score
             // 
@@ -1225,10 +1225,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_scores);
             this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_category);
-            this.Controls.Add(this.PNL_scores);
             this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_wheel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1284,36 +1284,36 @@
         private System.Windows.Forms.PictureBox PB_score;
         private System.Windows.Forms.Panel PNL_score_J4;
         private System.Windows.Forms.Label LB_score_name4;
-        private System.Windows.Forms.Label LB_score_art4;
-        private System.Windows.Forms.Label LB_score_geographie4;
-        private System.Windows.Forms.Label LB_score_histoire4;
-        private System.Windows.Forms.Label LB_score_sport4;
-        private System.Windows.Forms.Label LB_score_divertissement4;
-        private System.Windows.Forms.Label LB_score_science4;
+        private System.Windows.Forms.Label LB_score_46;
+        private System.Windows.Forms.Label LB_score_43;
+        private System.Windows.Forms.Label LB_score_44;
+        private System.Windows.Forms.Label LB_score_45;
+        private System.Windows.Forms.Label LB_score_42;
+        private System.Windows.Forms.Label LB_score_41;
         private System.Windows.Forms.Panel PNL_score_J3;
         private System.Windows.Forms.Label LB_score_name3;
-        private System.Windows.Forms.Label LB_score_art3;
-        private System.Windows.Forms.Label LB_score_geographie3;
-        private System.Windows.Forms.Label LB_score_histoire3;
-        private System.Windows.Forms.Label LB_score_sport3;
-        private System.Windows.Forms.Label LB_score_divertissement3;
-        private System.Windows.Forms.Label LB_score_science3;
+        private System.Windows.Forms.Label LB_score_36;
+        private System.Windows.Forms.Label LB_score_33;
+        private System.Windows.Forms.Label LB_score_34;
+        private System.Windows.Forms.Label LB_score_35;
+        private System.Windows.Forms.Label LB_score_32;
+        private System.Windows.Forms.Label LB_score_31;
         private System.Windows.Forms.Panel PNL_score_J2;
         private System.Windows.Forms.Label LB_score_name2;
-        private System.Windows.Forms.Label LB_score_art2;
-        private System.Windows.Forms.Label LB_score_geographie2;
-        private System.Windows.Forms.Label LB_score_histoire2;
-        private System.Windows.Forms.Label LB_score_sport2;
-        private System.Windows.Forms.Label LB_score_divertissement2;
-        private System.Windows.Forms.Label LB_score_science2;
+        private System.Windows.Forms.Label LB_score_26;
+        private System.Windows.Forms.Label LB_score_23;
+        private System.Windows.Forms.Label LB_score_24;
+        private System.Windows.Forms.Label LB_score_25;
+        private System.Windows.Forms.Label LB_score_22;
+        private System.Windows.Forms.Label LB_score_21;
         private System.Windows.Forms.Panel PNL_score_J1;
         private System.Windows.Forms.Label LB_score_name1;
-        private System.Windows.Forms.Label LB_score_art1;
-        private System.Windows.Forms.Label LB_score_geographie1;
-        private System.Windows.Forms.Label LB_score_histoire1;
-        private System.Windows.Forms.Label LB_score_sport1;
-        private System.Windows.Forms.Label LB_score_divertissement1;
-        private System.Windows.Forms.Label LB_score_science1;
+        private System.Windows.Forms.Label LB_score_16;
+        private System.Windows.Forms.Label LB_score_13;
+        private System.Windows.Forms.Label LB_score_14;
+        private System.Windows.Forms.Label LB_score_15;
+        private System.Windows.Forms.Label LB_score_12;
+        private System.Windows.Forms.Label LB_score_11;
         private System.Windows.Forms.Label LB_score_title;
         private System.Windows.Forms.Label LB_wheel_playerName;
         private System.Windows.Forms.Label LB_questions_playerName;
