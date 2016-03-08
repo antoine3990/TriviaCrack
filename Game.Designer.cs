@@ -64,10 +64,28 @@
             this.PNL_category = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.BW_rotateWheel = new System.ComponentModel.BackgroundWorker();
+            this.PNL_nameSelectionMethod = new System.Windows.Forms.Panel();
+            this.LB_nameSelectionNote = new System.Windows.Forms.Label();
+            this.LB_existPlayer = new System.Windows.Forms.Label();
+            this.BT_newPlayer = new System.Windows.Forms.Button();
+            this.PNL_nameSelection_Exists = new System.Windows.Forms.Panel();
+            this.CB_namePlayer = new System.Windows.Forms.ComboBox();
+            this.LB_nameCount_Exists = new System.Windows.Forms.Label();
+            this.BT_selectPlayer = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BT_showOptions = new System.Windows.Forms.Button();
             this.PB_wheel = new System.Windows.Forms.PictureBox();
             this.PB_triangle = new System.Windows.Forms.PictureBox();
             this.BT_showScore = new System.Windows.Forms.Button();
+            this.PB_vLine = new System.Windows.Forms.PictureBox();
+            this.PB_question = new System.Windows.Forms.PictureBox();
+            this.BT_addPlayer = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_art = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_divertissement = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_sport = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_histoire = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_geographie = new System.Windows.Forms.Button();
+            this.BT_chooseCategory_science = new System.Windows.Forms.Button();
             this.LB_score_46 = new System.Windows.Forms.Label();
             this.LB_score_43 = new System.Windows.Forms.Label();
             this.LB_score_44 = new System.Windows.Forms.Label();
@@ -94,17 +112,8 @@
             this.LB_score_11 = new System.Windows.Forms.Label();
             this.PB_score = new System.Windows.Forms.PictureBox();
             this.BT_quitScores = new System.Windows.Forms.Button();
-            this.PB_vLine = new System.Windows.Forms.PictureBox();
-            this.PB_question = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BT_start = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_art = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_divertissement = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_sport = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_histoire = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_geographie = new System.Windows.Forms.Button();
-            this.BT_chooseCategory_science = new System.Windows.Forms.Button();
-            this.BT_addPlayer = new System.Windows.Forms.Button();
             this.PNL_questions.SuspendLayout();
             this.PNL_wheel.SuspendLayout();
             this.PNL_scores.SuspendLayout();
@@ -115,12 +124,15 @@
             this.PNL_main.SuspendLayout();
             this.PNL_nameSelection.SuspendLayout();
             this.PNL_category.SuspendLayout();
+            this.PNL_nameSelectionMethod.SuspendLayout();
+            this.PNL_nameSelection_Exists.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).BeginInit();
             this.PB_wheel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).BeginInit();
             this.SuspendLayout();
             // 
             // BT_answer2
@@ -594,6 +606,129 @@
             this.BW_rotateWheel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_rotateWheel_DoWork);
             this.BW_rotateWheel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_rotateWheel_RunWorkerCompleted);
             // 
+            // PNL_nameSelectionMethod
+            // 
+            this.PNL_nameSelectionMethod.Controls.Add(this.pictureBox1);
+            this.PNL_nameSelectionMethod.Controls.Add(this.LB_nameSelectionNote);
+            this.PNL_nameSelectionMethod.Controls.Add(this.LB_existPlayer);
+            this.PNL_nameSelectionMethod.Controls.Add(this.BT_newPlayer);
+            this.PNL_nameSelectionMethod.Location = new System.Drawing.Point(0, 0);
+            this.PNL_nameSelectionMethod.Name = "PNL_nameSelectionMethod";
+            this.PNL_nameSelectionMethod.Size = new System.Drawing.Size(535, 662);
+            this.PNL_nameSelectionMethod.TabIndex = 53;
+            this.PNL_nameSelectionMethod.Visible = false;
+            // 
+            // LB_nameSelectionNote
+            // 
+            this.LB_nameSelectionNote.Font = new System.Drawing.Font("Calibri Light", 12F);
+            this.LB_nameSelectionNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.LB_nameSelectionNote.Location = new System.Drawing.Point(153, 537);
+            this.LB_nameSelectionNote.Name = "LB_nameSelectionNote";
+            this.LB_nameSelectionNote.Size = new System.Drawing.Size(303, 87);
+            this.LB_nameSelectionNote.TabIndex = 10;
+            this.LB_nameSelectionNote.Text = "À noter qu\'un joueur existant ne peut jouer avec un nouveau joueur.  Cliquer sur " +
+    "\"Nouveaux joueurs\" entrainera donc la création de {0} nouveaux joueurs.";
+            // 
+            // LB_existPlayer
+            // 
+            this.LB_existPlayer.AutoSize = true;
+            this.LB_existPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LB_existPlayer.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_existPlayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.LB_existPlayer.Location = new System.Drawing.Point(214, 378);
+            this.LB_existPlayer.Name = "LB_existPlayer";
+            this.LB_existPlayer.Size = new System.Drawing.Size(121, 19);
+            this.LB_existPlayer.TabIndex = 9;
+            this.LB_existPlayer.Text = "Joueurs existants";
+            this.LB_existPlayer.Click += new System.EventHandler(this.LB_existPlayer_Click);
+            this.LB_existPlayer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LB_existPlayer_MouseDown);
+            this.LB_existPlayer.MouseEnter += new System.EventHandler(this.LB_existPlayer_MouseEnter);
+            this.LB_existPlayer.MouseLeave += new System.EventHandler(this.LB_existPlayer_MouseLeave);
+            this.LB_existPlayer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LB_existPlayer_MouseUp);
+            // 
+            // BT_newPlayer
+            // 
+            this.BT_newPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_newPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BT_newPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_newPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.BT_newPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_newPlayer.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_newPlayer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BT_newPlayer.Location = new System.Drawing.Point(78, 291);
+            this.BT_newPlayer.Name = "BT_newPlayer";
+            this.BT_newPlayer.Size = new System.Drawing.Size(377, 81);
+            this.BT_newPlayer.TabIndex = 8;
+            this.BT_newPlayer.Tag = "";
+            this.BT_newPlayer.Text = "Nouveaux joueurs";
+            this.BT_newPlayer.UseVisualStyleBackColor = true;
+            this.BT_newPlayer.Click += new System.EventHandler(this.BT_newPlayer_Click);
+            // 
+            // PNL_nameSelection_Exists
+            // 
+            this.PNL_nameSelection_Exists.Controls.Add(this.LB_nameCount_Exists);
+            this.PNL_nameSelection_Exists.Controls.Add(this.BT_selectPlayer);
+            this.PNL_nameSelection_Exists.Controls.Add(this.CB_namePlayer);
+            this.PNL_nameSelection_Exists.Location = new System.Drawing.Point(0, 0);
+            this.PNL_nameSelection_Exists.Name = "PNL_nameSelection_Exists";
+            this.PNL_nameSelection_Exists.Size = new System.Drawing.Size(535, 662);
+            this.PNL_nameSelection_Exists.TabIndex = 54;
+            this.PNL_nameSelection_Exists.Visible = false;
+            // 
+            // CB_namePlayer
+            // 
+            this.CB_namePlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_namePlayer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_namePlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_namePlayer.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold);
+            this.CB_namePlayer.ForeColor = System.Drawing.Color.White;
+            this.CB_namePlayer.FormattingEnabled = true;
+            this.CB_namePlayer.Location = new System.Drawing.Point(54, 305);
+            this.CB_namePlayer.Name = "CB_namePlayer";
+            this.CB_namePlayer.Size = new System.Drawing.Size(427, 67);
+            this.CB_namePlayer.TabIndex = 2;
+            // 
+            // LB_nameCount_Exists
+            // 
+            this.LB_nameCount_Exists.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_nameCount_Exists.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.LB_nameCount_Exists.Location = new System.Drawing.Point(54, 237);
+            this.LB_nameCount_Exists.Name = "LB_nameCount_Exists";
+            this.LB_nameCount_Exists.Size = new System.Drawing.Size(427, 55);
+            this.LB_nameCount_Exists.TabIndex = 117;
+            this.LB_nameCount_Exists.Text = "Nom du premier joueur";
+            this.LB_nameCount_Exists.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BT_selectPlayer
+            // 
+            this.BT_selectPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_selectPlayer.BackgroundImage = global::TriviaCrack.Properties.Resources.addPlayer_darkgrey;
+            this.BT_selectPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_selectPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_selectPlayer.Enabled = false;
+            this.BT_selectPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_selectPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_selectPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_selectPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_selectPlayer.Location = new System.Drawing.Point(54, 537);
+            this.BT_selectPlayer.Name = "BT_selectPlayer";
+            this.BT_selectPlayer.Size = new System.Drawing.Size(427, 87);
+            this.BT_selectPlayer.TabIndex = 116;
+            this.BT_selectPlayer.UseVisualStyleBackColor = false;
+            this.BT_selectPlayer.Click += new System.EventHandler(this.BT_selectPlayer_Click);
+            this.BT_selectPlayer.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
+            this.BT_selectPlayer.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TriviaCrack.Properties.Resources.autre;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(106, 546);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 60);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // BT_showOptions
             // 
             this.BT_showOptions.BackgroundImage = global::TriviaCrack.Properties.Resources.settings;
@@ -661,6 +796,190 @@
             this.BT_showScore.TabIndex = 15;
             this.BT_showScore.UseVisualStyleBackColor = true;
             this.BT_showScore.Click += new System.EventHandler(this.BT_showScore_Click);
+            // 
+            // PB_vLine
+            // 
+            this.PB_vLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PB_vLine.Location = new System.Drawing.Point(271, 160);
+            this.PB_vLine.Name = "PB_vLine";
+            this.PB_vLine.Size = new System.Drawing.Size(2, 15);
+            this.PB_vLine.TabIndex = 6;
+            this.PB_vLine.TabStop = false;
+            // 
+            // PB_question
+            // 
+            this.PB_question.BackgroundImage = global::TriviaCrack.Properties.Resources.autre;
+            this.PB_question.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PB_question.Location = new System.Drawing.Point(252, 112);
+            this.PB_question.Name = "PB_question";
+            this.PB_question.Size = new System.Drawing.Size(40, 41);
+            this.PB_question.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PB_question.TabIndex = 5;
+            this.PB_question.TabStop = false;
+            // 
+            // BT_addPlayer
+            // 
+            this.BT_addPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_addPlayer.BackgroundImage = global::TriviaCrack.Properties.Resources.addPlayer_darkgrey;
+            this.BT_addPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_addPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_addPlayer.Enabled = false;
+            this.BT_addPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_addPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_addPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_addPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_addPlayer.Location = new System.Drawing.Point(58, 537);
+            this.BT_addPlayer.Name = "BT_addPlayer";
+            this.BT_addPlayer.Size = new System.Drawing.Size(427, 87);
+            this.BT_addPlayer.TabIndex = 115;
+            this.BT_addPlayer.UseVisualStyleBackColor = false;
+            this.BT_addPlayer.Click += new System.EventHandler(this.BT_addPlayer_Click);
+            this.BT_addPlayer.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
+            this.BT_addPlayer.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
+            // 
+            // BT_chooseCategory_art
+            // 
+            this.BT_chooseCategory_art.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.BT_chooseCategory_art.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_art.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_art.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
+            this.BT_chooseCategory_art.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_art.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_art.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_art.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_art.Image = global::TriviaCrack.Properties.Resources.art_bg;
+            this.BT_chooseCategory_art.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_art.Location = new System.Drawing.Point(49, 541);
+            this.BT_chooseCategory_art.Name = "BT_chooseCategory_art";
+            this.BT_chooseCategory_art.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_art.TabIndex = 5;
+            this.BT_chooseCategory_art.Text = "Art";
+            this.BT_chooseCategory_art.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_art.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_art.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_art.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_art.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_art.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
+            // 
+            // BT_chooseCategory_divertissement
+            // 
+            this.BT_chooseCategory_divertissement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.BT_chooseCategory_divertissement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_divertissement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_divertissement.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
+            this.BT_chooseCategory_divertissement.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_divertissement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_divertissement.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_divertissement.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_divertissement.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
+            this.BT_chooseCategory_divertissement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_divertissement.Location = new System.Drawing.Point(49, 205);
+            this.BT_chooseCategory_divertissement.Name = "BT_chooseCategory_divertissement";
+            this.BT_chooseCategory_divertissement.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_divertissement.TabIndex = 4;
+            this.BT_chooseCategory_divertissement.Text = "Divertissement";
+            this.BT_chooseCategory_divertissement.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_divertissement.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_divertissement.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_divertissement.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_divertissement.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_divertissement.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
+            // 
+            // BT_chooseCategory_sport
+            // 
+            this.BT_chooseCategory_sport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.BT_chooseCategory_sport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_sport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_sport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
+            this.BT_chooseCategory_sport.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_sport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_sport.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_sport.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_sport.Image = global::TriviaCrack.Properties.Resources.sport_bg;
+            this.BT_chooseCategory_sport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_sport.Location = new System.Drawing.Point(49, 457);
+            this.BT_chooseCategory_sport.Name = "BT_chooseCategory_sport";
+            this.BT_chooseCategory_sport.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_sport.TabIndex = 3;
+            this.BT_chooseCategory_sport.Text = "Sport";
+            this.BT_chooseCategory_sport.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_sport.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_sport.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_sport.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_sport.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_sport.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
+            // 
+            // BT_chooseCategory_histoire
+            // 
+            this.BT_chooseCategory_histoire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.BT_chooseCategory_histoire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_histoire.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_histoire.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.BT_chooseCategory_histoire.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_histoire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_histoire.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_histoire.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_histoire.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
+            this.BT_chooseCategory_histoire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_histoire.Location = new System.Drawing.Point(49, 373);
+            this.BT_chooseCategory_histoire.Name = "BT_chooseCategory_histoire";
+            this.BT_chooseCategory_histoire.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_histoire.TabIndex = 2;
+            this.BT_chooseCategory_histoire.Text = "Histoire";
+            this.BT_chooseCategory_histoire.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_histoire.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_histoire.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_histoire.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_histoire.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_histoire.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
+            // 
+            // BT_chooseCategory_geographie
+            // 
+            this.BT_chooseCategory_geographie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.BT_chooseCategory_geographie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_geographie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_geographie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
+            this.BT_chooseCategory_geographie.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_geographie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_geographie.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_geographie.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_geographie.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
+            this.BT_chooseCategory_geographie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_geographie.Location = new System.Drawing.Point(49, 289);
+            this.BT_chooseCategory_geographie.Name = "BT_chooseCategory_geographie";
+            this.BT_chooseCategory_geographie.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_geographie.TabIndex = 1;
+            this.BT_chooseCategory_geographie.Text = "Géographie";
+            this.BT_chooseCategory_geographie.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_geographie.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_geographie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_geographie.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_geographie.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_geographie.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
+            // 
+            // BT_chooseCategory_science
+            // 
+            this.BT_chooseCategory_science.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.BT_chooseCategory_science.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_chooseCategory_science.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_chooseCategory_science.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.BT_chooseCategory_science.FlatAppearance.BorderSize = 6;
+            this.BT_chooseCategory_science.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_chooseCategory_science.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_chooseCategory_science.ForeColor = System.Drawing.Color.White;
+            this.BT_chooseCategory_science.Image = global::TriviaCrack.Properties.Resources.science_bg;
+            this.BT_chooseCategory_science.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BT_chooseCategory_science.Location = new System.Drawing.Point(49, 121);
+            this.BT_chooseCategory_science.Name = "BT_chooseCategory_science";
+            this.BT_chooseCategory_science.Size = new System.Drawing.Size(435, 73);
+            this.BT_chooseCategory_science.TabIndex = 0;
+            this.BT_chooseCategory_science.Text = "Science";
+            this.BT_chooseCategory_science.UseVisualStyleBackColor = false;
+            this.BT_chooseCategory_science.Click += new System.EventHandler(this.BT_chooseCategory_Click);
+            this.BT_chooseCategory_science.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
+            this.BT_chooseCategory_science.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
+            this.BT_chooseCategory_science.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
+            this.BT_chooseCategory_science.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
             // 
             // LB_score_46
             // 
@@ -1028,26 +1347,6 @@
             this.BT_quitScores.UseVisualStyleBackColor = true;
             this.BT_quitScores.Click += new System.EventHandler(this.BT_quitScores_Click);
             // 
-            // PB_vLine
-            // 
-            this.PB_vLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PB_vLine.Location = new System.Drawing.Point(271, 160);
-            this.PB_vLine.Name = "PB_vLine";
-            this.PB_vLine.Size = new System.Drawing.Size(2, 15);
-            this.PB_vLine.TabIndex = 6;
-            this.PB_vLine.TabStop = false;
-            // 
-            // PB_question
-            // 
-            this.PB_question.BackgroundImage = global::TriviaCrack.Properties.Resources.autre;
-            this.PB_question.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PB_question.Location = new System.Drawing.Point(252, 112);
-            this.PB_question.Name = "PB_question";
-            this.PB_question.Size = new System.Drawing.Size(40, 41);
-            this.PB_question.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PB_question.TabIndex = 5;
-            this.PB_question.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::TriviaCrack.Properties.Resources.logo_rectangle;
@@ -1076,189 +1375,28 @@
             this.BT_start.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
             this.BT_start.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
             // 
-            // BT_chooseCategory_art
-            // 
-            this.BT_chooseCategory_art.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.BT_chooseCategory_art.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_art.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_art.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
-            this.BT_chooseCategory_art.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_art.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_art.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_art.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_art.Image = global::TriviaCrack.Properties.Resources.art_bg;
-            this.BT_chooseCategory_art.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_art.Location = new System.Drawing.Point(49, 541);
-            this.BT_chooseCategory_art.Name = "BT_chooseCategory_art";
-            this.BT_chooseCategory_art.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_art.TabIndex = 5;
-            this.BT_chooseCategory_art.Text = "Art";
-            this.BT_chooseCategory_art.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_art.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_art.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_art.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_art.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_art.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_chooseCategory_divertissement
-            // 
-            this.BT_chooseCategory_divertissement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.BT_chooseCategory_divertissement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_divertissement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_divertissement.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(197)))));
-            this.BT_chooseCategory_divertissement.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_divertissement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_divertissement.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_divertissement.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_divertissement.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.BT_chooseCategory_divertissement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_divertissement.Location = new System.Drawing.Point(49, 205);
-            this.BT_chooseCategory_divertissement.Name = "BT_chooseCategory_divertissement";
-            this.BT_chooseCategory_divertissement.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_divertissement.TabIndex = 4;
-            this.BT_chooseCategory_divertissement.Text = "Divertissement";
-            this.BT_chooseCategory_divertissement.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_divertissement.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_divertissement.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_divertissement.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_divertissement.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_divertissement.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_chooseCategory_sport
-            // 
-            this.BT_chooseCategory_sport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.BT_chooseCategory_sport.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_sport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_sport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
-            this.BT_chooseCategory_sport.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_sport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_sport.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_sport.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_sport.Image = global::TriviaCrack.Properties.Resources.sport_bg;
-            this.BT_chooseCategory_sport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_sport.Location = new System.Drawing.Point(49, 457);
-            this.BT_chooseCategory_sport.Name = "BT_chooseCategory_sport";
-            this.BT_chooseCategory_sport.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_sport.TabIndex = 3;
-            this.BT_chooseCategory_sport.Text = "Sport";
-            this.BT_chooseCategory_sport.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_sport.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_sport.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_sport.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_sport.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_sport.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_chooseCategory_histoire
-            // 
-            this.BT_chooseCategory_histoire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.BT_chooseCategory_histoire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_histoire.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_histoire.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
-            this.BT_chooseCategory_histoire.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_histoire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_histoire.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_histoire.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_histoire.Image = global::TriviaCrack.Properties.Resources.histoire_bg;
-            this.BT_chooseCategory_histoire.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_histoire.Location = new System.Drawing.Point(49, 373);
-            this.BT_chooseCategory_histoire.Name = "BT_chooseCategory_histoire";
-            this.BT_chooseCategory_histoire.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_histoire.TabIndex = 2;
-            this.BT_chooseCategory_histoire.Text = "Histoire";
-            this.BT_chooseCategory_histoire.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_histoire.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_histoire.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_histoire.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_histoire.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_histoire.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_chooseCategory_geographie
-            // 
-            this.BT_chooseCategory_geographie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.BT_chooseCategory_geographie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_geographie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_geographie.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(222)))), ((int)(((byte)(94)))));
-            this.BT_chooseCategory_geographie.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_geographie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_geographie.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_geographie.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_geographie.Image = global::TriviaCrack.Properties.Resources.geographie_bg;
-            this.BT_chooseCategory_geographie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_geographie.Location = new System.Drawing.Point(49, 289);
-            this.BT_chooseCategory_geographie.Name = "BT_chooseCategory_geographie";
-            this.BT_chooseCategory_geographie.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_geographie.TabIndex = 1;
-            this.BT_chooseCategory_geographie.Text = "Géographie";
-            this.BT_chooseCategory_geographie.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_geographie.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_geographie.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_geographie.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_geographie.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_geographie.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_chooseCategory_science
-            // 
-            this.BT_chooseCategory_science.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.BT_chooseCategory_science.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_chooseCategory_science.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_chooseCategory_science.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.BT_chooseCategory_science.FlatAppearance.BorderSize = 6;
-            this.BT_chooseCategory_science.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_chooseCategory_science.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_chooseCategory_science.ForeColor = System.Drawing.Color.White;
-            this.BT_chooseCategory_science.Image = global::TriviaCrack.Properties.Resources.science_bg;
-            this.BT_chooseCategory_science.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BT_chooseCategory_science.Location = new System.Drawing.Point(49, 121);
-            this.BT_chooseCategory_science.Name = "BT_chooseCategory_science";
-            this.BT_chooseCategory_science.Size = new System.Drawing.Size(435, 73);
-            this.BT_chooseCategory_science.TabIndex = 0;
-            this.BT_chooseCategory_science.Text = "Science";
-            this.BT_chooseCategory_science.UseVisualStyleBackColor = false;
-            this.BT_chooseCategory_science.Click += new System.EventHandler(this.BT_chooseCategory_Click);
-            this.BT_chooseCategory_science.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseDown);
-            this.BT_chooseCategory_science.MouseEnter += new System.EventHandler(this.BT_chooseCategory_MouseEnter);
-            this.BT_chooseCategory_science.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
-            this.BT_chooseCategory_science.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
-            // 
-            // BT_addPlayer
-            // 
-            this.BT_addPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_addPlayer.BackgroundImage = global::TriviaCrack.Properties.Resources.addPlayer_darkgrey;
-            this.BT_addPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_addPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_addPlayer.Enabled = false;
-            this.BT_addPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_addPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BT_addPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_addPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_addPlayer.Location = new System.Drawing.Point(58, 537);
-            this.BT_addPlayer.Name = "BT_addPlayer";
-            this.BT_addPlayer.Size = new System.Drawing.Size(427, 87);
-            this.BT_addPlayer.TabIndex = 115;
-            this.BT_addPlayer.UseVisualStyleBackColor = false;
-            this.BT_addPlayer.Click += new System.EventHandler(this.BT_addPlayer_Click);
-            this.BT_addPlayer.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
-            this.BT_addPlayer.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_nameSelection_Exists);
+            this.Controls.Add(this.PNL_nameSelectionMethod);
             this.Controls.Add(this.PNL_wheel);
-            this.Controls.Add(this.PNL_scores);
             this.Controls.Add(this.PNL_questions);
-            this.Controls.Add(this.PNL_main);
-            this.Controls.Add(this.PNL_category);
             this.Controls.Add(this.PNL_nameSelection);
+            this.Controls.Add(this.PNL_category);
+            this.Controls.Add(this.PNL_scores);
+            this.Controls.Add(this.PNL_main);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(550, 700);
             this.MinimumSize = new System.Drawing.Size(550, 700);
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Trivia Crack 2.0";
+            this.Text = "Wheel of Knowledge";
             this.PNL_questions.ResumeLayout(false);
             this.PNL_wheel.ResumeLayout(false);
             this.PNL_scores.ResumeLayout(false);
@@ -1274,12 +1412,16 @@
             this.PNL_nameSelection.ResumeLayout(false);
             this.PNL_nameSelection.PerformLayout();
             this.PNL_category.ResumeLayout(false);
+            this.PNL_nameSelectionMethod.ResumeLayout(false);
+            this.PNL_nameSelectionMethod.PerformLayout();
+            this.PNL_nameSelection_Exists.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).EndInit();
             this.PB_wheel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1361,6 +1503,15 @@
         private System.Windows.Forms.Button BT_nextTurn;
         private System.ComponentModel.BackgroundWorker BW_rotateWheel;
         private System.Windows.Forms.Button BT_showOptions;
+        private System.Windows.Forms.Panel PNL_nameSelectionMethod;
+        private System.Windows.Forms.Label LB_existPlayer;
+        private System.Windows.Forms.Button BT_newPlayer;
+        private System.Windows.Forms.Label LB_nameSelectionNote;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel PNL_nameSelection_Exists;
+        private System.Windows.Forms.ComboBox CB_namePlayer;
+        private System.Windows.Forms.Button BT_selectPlayer;
+        private System.Windows.Forms.Label LB_nameCount_Exists;
     }
 }
 

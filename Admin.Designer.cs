@@ -158,6 +158,7 @@
             this.Controls.Add(this.BT_deleteQuestion);
             this.Controls.Add(this.BT_addQuestion);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(640, 421);
             this.MinimumSize = new System.Drawing.Size(640, 421);
             this.Name = "Admin";

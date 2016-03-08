@@ -48,6 +48,7 @@ namespace TriviaCrack
             PNL_main.BringToFront();
             //PNL_wheel.BringToFront();
             //PNL_wheel.Visible = true;
+            //PNL_nameSelectionMethod.BringToFront();
         }
 
         /// <summary>
@@ -106,7 +107,7 @@ namespace TriviaCrack
         }
         private void BT_MouseLeave(object send, EventArgs e)
         {
-            if ((!error_addPlayer && (PNL_nameSelection.Visible == true && TB_newName.TextLength > 2)) || PNL_main.Visible == true)
+            if ((!error_addPlayer && (PNL_nameSelection.Visible == true && TB_newName.TextLength > 2)) || PNL_main.Visible == true || PNL_nameSelection_Exists.Visible == true)
             {
                 Button sender = (Button)send;
                 string name = sender.Name.Substring(3) + "_grey";
@@ -195,8 +196,15 @@ namespace TriviaCrack
             Program.nbPlayers = int.Parse(CB_nbJoueurs.Text);
             Program.pointsToWin = int.Parse(CB_nbPoints.Text);
 
-            PNL_nameSelection.Visible = true;
-            PNL_nameSelection.BringToFront();
+            string[] indexes = { "deux", "trois", "quatre" };
+            LB_nameSelectionNote.Text = LB_nameSelectionNote.Text.Replace("{0}", indexes[Program.nbPlayers - 2]);
+            PNL_nameSelectionMethod.Visible = true;
+            PNL_nameSelectionMethod.BringToFront();
+        }
+        private void BT_showOptions_Click(object sender, EventArgs e)
+        {
+            Admin adminPanel = new Admin();
+            adminPanel.ShowDialog();
         }
         private void BT_showScore_Click(object sender, EventArgs e)
         {
@@ -545,6 +553,7 @@ namespace TriviaCrack
                 for (int j = 0; j < times[i]; j++)
                 {
                     rotate(rotation);
+                    Invoke(new Action(() => this.Refresh()));
                     Invoke(new Action(() => this.Update()));
                     System.Threading.Thread.Sleep(20);
                 }
@@ -708,8 +717,15 @@ namespace TriviaCrack
         {
             int posCategory = getCategoryPos(category);
 
-            if (posCategory != -1)
-                return Program.players[Program.currentPlayer].points[posCategory].points.ToString();
+            try
+            {
+                if (posCategory != -1)
+                    return Program.players[Program.currentPlayer].points[posCategory].points.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Aucun joueurs");
+            }
 
             return "0";
         }
@@ -764,11 +780,48 @@ namespace TriviaCrack
         }
 
         #endregion
-
-        private void BT_showOptions_Click(object sender, EventArgs e)
+        
+        private void LB_existPlayer_MouseEnter(object sender, EventArgs e)
         {
-            Admin adminPanel = new Admin();
-            adminPanel.ShowDialog();
+            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Underline);
+            LB_existPlayer.ForeColor = Color.White;
+        }
+
+        private void LB_existPlayer_MouseLeave(object sender, EventArgs e)
+        {
+            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Regular);
+            LB_existPlayer.ForeColor = Color.FromArgb(120,120,120);
+        }
+
+        private void LB_existPlayer_MouseDown(object sender, MouseEventArgs e)
+        {
+            LB_existPlayer.ForeColor = Color.FromArgb(160,160,160);
+        }
+
+        private void LB_existPlayer_MouseUp(object sender, MouseEventArgs e)
+        {
+            LB_existPlayer.ForeColor = Color.White;
+        }
+
+        private void BT_newPlayer_Click(object sender, EventArgs e)
+        {
+            PNL_nameSelectionMethod.Visible = false;
+            PNL_nameSelection.Visible = true;
+            PNL_nameSelection.BringToFront();
+        }
+
+        private void LB_existPlayer_Click(object sender, EventArgs e)
+        {
+            PNL_nameSelectionMethod.Visible = false;
+            PNL_nameSelection_Exists.Visible = true;
+            PNL_nameSelection_Exists.BringToFront();
+
+            // Get tout les joueurs sauf ceux déja sélectionné et les mettres dans CB_namePlayer
+        }
+
+        private void BT_selectPlayer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
