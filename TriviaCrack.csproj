@@ -134,18 +134,6 @@
     <None Include="_resources\score_small.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="_resources\play_grey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_resources\play_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_resources\user_grey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_resources\user_white.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="_resources\addPlayer_grey.png" />
   </ItemGroup>
   <ItemGroup>
