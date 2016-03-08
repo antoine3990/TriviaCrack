@@ -764,5 +764,11 @@ namespace TriviaCrack
         }
 
         #endregion
+
+        private void BT_showOptions_Click(object sender, EventArgs e)
+        {
+            Admin adminPanel = new Admin();
+            adminPanel.ShowDialog();
+        }
     }
 }

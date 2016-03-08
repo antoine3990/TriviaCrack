@@ -39,42 +39,53 @@
             this.LB_questions_playerName = new System.Windows.Forms.Label();
             this.LB_pointsCategory_fixed = new System.Windows.Forms.Label();
             this.LB_pointsCategory = new System.Windows.Forms.Label();
-            this.PB_vLine = new System.Windows.Forms.PictureBox();
-            this.PB_question = new System.Windows.Forms.PictureBox();
             this.PNL_wheel = new System.Windows.Forms.Panel();
-            this.PB_wheel = new System.Windows.Forms.PictureBox();
-            this.PB_triangle = new System.Windows.Forms.PictureBox();
             this.LB_wheel_playerName = new System.Windows.Forms.Label();
-            this.BT_showScore = new System.Windows.Forms.Button();
             this.LB_category = new System.Windows.Forms.Label();
             this.PNL_scores = new System.Windows.Forms.Panel();
             this.LB_score_title = new System.Windows.Forms.Label();
             this.PNL_score_J4 = new System.Windows.Forms.Panel();
             this.LB_score_name4 = new System.Windows.Forms.Label();
+            this.PNL_score_J3 = new System.Windows.Forms.Panel();
+            this.LB_score_name3 = new System.Windows.Forms.Label();
+            this.PNL_score_J2 = new System.Windows.Forms.Panel();
+            this.LB_score_name2 = new System.Windows.Forms.Label();
+            this.PNL_score_J1 = new System.Windows.Forms.Panel();
+            this.LB_score_name1 = new System.Windows.Forms.Label();
+            this.PNL_main = new System.Windows.Forms.Panel();
+            this.CB_nbJoueurs = new System.Windows.Forms.ComboBox();
+            this.CB_nbPoints = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.PNL_nameSelection = new System.Windows.Forms.Panel();
+            this.TB_newName = new System.Windows.Forms.TextBox();
+            this.LB_nameCount = new System.Windows.Forms.Label();
+            this.LB_newName_error = new System.Windows.Forms.Label();
+            this.PNL_category = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BW_rotateWheel = new System.ComponentModel.BackgroundWorker();
+            this.BT_showOptions = new System.Windows.Forms.Button();
+            this.PB_wheel = new System.Windows.Forms.PictureBox();
+            this.PB_triangle = new System.Windows.Forms.PictureBox();
+            this.BT_showScore = new System.Windows.Forms.Button();
             this.LB_score_46 = new System.Windows.Forms.Label();
             this.LB_score_43 = new System.Windows.Forms.Label();
             this.LB_score_44 = new System.Windows.Forms.Label();
             this.LB_score_45 = new System.Windows.Forms.Label();
             this.LB_score_42 = new System.Windows.Forms.Label();
             this.LB_score_41 = new System.Windows.Forms.Label();
-            this.PNL_score_J3 = new System.Windows.Forms.Panel();
-            this.LB_score_name3 = new System.Windows.Forms.Label();
             this.LB_score_36 = new System.Windows.Forms.Label();
             this.LB_score_33 = new System.Windows.Forms.Label();
             this.LB_score_34 = new System.Windows.Forms.Label();
             this.LB_score_35 = new System.Windows.Forms.Label();
             this.LB_score_32 = new System.Windows.Forms.Label();
             this.LB_score_31 = new System.Windows.Forms.Label();
-            this.PNL_score_J2 = new System.Windows.Forms.Panel();
-            this.LB_score_name2 = new System.Windows.Forms.Label();
             this.LB_score_26 = new System.Windows.Forms.Label();
             this.LB_score_23 = new System.Windows.Forms.Label();
             this.LB_score_24 = new System.Windows.Forms.Label();
             this.LB_score_25 = new System.Windows.Forms.Label();
             this.LB_score_22 = new System.Windows.Forms.Label();
             this.LB_score_21 = new System.Windows.Forms.Label();
-            this.PNL_score_J1 = new System.Windows.Forms.Panel();
-            this.LB_score_name1 = new System.Windows.Forms.Label();
             this.LB_score_16 = new System.Windows.Forms.Label();
             this.LB_score_13 = new System.Windows.Forms.Label();
             this.LB_score_14 = new System.Windows.Forms.Label();
@@ -83,43 +94,33 @@
             this.LB_score_11 = new System.Windows.Forms.Label();
             this.PB_score = new System.Windows.Forms.PictureBox();
             this.BT_quitScores = new System.Windows.Forms.Button();
-            this.PNL_main = new System.Windows.Forms.Panel();
-            this.CB_nbJoueurs = new System.Windows.Forms.ComboBox();
+            this.PB_vLine = new System.Windows.Forms.PictureBox();
+            this.PB_question = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BT_start = new System.Windows.Forms.Button();
-            this.CB_nbPoints = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.PNL_nameSelection = new System.Windows.Forms.Panel();
-            this.BT_addPlayer = new System.Windows.Forms.Button();
-            this.TB_newName = new System.Windows.Forms.TextBox();
-            this.LB_nameCount = new System.Windows.Forms.Label();
-            this.LB_newName_error = new System.Windows.Forms.Label();
-            this.PNL_category = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.BT_chooseCategory_art = new System.Windows.Forms.Button();
             this.BT_chooseCategory_divertissement = new System.Windows.Forms.Button();
             this.BT_chooseCategory_sport = new System.Windows.Forms.Button();
             this.BT_chooseCategory_histoire = new System.Windows.Forms.Button();
             this.BT_chooseCategory_geographie = new System.Windows.Forms.Button();
             this.BT_chooseCategory_science = new System.Windows.Forms.Button();
-            this.BW_rotateWheel = new System.ComponentModel.BackgroundWorker();
+            this.BT_addPlayer = new System.Windows.Forms.Button();
             this.PNL_questions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
             this.PNL_wheel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).BeginInit();
-            this.PB_wheel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).BeginInit();
             this.PNL_scores.SuspendLayout();
             this.PNL_score_J4.SuspendLayout();
             this.PNL_score_J3.SuspendLayout();
             this.PNL_score_J2.SuspendLayout();
             this.PNL_score_J1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).BeginInit();
             this.PNL_main.SuspendLayout();
             this.PNL_nameSelection.SuspendLayout();
             this.PNL_category.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).BeginInit();
+            this.PB_wheel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
             this.SuspendLayout();
             // 
             // BT_answer2
@@ -284,29 +285,10 @@
             this.LB_pointsCategory.Text = "0";
             this.LB_pointsCategory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PB_vLine
-            // 
-            this.PB_vLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.PB_vLine.Location = new System.Drawing.Point(271, 160);
-            this.PB_vLine.Name = "PB_vLine";
-            this.PB_vLine.Size = new System.Drawing.Size(2, 15);
-            this.PB_vLine.TabIndex = 6;
-            this.PB_vLine.TabStop = false;
-            // 
-            // PB_question
-            // 
-            this.PB_question.BackgroundImage = global::TriviaCrack.Properties.Resources.autre;
-            this.PB_question.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PB_question.Location = new System.Drawing.Point(252, 112);
-            this.PB_question.Name = "PB_question";
-            this.PB_question.Size = new System.Drawing.Size(40, 41);
-            this.PB_question.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PB_question.TabIndex = 5;
-            this.PB_question.TabStop = false;
-            // 
             // PNL_wheel
             // 
             this.PNL_wheel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.PNL_wheel.Controls.Add(this.BT_showOptions);
             this.PNL_wheel.Controls.Add(this.PB_wheel);
             this.PNL_wheel.Controls.Add(this.LB_wheel_playerName);
             this.PNL_wheel.Controls.Add(this.BT_showScore);
@@ -315,36 +297,6 @@
             this.PNL_wheel.Name = "PNL_wheel";
             this.PNL_wheel.Size = new System.Drawing.Size(535, 662);
             this.PNL_wheel.TabIndex = 9;
-            // 
-            // PB_wheel
-            // 
-            this.PB_wheel.BackColor = System.Drawing.Color.Transparent;
-            this.PB_wheel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PB_wheel.Controls.Add(this.PB_triangle);
-            this.PB_wheel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PB_wheel.Image = global::TriviaCrack.Properties.Resources.wheel;
-            this.PB_wheel.Location = new System.Drawing.Point(79, 132);
-            this.PB_wheel.MaximumSize = new System.Drawing.Size(377, 377);
-            this.PB_wheel.MinimumSize = new System.Drawing.Size(377, 399);
-            this.PB_wheel.Name = "PB_wheel";
-            this.PB_wheel.Size = new System.Drawing.Size(377, 399);
-            this.PB_wheel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PB_wheel.TabIndex = 14;
-            this.PB_wheel.TabStop = false;
-            this.PB_wheel.Click += new System.EventHandler(this.PB_wheel_Click);
-            // 
-            // PB_triangle
-            // 
-            this.PB_triangle.BackColor = System.Drawing.Color.Transparent;
-            this.PB_triangle.BackgroundImage = global::TriviaCrack.Properties.Resources.triangle;
-            this.PB_triangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PB_triangle.Image = global::TriviaCrack.Properties.Resources.triangle;
-            this.PB_triangle.Location = new System.Drawing.Point(160, 1);
-            this.PB_triangle.Name = "PB_triangle";
-            this.PB_triangle.Size = new System.Drawing.Size(60, 47);
-            this.PB_triangle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PB_triangle.TabIndex = 16;
-            this.PB_triangle.TabStop = false;
             // 
             // LB_wheel_playerName
             // 
@@ -356,25 +308,6 @@
             this.LB_wheel_playerName.TabIndex = 17;
             this.LB_wheel_playerName.Text = "NOM DU JOUEUR";
             this.LB_wheel_playerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BT_showScore
-            // 
-            this.BT_showScore.BackgroundImage = global::TriviaCrack.Properties.Resources.score;
-            this.BT_showScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_showScore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_showScore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_showScore.FlatAppearance.BorderSize = 0;
-            this.BT_showScore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_showScore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BT_showScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_showScore.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BT_showScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_showScore.Location = new System.Drawing.Point(462, 589);
-            this.BT_showScore.Name = "BT_showScore";
-            this.BT_showScore.Size = new System.Drawing.Size(60, 60);
-            this.BT_showScore.TabIndex = 15;
-            this.BT_showScore.UseVisualStyleBackColor = true;
-            this.BT_showScore.Click += new System.EventHandler(this.BT_showScore_Click);
             // 
             // LB_category
             // 
@@ -438,6 +371,296 @@
             this.LB_score_name4.Size = new System.Drawing.Size(115, 37);
             this.LB_score_name4.TabIndex = 31;
             this.LB_score_name4.Text = "Joueur4";
+            // 
+            // PNL_score_J3
+            // 
+            this.PNL_score_J3.Controls.Add(this.LB_score_name3);
+            this.PNL_score_J3.Controls.Add(this.LB_score_36);
+            this.PNL_score_J3.Controls.Add(this.LB_score_33);
+            this.PNL_score_J3.Controls.Add(this.LB_score_34);
+            this.PNL_score_J3.Controls.Add(this.LB_score_35);
+            this.PNL_score_J3.Controls.Add(this.LB_score_32);
+            this.PNL_score_J3.Controls.Add(this.LB_score_31);
+            this.PNL_score_J3.Location = new System.Drawing.Point(50, 354);
+            this.PNL_score_J3.Name = "PNL_score_J3";
+            this.PNL_score_J3.Size = new System.Drawing.Size(435, 91);
+            this.PNL_score_J3.TabIndex = 48;
+            this.PNL_score_J3.Visible = false;
+            // 
+            // LB_score_name3
+            // 
+            this.LB_score_name3.AutoSize = true;
+            this.LB_score_name3.Font = new System.Drawing.Font("Calibri", 22F);
+            this.LB_score_name3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.LB_score_name3.Location = new System.Drawing.Point(-7, -10);
+            this.LB_score_name3.Name = "LB_score_name3";
+            this.LB_score_name3.Size = new System.Drawing.Size(115, 37);
+            this.LB_score_name3.TabIndex = 31;
+            this.LB_score_name3.Text = "Joueur3";
+            // 
+            // PNL_score_J2
+            // 
+            this.PNL_score_J2.Controls.Add(this.LB_score_name2);
+            this.PNL_score_J2.Controls.Add(this.LB_score_26);
+            this.PNL_score_J2.Controls.Add(this.LB_score_23);
+            this.PNL_score_J2.Controls.Add(this.LB_score_24);
+            this.PNL_score_J2.Controls.Add(this.LB_score_25);
+            this.PNL_score_J2.Controls.Add(this.LB_score_22);
+            this.PNL_score_J2.Controls.Add(this.LB_score_21);
+            this.PNL_score_J2.Location = new System.Drawing.Point(50, 237);
+            this.PNL_score_J2.Name = "PNL_score_J2";
+            this.PNL_score_J2.Size = new System.Drawing.Size(435, 91);
+            this.PNL_score_J2.TabIndex = 48;
+            this.PNL_score_J2.Visible = false;
+            // 
+            // LB_score_name2
+            // 
+            this.LB_score_name2.AutoSize = true;
+            this.LB_score_name2.Font = new System.Drawing.Font("Calibri", 22F);
+            this.LB_score_name2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.LB_score_name2.Location = new System.Drawing.Point(-7, -10);
+            this.LB_score_name2.Name = "LB_score_name2";
+            this.LB_score_name2.Size = new System.Drawing.Size(115, 37);
+            this.LB_score_name2.TabIndex = 31;
+            this.LB_score_name2.Text = "Joueur2";
+            // 
+            // PNL_score_J1
+            // 
+            this.PNL_score_J1.Controls.Add(this.LB_score_name1);
+            this.PNL_score_J1.Controls.Add(this.LB_score_16);
+            this.PNL_score_J1.Controls.Add(this.LB_score_13);
+            this.PNL_score_J1.Controls.Add(this.LB_score_14);
+            this.PNL_score_J1.Controls.Add(this.LB_score_15);
+            this.PNL_score_J1.Controls.Add(this.LB_score_12);
+            this.PNL_score_J1.Controls.Add(this.LB_score_11);
+            this.PNL_score_J1.Location = new System.Drawing.Point(50, 120);
+            this.PNL_score_J1.Name = "PNL_score_J1";
+            this.PNL_score_J1.Size = new System.Drawing.Size(435, 91);
+            this.PNL_score_J1.TabIndex = 47;
+            this.PNL_score_J1.Visible = false;
+            // 
+            // LB_score_name1
+            // 
+            this.LB_score_name1.AutoSize = true;
+            this.LB_score_name1.Font = new System.Drawing.Font("Calibri", 22F);
+            this.LB_score_name1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.LB_score_name1.Location = new System.Drawing.Point(-7, -10);
+            this.LB_score_name1.Name = "LB_score_name1";
+            this.LB_score_name1.Size = new System.Drawing.Size(115, 37);
+            this.LB_score_name1.TabIndex = 31;
+            this.LB_score_name1.Text = "Joueur1";
+            // 
+            // PNL_main
+            // 
+            this.PNL_main.Controls.Add(this.CB_nbJoueurs);
+            this.PNL_main.Controls.Add(this.panel1);
+            this.PNL_main.Controls.Add(this.BT_start);
+            this.PNL_main.Controls.Add(this.CB_nbPoints);
+            this.PNL_main.Controls.Add(this.label1);
+            this.PNL_main.Controls.Add(this.label2);
+            this.PNL_main.Location = new System.Drawing.Point(0, 0);
+            this.PNL_main.Name = "PNL_main";
+            this.PNL_main.Size = new System.Drawing.Size(535, 662);
+            this.PNL_main.TabIndex = 50;
+            // 
+            // CB_nbJoueurs
+            // 
+            this.CB_nbJoueurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_nbJoueurs.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CB_nbJoueurs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_nbJoueurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_nbJoueurs.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_nbJoueurs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.CB_nbJoueurs.FormattingEnabled = true;
+            this.CB_nbJoueurs.Location = new System.Drawing.Point(395, 305);
+            this.CB_nbJoueurs.Name = "CB_nbJoueurs";
+            this.CB_nbJoueurs.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CB_nbJoueurs.Size = new System.Drawing.Size(69, 67);
+            this.CB_nbJoueurs.TabIndex = 109;
+            // 
+            // CB_nbPoints
+            // 
+            this.CB_nbPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_nbPoints.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_nbPoints.DropDownWidth = 40;
+            this.CB_nbPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_nbPoints.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_nbPoints.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.CB_nbPoints.FormattingEnabled = true;
+            this.CB_nbPoints.Location = new System.Drawing.Point(395, 378);
+            this.CB_nbPoints.Name = "CB_nbPoints";
+            this.CB_nbPoints.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CB_nbPoints.Size = new System.Drawing.Size(69, 67);
+            this.CB_nbPoints.TabIndex = 110;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.label1.Location = new System.Drawing.Point(58, 378);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(331, 67);
+            this.label1.TabIndex = 112;
+            this.label1.Text = "Points pour gagner";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.label2.Location = new System.Drawing.Point(58, 305);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(331, 67);
+            this.label2.TabIndex = 111;
+            this.label2.Text = "Nombre de joueurs";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PNL_nameSelection
+            // 
+            this.PNL_nameSelection.Controls.Add(this.BT_addPlayer);
+            this.PNL_nameSelection.Controls.Add(this.TB_newName);
+            this.PNL_nameSelection.Controls.Add(this.LB_nameCount);
+            this.PNL_nameSelection.Controls.Add(this.LB_newName_error);
+            this.PNL_nameSelection.Location = new System.Drawing.Point(0, 0);
+            this.PNL_nameSelection.Name = "PNL_nameSelection";
+            this.PNL_nameSelection.Size = new System.Drawing.Size(535, 662);
+            this.PNL_nameSelection.TabIndex = 51;
+            // 
+            // TB_newName
+            // 
+            this.TB_newName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.TB_newName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_newName.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_newName.ForeColor = System.Drawing.Color.White;
+            this.TB_newName.Location = new System.Drawing.Point(58, 303);
+            this.TB_newName.Name = "TB_newName";
+            this.TB_newName.Size = new System.Drawing.Size(427, 66);
+            this.TB_newName.TabIndex = 1;
+            this.TB_newName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TB_newName.TextChanged += new System.EventHandler(this.TB_newName_TextChanged);
+            this.TB_newName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_newName_KeyPress);
+            // 
+            // LB_nameCount
+            // 
+            this.LB_nameCount.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_nameCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.LB_nameCount.Location = new System.Drawing.Point(58, 237);
+            this.LB_nameCount.Name = "LB_nameCount";
+            this.LB_nameCount.Size = new System.Drawing.Size(427, 55);
+            this.LB_nameCount.TabIndex = 0;
+            this.LB_nameCount.Text = "Nom du premier joueur";
+            this.LB_nameCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LB_newName_error
+            // 
+            this.LB_newName_error.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_newName_error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
+            this.LB_newName_error.Location = new System.Drawing.Point(58, 492);
+            this.LB_newName_error.Name = "LB_newName_error";
+            this.LB_newName_error.Size = new System.Drawing.Size(427, 42);
+            this.LB_newName_error.TabIndex = 116;
+            this.LB_newName_error.Text = "Nom invalide";
+            this.LB_newName_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_newName_error.Visible = false;
+            // 
+            // PNL_category
+            // 
+            this.PNL_category.Controls.Add(this.label3);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_art);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_divertissement);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_sport);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_histoire);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_geographie);
+            this.PNL_category.Controls.Add(this.BT_chooseCategory_science);
+            this.PNL_category.Location = new System.Drawing.Point(0, 0);
+            this.PNL_category.Name = "PNL_category";
+            this.PNL_category.Size = new System.Drawing.Size(535, 662);
+            this.PNL_category.TabIndex = 52;
+            this.PNL_category.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(535, 71);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Choisissez votre catégorie";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BW_rotateWheel
+            // 
+            this.BW_rotateWheel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_rotateWheel_DoWork);
+            this.BW_rotateWheel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_rotateWheel_RunWorkerCompleted);
+            // 
+            // BT_showOptions
+            // 
+            this.BT_showOptions.BackgroundImage = global::TriviaCrack.Properties.Resources.settings;
+            this.BT_showOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_showOptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_showOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_showOptions.FlatAppearance.BorderSize = 0;
+            this.BT_showOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_showOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BT_showOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_showOptions.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_showOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_showOptions.Location = new System.Drawing.Point(12, 589);
+            this.BT_showOptions.Name = "BT_showOptions";
+            this.BT_showOptions.Size = new System.Drawing.Size(60, 60);
+            this.BT_showOptions.TabIndex = 18;
+            this.BT_showOptions.UseVisualStyleBackColor = true;
+            this.BT_showOptions.Click += new System.EventHandler(this.BT_showOptions_Click);
+            // 
+            // PB_wheel
+            // 
+            this.PB_wheel.BackColor = System.Drawing.Color.Transparent;
+            this.PB_wheel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PB_wheel.Controls.Add(this.PB_triangle);
+            this.PB_wheel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PB_wheel.Image = global::TriviaCrack.Properties.Resources.wheel;
+            this.PB_wheel.Location = new System.Drawing.Point(79, 132);
+            this.PB_wheel.MaximumSize = new System.Drawing.Size(377, 377);
+            this.PB_wheel.MinimumSize = new System.Drawing.Size(377, 399);
+            this.PB_wheel.Name = "PB_wheel";
+            this.PB_wheel.Size = new System.Drawing.Size(377, 399);
+            this.PB_wheel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_wheel.TabIndex = 14;
+            this.PB_wheel.TabStop = false;
+            this.PB_wheel.Click += new System.EventHandler(this.PB_wheel_Click);
+            // 
+            // PB_triangle
+            // 
+            this.PB_triangle.BackColor = System.Drawing.Color.Transparent;
+            this.PB_triangle.BackgroundImage = global::TriviaCrack.Properties.Resources.triangle;
+            this.PB_triangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PB_triangle.Image = global::TriviaCrack.Properties.Resources.triangle;
+            this.PB_triangle.Location = new System.Drawing.Point(160, 1);
+            this.PB_triangle.Name = "PB_triangle";
+            this.PB_triangle.Size = new System.Drawing.Size(60, 47);
+            this.PB_triangle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PB_triangle.TabIndex = 16;
+            this.PB_triangle.TabStop = false;
+            // 
+            // BT_showScore
+            // 
+            this.BT_showScore.BackgroundImage = global::TriviaCrack.Properties.Resources.score;
+            this.BT_showScore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_showScore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_showScore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_showScore.FlatAppearance.BorderSize = 0;
+            this.BT_showScore.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_showScore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BT_showScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_showScore.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_showScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_showScore.Location = new System.Drawing.Point(462, 589);
+            this.BT_showScore.Name = "BT_showScore";
+            this.BT_showScore.Size = new System.Drawing.Size(60, 60);
+            this.BT_showScore.TabIndex = 15;
+            this.BT_showScore.UseVisualStyleBackColor = true;
+            this.BT_showScore.Click += new System.EventHandler(this.BT_showScore_Click);
             // 
             // LB_score_46
             // 
@@ -523,32 +746,6 @@
             this.LB_score_41.Text = "0";
             this.LB_score_41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PNL_score_J3
-            // 
-            this.PNL_score_J3.Controls.Add(this.LB_score_name3);
-            this.PNL_score_J3.Controls.Add(this.LB_score_36);
-            this.PNL_score_J3.Controls.Add(this.LB_score_33);
-            this.PNL_score_J3.Controls.Add(this.LB_score_34);
-            this.PNL_score_J3.Controls.Add(this.LB_score_35);
-            this.PNL_score_J3.Controls.Add(this.LB_score_32);
-            this.PNL_score_J3.Controls.Add(this.LB_score_31);
-            this.PNL_score_J3.Location = new System.Drawing.Point(50, 354);
-            this.PNL_score_J3.Name = "PNL_score_J3";
-            this.PNL_score_J3.Size = new System.Drawing.Size(435, 91);
-            this.PNL_score_J3.TabIndex = 48;
-            this.PNL_score_J3.Visible = false;
-            // 
-            // LB_score_name3
-            // 
-            this.LB_score_name3.AutoSize = true;
-            this.LB_score_name3.Font = new System.Drawing.Font("Calibri", 22F);
-            this.LB_score_name3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.LB_score_name3.Location = new System.Drawing.Point(-7, -10);
-            this.LB_score_name3.Name = "LB_score_name3";
-            this.LB_score_name3.Size = new System.Drawing.Size(115, 37);
-            this.LB_score_name3.TabIndex = 31;
-            this.LB_score_name3.Text = "Joueur3";
-            // 
             // LB_score_36
             // 
             this.LB_score_36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
@@ -633,32 +830,6 @@
             this.LB_score_31.Text = "0";
             this.LB_score_31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PNL_score_J2
-            // 
-            this.PNL_score_J2.Controls.Add(this.LB_score_name2);
-            this.PNL_score_J2.Controls.Add(this.LB_score_26);
-            this.PNL_score_J2.Controls.Add(this.LB_score_23);
-            this.PNL_score_J2.Controls.Add(this.LB_score_24);
-            this.PNL_score_J2.Controls.Add(this.LB_score_25);
-            this.PNL_score_J2.Controls.Add(this.LB_score_22);
-            this.PNL_score_J2.Controls.Add(this.LB_score_21);
-            this.PNL_score_J2.Location = new System.Drawing.Point(50, 237);
-            this.PNL_score_J2.Name = "PNL_score_J2";
-            this.PNL_score_J2.Size = new System.Drawing.Size(435, 91);
-            this.PNL_score_J2.TabIndex = 48;
-            this.PNL_score_J2.Visible = false;
-            // 
-            // LB_score_name2
-            // 
-            this.LB_score_name2.AutoSize = true;
-            this.LB_score_name2.Font = new System.Drawing.Font("Calibri", 22F);
-            this.LB_score_name2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.LB_score_name2.Location = new System.Drawing.Point(-7, -10);
-            this.LB_score_name2.Name = "LB_score_name2";
-            this.LB_score_name2.Size = new System.Drawing.Size(115, 37);
-            this.LB_score_name2.TabIndex = 31;
-            this.LB_score_name2.Text = "Joueur2";
-            // 
             // LB_score_26
             // 
             this.LB_score_26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(177)))), ((int)(((byte)(84)))));
@@ -742,32 +913,6 @@
             this.LB_score_21.TabIndex = 25;
             this.LB_score_21.Text = "0";
             this.LB_score_21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PNL_score_J1
-            // 
-            this.PNL_score_J1.Controls.Add(this.LB_score_name1);
-            this.PNL_score_J1.Controls.Add(this.LB_score_16);
-            this.PNL_score_J1.Controls.Add(this.LB_score_13);
-            this.PNL_score_J1.Controls.Add(this.LB_score_14);
-            this.PNL_score_J1.Controls.Add(this.LB_score_15);
-            this.PNL_score_J1.Controls.Add(this.LB_score_12);
-            this.PNL_score_J1.Controls.Add(this.LB_score_11);
-            this.PNL_score_J1.Location = new System.Drawing.Point(50, 120);
-            this.PNL_score_J1.Name = "PNL_score_J1";
-            this.PNL_score_J1.Size = new System.Drawing.Size(435, 91);
-            this.PNL_score_J1.TabIndex = 47;
-            this.PNL_score_J1.Visible = false;
-            // 
-            // LB_score_name1
-            // 
-            this.LB_score_name1.AutoSize = true;
-            this.LB_score_name1.Font = new System.Drawing.Font("Calibri", 22F);
-            this.LB_score_name1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
-            this.LB_score_name1.Location = new System.Drawing.Point(-7, -10);
-            this.LB_score_name1.Name = "LB_score_name1";
-            this.LB_score_name1.Size = new System.Drawing.Size(115, 37);
-            this.LB_score_name1.TabIndex = 31;
-            this.LB_score_name1.Text = "Joueur1";
             // 
             // LB_score_16
             // 
@@ -883,33 +1028,25 @@
             this.BT_quitScores.UseVisualStyleBackColor = true;
             this.BT_quitScores.Click += new System.EventHandler(this.BT_quitScores_Click);
             // 
-            // PNL_main
+            // PB_vLine
             // 
-            this.PNL_main.Controls.Add(this.CB_nbJoueurs);
-            this.PNL_main.Controls.Add(this.panel1);
-            this.PNL_main.Controls.Add(this.BT_start);
-            this.PNL_main.Controls.Add(this.CB_nbPoints);
-            this.PNL_main.Controls.Add(this.label1);
-            this.PNL_main.Controls.Add(this.label2);
-            this.PNL_main.Location = new System.Drawing.Point(0, 0);
-            this.PNL_main.Name = "PNL_main";
-            this.PNL_main.Size = new System.Drawing.Size(535, 662);
-            this.PNL_main.TabIndex = 50;
+            this.PB_vLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.PB_vLine.Location = new System.Drawing.Point(271, 160);
+            this.PB_vLine.Name = "PB_vLine";
+            this.PB_vLine.Size = new System.Drawing.Size(2, 15);
+            this.PB_vLine.TabIndex = 6;
+            this.PB_vLine.TabStop = false;
             // 
-            // CB_nbJoueurs
+            // PB_question
             // 
-            this.CB_nbJoueurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.CB_nbJoueurs.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CB_nbJoueurs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_nbJoueurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CB_nbJoueurs.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_nbJoueurs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.CB_nbJoueurs.FormattingEnabled = true;
-            this.CB_nbJoueurs.Location = new System.Drawing.Point(395, 305);
-            this.CB_nbJoueurs.Name = "CB_nbJoueurs";
-            this.CB_nbJoueurs.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CB_nbJoueurs.Size = new System.Drawing.Size(69, 67);
-            this.CB_nbJoueurs.TabIndex = 109;
+            this.PB_question.BackgroundImage = global::TriviaCrack.Properties.Resources.autre;
+            this.PB_question.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PB_question.Location = new System.Drawing.Point(252, 112);
+            this.PB_question.Name = "PB_question";
+            this.PB_question.Size = new System.Drawing.Size(40, 41);
+            this.PB_question.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PB_question.TabIndex = 5;
+            this.PB_question.TabStop = false;
             // 
             // panel1
             // 
@@ -938,137 +1075,6 @@
             this.BT_start.Click += new System.EventHandler(this.BT_start_Click);
             this.BT_start.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
             this.BT_start.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
-            // 
-            // CB_nbPoints
-            // 
-            this.CB_nbPoints.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.CB_nbPoints.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CB_nbPoints.DropDownWidth = 40;
-            this.CB_nbPoints.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CB_nbPoints.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CB_nbPoints.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.CB_nbPoints.FormattingEnabled = true;
-            this.CB_nbPoints.Location = new System.Drawing.Point(395, 378);
-            this.CB_nbPoints.Name = "CB_nbPoints";
-            this.CB_nbPoints.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CB_nbPoints.Size = new System.Drawing.Size(69, 67);
-            this.CB_nbPoints.TabIndex = 110;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.label1.Location = new System.Drawing.Point(58, 378);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 67);
-            this.label1.TabIndex = 112;
-            this.label1.Text = "Points pour gagner";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.label2.Location = new System.Drawing.Point(58, 305);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(331, 67);
-            this.label2.TabIndex = 111;
-            this.label2.Text = "Nombre de joueurs";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // PNL_nameSelection
-            // 
-            this.PNL_nameSelection.Controls.Add(this.BT_addPlayer);
-            this.PNL_nameSelection.Controls.Add(this.TB_newName);
-            this.PNL_nameSelection.Controls.Add(this.LB_nameCount);
-            this.PNL_nameSelection.Controls.Add(this.LB_newName_error);
-            this.PNL_nameSelection.Location = new System.Drawing.Point(0, 0);
-            this.PNL_nameSelection.Name = "PNL_nameSelection";
-            this.PNL_nameSelection.Size = new System.Drawing.Size(535, 662);
-            this.PNL_nameSelection.TabIndex = 51;
-            // 
-            // BT_addPlayer
-            // 
-            this.BT_addPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_addPlayer.BackgroundImage = global::TriviaCrack.Properties.Resources.addPlayer_darkgrey;
-            this.BT_addPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_addPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_addPlayer.Enabled = false;
-            this.BT_addPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_addPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BT_addPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_addPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_addPlayer.Location = new System.Drawing.Point(58, 537);
-            this.BT_addPlayer.Name = "BT_addPlayer";
-            this.BT_addPlayer.Size = new System.Drawing.Size(427, 87);
-            this.BT_addPlayer.TabIndex = 115;
-            this.BT_addPlayer.UseVisualStyleBackColor = false;
-            this.BT_addPlayer.Click += new System.EventHandler(this.BT_addPlayer_Click);
-            this.BT_addPlayer.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
-            this.BT_addPlayer.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
-            // 
-            // TB_newName
-            // 
-            this.TB_newName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.TB_newName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TB_newName.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TB_newName.ForeColor = System.Drawing.Color.White;
-            this.TB_newName.Location = new System.Drawing.Point(58, 303);
-            this.TB_newName.Name = "TB_newName";
-            this.TB_newName.Size = new System.Drawing.Size(427, 66);
-            this.TB_newName.TabIndex = 1;
-            this.TB_newName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TB_newName.TextChanged += new System.EventHandler(this.TB_newName_TextChanged);
-            this.TB_newName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_newName_KeyPress);
-            // 
-            // LB_nameCount
-            // 
-            this.LB_nameCount.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_nameCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.LB_nameCount.Location = new System.Drawing.Point(58, 237);
-            this.LB_nameCount.Name = "LB_nameCount";
-            this.LB_nameCount.Size = new System.Drawing.Size(427, 55);
-            this.LB_nameCount.TabIndex = 0;
-            this.LB_nameCount.Text = "Nom du premier joueur";
-            this.LB_nameCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LB_newName_error
-            // 
-            this.LB_newName_error.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LB_newName_error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(67)))), ((int)(((byte)(67)))));
-            this.LB_newName_error.Location = new System.Drawing.Point(58, 492);
-            this.LB_newName_error.Name = "LB_newName_error";
-            this.LB_newName_error.Size = new System.Drawing.Size(427, 42);
-            this.LB_newName_error.TabIndex = 116;
-            this.LB_newName_error.Text = "Nom invalide";
-            this.LB_newName_error.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LB_newName_error.Visible = false;
-            // 
-            // PNL_category
-            // 
-            this.PNL_category.Controls.Add(this.label3);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_art);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_divertissement);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_sport);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_histoire);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_geographie);
-            this.PNL_category.Controls.Add(this.BT_chooseCategory_science);
-            this.PNL_category.Location = new System.Drawing.Point(0, 0);
-            this.PNL_category.Name = "PNL_category";
-            this.PNL_category.Size = new System.Drawing.Size(535, 662);
-            this.PNL_category.TabIndex = 52;
-            this.PNL_category.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(535, 71);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Choisissez votre catégorie";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BT_chooseCategory_art
             // 
@@ -1214,10 +1220,25 @@
             this.BT_chooseCategory_science.MouseLeave += new System.EventHandler(this.BT_chooseCategory_MouseLeave);
             this.BT_chooseCategory_science.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BT_chooseCategory_MouseUp);
             // 
-            // BW_rotateWheel
+            // BT_addPlayer
             // 
-            this.BW_rotateWheel.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BW_rotateWheel_DoWork);
-            this.BW_rotateWheel.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BW_rotateWheel_RunWorkerCompleted);
+            this.BT_addPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_addPlayer.BackgroundImage = global::TriviaCrack.Properties.Resources.addPlayer_darkgrey;
+            this.BT_addPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_addPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_addPlayer.Enabled = false;
+            this.BT_addPlayer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_addPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_addPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_addPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_addPlayer.Location = new System.Drawing.Point(58, 537);
+            this.BT_addPlayer.Name = "BT_addPlayer";
+            this.BT_addPlayer.Size = new System.Drawing.Size(427, 87);
+            this.BT_addPlayer.TabIndex = 115;
+            this.BT_addPlayer.UseVisualStyleBackColor = false;
+            this.BT_addPlayer.Click += new System.EventHandler(this.BT_addPlayer_Click);
+            this.BT_addPlayer.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
+            this.BT_addPlayer.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
             // 
             // Game
             // 
@@ -1225,12 +1246,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_wheel);
             this.Controls.Add(this.PNL_scores);
             this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_category);
             this.Controls.Add(this.PNL_nameSelection);
-            this.Controls.Add(this.PNL_wheel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(550, 700);
@@ -1239,12 +1260,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trivia Crack 2.0";
             this.PNL_questions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_question)).EndInit();
             this.PNL_wheel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).EndInit();
-            this.PB_wheel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).EndInit();
             this.PNL_scores.ResumeLayout(false);
             this.PNL_score_J4.ResumeLayout(false);
             this.PNL_score_J4.PerformLayout();
@@ -1254,11 +1270,16 @@
             this.PNL_score_J2.PerformLayout();
             this.PNL_score_J1.ResumeLayout(false);
             this.PNL_score_J1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).EndInit();
             this.PNL_main.ResumeLayout(false);
             this.PNL_nameSelection.ResumeLayout(false);
             this.PNL_nameSelection.PerformLayout();
             this.PNL_category.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_wheel)).EndInit();
+            this.PB_wheel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_triangle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_score)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_question)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1339,6 +1360,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BT_nextTurn;
         private System.ComponentModel.BackgroundWorker BW_rotateWheel;
+        private System.Windows.Forms.Button BT_showOptions;
     }
 }
 
