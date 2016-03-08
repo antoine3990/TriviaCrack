@@ -29,5 +29,10 @@ namespace TriviaCrack
         /// Incrémente de un(1) le nombre de points de la catégorie.
         /// </summary>
         public void addPoint() { points++; }
+
+        /// <summary>
+        /// Réinitialise les points de la catégorie à zéro.
+        /// </summary>
+        public void resetPoint() { points = 0; }
     }
 }

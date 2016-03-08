@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.DataAccess;
 
 namespace TriviaCrack
 {
@@ -61,8 +62,6 @@ namespace TriviaCrack
                 categories.Add(new Category("Art", (int)Category.colors.orange));
 
                 // Get les catégories de la BD --------------------------- GET BD
-                // Get les questions pour tout les catégories
-                // Get les réponses pour tout les questions
             }
             catch (InvalidOperationException ioe)
             {
@@ -79,6 +78,24 @@ namespace TriviaCrack
                     return c;
 
             return null;
+        }
+
+        public static List<string> getPlayers()
+        {
+            List<string> names = new List<string>();
+
+            // Get la liste de tout les joueurs dans la bd ---------------------- GET BD
+
+            return names;
+        }
+
+        public static int getPosPlayer(string name_)
+        {
+            for (int i = 0; i < players.Count; i++)
+                if (players[i].name == name_)
+                    return i;
+
+            return -1;
         }
     }
 }

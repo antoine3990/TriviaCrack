@@ -78,5 +78,16 @@ namespace TriviaCrack
 
             return exists;
         }
+
+        /// <summary>
+        /// Réinitialiser les points à zéro.
+        /// </summary>
+        public void resetPoints()
+        {
+            foreach (Points p in points)
+                p.resetPoint();
+
+            // Update points du joueur --------------------------------------------------- UPDATE BD
+        }
     }
 }

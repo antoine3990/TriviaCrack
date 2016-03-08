@@ -198,8 +198,17 @@ namespace TriviaCrack
 
             string[] indexes = { "deux", "trois", "quatre" };
             LB_nameSelectionNote.Text = LB_nameSelectionNote.Text.Replace("{0}", indexes[Program.nbPlayers - 2]);
-            PNL_nameSelectionMethod.Visible = true;
-            PNL_nameSelectionMethod.BringToFront();
+
+            if (Program.getPlayers().Count < 2)
+            {
+                PNL_nameSelection.Visible = true;
+                PNL_nameSelection.BringToFront();
+            }
+            else
+            {
+                PNL_nameSelectionMethod.Visible = true;
+                PNL_nameSelectionMethod.BringToFront();
+            }
         }
         private void BT_showOptions_Click(object sender, EventArgs e)
         {
@@ -816,12 +825,45 @@ namespace TriviaCrack
             PNL_nameSelection_Exists.Visible = true;
             PNL_nameSelection_Exists.BringToFront();
 
-            // Get tout les joueurs sauf ceux déja sélectionné et les mettres dans CB_namePlayer
+            fillCBplayers();
         }
 
         private void BT_selectPlayer_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Program.players.Add(new Player(CB_namePlayer.Text)); // Ajoute le nom à la liste.
 
+                if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
+                {
+                    PNL_nameSelection_Exists.Visible = false; // Fermer ce menu
+                    showPlayerScores();
+                    changePlayer();
+                }
+                else Program.changePlayer(); // Prochain Joueur
+            }
+            catch (InvalidOperationException ioe)
+            {
+                MessageBox.Show(ioe.Message.ToString());
+            }
+
+            string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
+            LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
+
+            fillCBplayers();
+        }
+
+        /// <summary>
+        /// Rempli le combobox contenant le nom des joueurs présents dans la base de données.
+        /// </summary>
+        private void fillCBplayers()
+        {
+            List<string> names = Program.getPlayers();
+
+            CB_namePlayer.Items.Clear();
+            for (int i = 0; i < names.Count; i++)
+                if (Program.getPosPlayer(names[i]) == -1)
+                    CB_namePlayer.Items.Add(names[i]);
         }
     }
 }
