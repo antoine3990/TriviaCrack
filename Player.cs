@@ -9,51 +9,34 @@ namespace TriviaCrack
     /// <summary>
     /// Contient les informations d'un joueur; son nom et ses points.
     /// </summary>
-    class Player
+    static class Player
     {
-        private string Name; // Nom du joueur
-        
-        // Accesseurs/Mutateurs
-        public string name {
-            get { return Name; }
-            private set
-            {
-                if (value.Length <= Program.maxTextLength)
-                    Name = value;
-                else
-                    throw new InvalidOperationException("Le nom du joueur contient trop de caractères.");
-            }
+        public static void add(string name)
+        {
+            // -------------------------------------------------------------------------- INSERT BD (nom du joueur)
         }
 
         /// <summary>
-        /// Constructeur paramétrique d'un joueur.
+        /// 
         /// </summary>
-        /// <param name="name_">Nom du joueur</param>
-        public Player(string name_)
+        /// <param name="name"></param>
+        public static void remove(string name)
         {
-            name = name_;
-
-            // ---------------------------------------------------------------------------------------------- INSERT BD (Insert into joueur)
+            // -------------------------------------------------------------------------- DELETE BD (nom du joueur)
         }
 
-        /// <summary>
-        /// Ajoute un point dans la catégorie passée en paramètre.
-        /// </summary>
-        /// <param name="category">La catégorie du point à ajouter</param>
-        public void addPoint(string category)
+        public static List<string> get()
         {
-            int pos = Program.categories.IndexOf(category);
+            // -------------------------------------------------------------------------- GET BD (joueurs)
 
-            if (pos != -1)
-                Points.add(category, name);
-            else
-                throw new InvalidOperationException("La catégorie entrée est invalide.");
+            return new List<string>();
         }
 
         /// <summary>
         /// Réinitialise les points du joueur à zéro.
         /// </summary>
-        public void resetPoints()
+        /// <param name="name"></param>
+        public static void resetPoints(string name)
         {
             for (int i = 0; i < Program.categories.Count; i++)
                 Points.reset(Program.categories[i], name);

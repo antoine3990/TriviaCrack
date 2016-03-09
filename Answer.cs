@@ -51,15 +51,29 @@ namespace TriviaCrack
         /// </summary>
         /// <param name="question"></param>
         /// <param name="answer"></param>
-        /// <param name="correct"></param>
         public static void modify(string question, string answer)
         {
             // -------------------------------------------------------------------- UPDATE BD (modifier état réponse)
         }
 
-        public static void add(string question, string answer, bool correct)
+        public static void removeCorrect(string question)
         {
+            // -------------------------------------------------------------------- UPDATE BD (modifier l'état de la réponse qui a 'O' comme état)
+        }
+
+        public static void add(string question, string answer, char correct)
+        {
+            if (correct == 'O')
+                removeCorrect(question);
+
             // -------------------------------------------------------------------- INSERT BD (ajout réponse à la question)
+        }
+
+        public static int count(string question)
+        {
+            // -------------------------------------------------------------------- GET BD (count du nombre de réponse de la question)
+
+            return 0;
         }
     }
 }

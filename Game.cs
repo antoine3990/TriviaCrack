@@ -161,7 +161,10 @@ namespace TriviaCrack
 
             try
             {
-                Button correct = getCorrectAnswer(LB_category.Text, LB_question.Text);
+                Button correct = getCorrectAnswer(LB_question.Text);
+                if (correct == null)
+                    throw new InvalidOperationException("Aucune réponse correcte.");
+
                 if (!answerClicked)
                 {
                     if (correct.Name == sender.Name)
@@ -199,7 +202,7 @@ namespace TriviaCrack
             string[] indexes = { "deux", "trois", "quatre" };
             LB_nameSelectionNote.Text = LB_nameSelectionNote.Text.Replace("{0}", indexes[Program.nbPlayers - 2]);
 
-            if (Program.getPlayers().Count < 2)
+            if (Player.get().Count < 2)
             {
                 PNL_nameSelection.Visible = true;
                 PNL_nameSelection.BringToFront();
@@ -298,7 +301,7 @@ namespace TriviaCrack
                     MessageBox.Show(nre.Message.ToString());
                 }
                 
-                LB_pointsCategory.Text = Points.get(category); // Afficher le score du joueur
+                LB_pointsCategory.Text = Points.get(category, Program.players[Program.currentPlayer]).ToString(); // Afficher le score du joueur
             }
         }
 
@@ -310,12 +313,12 @@ namespace TriviaCrack
         /// La question choisie au hasard selon la catégorie 
         /// OU null (si la catégorie est inexistante)
         /// </returns>
-        private Question showQuestion(string category)
+        private string showQuestion(string category)
         {
             try
             {
-                Question question = Program.getCategory(category).getQuestion();
-                LB_question.Text = question.name;
+                string question = Question.get(category);
+                LB_question.Text = question;
                 return question;
             }
             catch (NullReferenceException)
@@ -330,13 +333,14 @@ namespace TriviaCrack
         /// Affiche les réponses à la question dans les boutons de la fenêtre du questionnaire (PNL_question).
         /// </summary>
         /// <param name="question">La question à retrouver les réponses</param>
-        private void showAnswers(Question question)
+        private void showAnswers(string question)
         {
             if (question == null)
                 throw new NullReferenceException("La question est nulle. Impossible d'importer les réponses.");
 
-            for (int i = 0; i < question.answers.Count; i++)
-                this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = question.answers[i].name;
+            List<string> answers = Answer.get(question);
+            for (int i = 0; i < Program.nbAnswers && i < answers.Count; i++)
+                this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
         }
 
         /// <summary>
@@ -345,13 +349,12 @@ namespace TriviaCrack
         /// <param name="category">Nom de la catégorie</param>
         /// <param name="question">Texte de la question</param>
         /// <returns></returns>
-        private Button getCorrectAnswer(string category, string question)
+        private Button getCorrectAnswer(string question)
         {
             try
             {
-                List<Answer> answers = Program.getCategory(category).getQuestion(question).answers;
-                for (int i = 0; i < answers.Count; i++)
-                    if (answers[i].correct)
+                for (int i = 0; i < Answer.count(question); i++)
+                    if (this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Text == Answer.getCorrect(question))
                         return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
             }
             catch (InvalidOperationException ioe)
@@ -370,9 +373,9 @@ namespace TriviaCrack
         private void correctAnswer(Button sender)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
-            Program.players[Program.currentPlayer].points.add(getCategoryFromAngle(currentRotation));
+            Points.add(getCategoryFromAngle(currentRotation), Program.players[Program.currentPlayer]);
 
-            LB_pointsCategory.Text = getCategoryPoints(getCategoryFromAngle(currentRotation));
+            LB_pointsCategory.Text = Points.get(getCategoryFromAngle(currentRotation), Program.players[Program.currentPlayer]).ToString();
             LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
             Update();
         }
@@ -402,7 +405,9 @@ namespace TriviaCrack
             {
                 try
                 {
-                    Program.players.Add(new Player(addUpperCase(filterName(TB_newName.Text)))); // Ajoute le nom à la liste.
+                    string name = addUpperCase(filterName(TB_newName.Text));
+                    Player.add(name);
+                    Program.players.Add(name); // Ajoute le nom à la liste.
 
                     if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
                     {
@@ -439,10 +444,10 @@ namespace TriviaCrack
             for (int i = 1; i <= Program.players.Count; i++)
             {
                 this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1].name;
-                
+                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1];
+
                 for (int j = 1; j <= Program.categories.Count; j++)
-                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Program.players[i - 1].points[j - 1].points.ToString();
+                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Points.get(Program.categories[j], Program.players[i - 1]).ToString();
             }
         }
         
@@ -718,35 +723,13 @@ namespace TriviaCrack
         }
 
         /// <summary>
-        /// Trouve le nombre de points du joueur courant selon la catégorie passée en paramètre.
-        /// </summary>
-        /// <param name="category">Nom de la catégorie</param>
-        /// <returns>Le pointage du joueur dans la catégorie choisie</returns>
-        private string getCategoryPoints(string category)
-        {
-            int points = Points.get(category);
-
-            try
-            {
-                if (points != -1)
-                    return Program.players[Program.currentPlayer].points[points].points.ToString();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Aucun joueurs");
-            }
-
-            return "0";
-        }
-
-        /// <summary>
         /// Change de joueur. S'exécute lorsqu'un joueur sélectionne une mauvaise réponse.
         /// </summary>
         private void changePlayer()
         {
             Program.changePlayer();
-            LB_questions_playerName.Text = Program.players[Program.currentPlayer].name;
-            LB_wheel_playerName.Text = Program.players[Program.currentPlayer].name;
+            LB_questions_playerName.Text = Program.players[Program.currentPlayer];
+            LB_wheel_playerName.Text = Program.players[Program.currentPlayer];
             Update();
         }
 
@@ -819,7 +802,7 @@ namespace TriviaCrack
         {
             try
             {
-                Program.players.Add(new Player(CB_namePlayer.Text)); // Ajoute le nom à la liste.
+                Program.players.Add(CB_namePlayer.Text); // Ajoute le nom à la liste.
 
                 if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
                 {
@@ -845,11 +828,11 @@ namespace TriviaCrack
         /// </summary>
         private void fillCBplayers()
         {
-            List<string> names = Program.getPlayers();
+            List<string> names = Player.get();
 
             CB_namePlayer.Items.Clear();
             for (int i = 0; i < names.Count; i++)
-                if (Program.getPosPlayer(names[i]) == -1)
+                if (Program.players.IndexOf(names[i]) == -1)
                     CB_namePlayer.Items.Add(names[i]);
         }
     }

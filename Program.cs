@@ -16,7 +16,7 @@ namespace TriviaCrack
         public static int maxTextLength = 60; // Longeur maximale des questions/réponses
         public const int nbAnswers = 4; // Nombre de questions
 
-        public static List<Player> players = new List<Player>();
+        public static List<string> players = new List<string>();
         public static List<string> categories = new List<string>();
 
         public static int nbPlayers { get; set; }
@@ -33,8 +33,8 @@ namespace TriviaCrack
 
             // TEST
             //nbPlayers = 2;
-            //players.Add(new Player("Antoine"));
-            //players.Add(new Player("Samuel"));
+            //players.Add("Antoine");
+            //players.Add("Samuel");
 
             int minPlayers = 2;
             int maxPlayers = 4;
@@ -72,24 +72,6 @@ namespace TriviaCrack
             }
 
             return categories;
-        }
-
-        public static List<string> getPlayers()
-        {
-            List<string> names = new List<string>();
-
-            // Get la liste de tout les joueurs dans la bd --------------------------------------------------------------------- GET BD
-
-            return names;
-        }
-
-        public static int indexOf(string toFind, List<string> list)
-        {
-            for (int i = 0; i < list.Count; i++)
-                if (list[i] == toFind)
-                    return i;
-
-            return -1;
         }
     }
 }
