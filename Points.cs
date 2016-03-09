@@ -9,30 +9,39 @@ namespace TriviaCrack
     /// <summary>
     /// Contient le pointage pour une catégorie.
     /// </summary>
-    class Points
+    static class Points
     {
-        public int points { get;  private set; } // Nombre de points
-        public Category category { get; private set; } // Catégorie
-
         /// <summary>
-        /// Constructeur paramétrique d'un pointage d'une catégorie.
+        /// Réinitialise les points de la catégorie à zéro.
         /// </summary>
-        /// <param name="category_">Nom de la catégorie</param>
-        /// <param name="points_">Nombre de points</param>
-        public Points(Category category_, int points_ = 0)
+        /// <param name="category">Nom de la catégorie</param>
+        /// <param name="playerName">Nom du joueur</param>
+        public static void reset(string category, string playerName)
         {
-            category = category_;
-            points = points_;
+            // --------------------------------------------------------- UPDATE BD (point de la catégorie = 0)
         }
 
         /// <summary>
         /// Incrémente de un(1) le nombre de points de la catégorie.
         /// </summary>
-        public void addPoint() { points++; }
+        /// <param name="category">Nom de la catégorie</param>
+        /// <param name="playerName">Nom du joueur</param>
+        public static void add(string category, string playerName)
+        {
+            // --------------------------------------------------------- UPDATE BD (point de la catégorie + 1)
+        }
 
         /// <summary>
-        /// Réinitialise les points de la catégorie à zéro.
+        /// Cherche le pointage du joueur selon la catégorie passée en paramètre.
         /// </summary>
-        public void resetPoint() { points = 0; }
+        /// <param name="category">Nom de la catégorie</param>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <returns>Le pointage de la catégorie</returns>
+        public static int get(string category, string playerName)
+        {
+            // --------------------------------------------------------- GET BD (point de la catégorie)
+
+            return -1;
+        }
     }
 }

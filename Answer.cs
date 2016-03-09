@@ -9,53 +9,57 @@ namespace TriviaCrack
     /// <summary>
     /// Contient une réponse à une question; son nom et son état(bonne/mauvaise).
     /// </summary>
-    class Answer
+    static class Answer
     {
-        private string Name; // Texte de la réponse
-        public bool correct { get; private set; } // L'état de la réponse (Bonne/mauvaise)
-
-        // Accesseurs/Mutateurs
-        public string name
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="question"></param>
+        /// <returns></returns>
+        public static List<string> get(string question)
         {
-            get { return Name; }
-            private set
-            {
-                if (value.Length <= Program.maxTextLength)
-                    Name = value;
-                else
-                    throw new InvalidOperationException("La réponse contient trop de caractères.");
-            }
+            // -------------------------------------------------------------------- GET BD (réponses)
+
+            return new List<string>();
         }
 
         /// <summary>
-        /// Constructeur paramétrique d'une réponse.
+        /// 
         /// </summary>
-        /// <param name="name_">Texte de la réponse</param>
-        /// <param name="correct_">État de la question</param>
-        public Answer(string name_, bool correct_ = false)
+        /// <param name="question"></param>
+        /// <returns></returns>
+        public static string getCorrect(string question)
         {
-            name = name_;
-            correct = correct_;
+            // -------------------------------------------------------------------- GET BD (réponse correcte)
+
+            return "";
         }
 
         /// <summary>
-        /// Modifie le texte et l'état de la réponse.
+        /// 
         /// </summary>
-        /// <param name="name_">Texte de la réponse à modifier</param>
-        /// <param name="correct_">État, vrai si la réponse est bonne</param>
-        public void modify(string name_, bool correct_)
+        /// <param name="question"></param>
+        /// <param name="answer"></param>
+        /// <param name="newAnswer"></param>
+        public static void modify(string question, string answer, string newAnswer)
         {
-            name = name_;
-            correct = correct_;
+            // -------------------------------------------------------------------- UPDATE BD (modifier réponse de question)
         }
 
         /// <summary>
-        /// Modifie l'état de la réponse.
+        /// Modifie l'état de la question (correcte/incorrecte).
         /// </summary>
-        /// <param name="correct_">État, vrai si la réponse est bonne</param>
-        public void modify(bool correct_)
+        /// <param name="question"></param>
+        /// <param name="answer"></param>
+        /// <param name="correct"></param>
+        public static void modify(string question, string answer)
         {
-            correct = correct_;
+            // -------------------------------------------------------------------- UPDATE BD (modifier état réponse)
+        }
+
+        public static void add(string question, string answer, bool correct)
+        {
+            // -------------------------------------------------------------------- INSERT BD (ajout réponse à la question)
         }
     }
 }

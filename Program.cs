@@ -9,11 +9,15 @@ namespace TriviaCrack
 {
     static class Program
     {
+        /// <summary>
+        /// Position des catégories (en degrées) sur la roue.
+        /// </summary>
+        public enum degrees : int { SCIENCE = 334, DIVERTISSEMENT = 26, GEOGRAPHIE = 77, HISTOIRE = 128, AUTRE = 180, SPORT = 231, ART = 283 };
         public static int maxTextLength = 60; // Longeur maximale des questions/réponses
         public const int nbAnswers = 4; // Nombre de questions
 
         public static List<Player> players = new List<Player>();
-        public static List<Category> categories = new List<Category>();
+        public static List<string> categories = new List<string>();
 
         public static int nbPlayers { get; set; }
         public static int pointsToWin { get; set; }
@@ -26,7 +30,6 @@ namespace TriviaCrack
         static void Main()
         {
             currentPlayer = 0;
-            categories = getCategories();
 
             // TEST
             //nbPlayers = 2;
@@ -48,20 +51,20 @@ namespace TriviaCrack
             currentPlayer = currentPlayer != nbPlayers - 1? currentPlayer + 1 : 0;
         }
 
-        private static List<Category> getCategories()
+        private static List<string> getCategories()
         {
-            List<Category> categories = new List<Category>();
+            List<string> categories = new List<string>();
 
             try
             {
-                categories.Add(new Category("Science", (int)Category.colors.blue));
-                categories.Add(new Category("Divertissement", (int)Category.colors.pink));
-                categories.Add(new Category("Géographie", (int)Category.colors.green));
-                categories.Add(new Category("Histoire", (int)Category.colors.purple));
-                categories.Add(new Category("Sport", (int)Category.colors.red));
-                categories.Add(new Category("Art", (int)Category.colors.orange));
+                categories.Add("Science");
+                categories.Add("Divertissement");
+                categories.Add("Géographie");
+                categories.Add("Histoire");
+                categories.Add("Sport");
+                categories.Add("Art");
 
-                // Get les catégories de la BD --------------------------- GET BD
+                // Get les catégories de la BD --------------------------------------------------------------------------------- GET BD
             }
             catch (InvalidOperationException ioe)
             {
@@ -71,28 +74,19 @@ namespace TriviaCrack
             return categories;
         }
 
-        public static Category getCategory(string name_)
-        {
-            foreach (Category c in categories)
-                if (c.name == name_)
-                    return c;
-
-            return null;
-        }
-
         public static List<string> getPlayers()
         {
             List<string> names = new List<string>();
 
-            // Get la liste de tout les joueurs dans la bd ---------------------- GET BD
+            // Get la liste de tout les joueurs dans la bd --------------------------------------------------------------------- GET BD
 
             return names;
         }
 
-        public static int getPosPlayer(string name_)
+        public static int indexOf(string toFind, List<string> list)
         {
-            for (int i = 0; i < players.Count; i++)
-                if (players[i].name == name_)
+            for (int i = 0; i < list.Count; i++)
+                if (list[i] == toFind)
                     return i;
 
             return -1;

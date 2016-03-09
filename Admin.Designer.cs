@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DGV_questions = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.BT_modifyQuestion = new System.Windows.Forms.Button();
-            this.BT_deleteQuestion = new System.Windows.Forms.Button();
-            this.BT_addQuestion = new System.Windows.Forms.Button();
             this.LB_categories = new System.Windows.Forms.ListBox();
+            this.BT_modify = new System.Windows.Forms.Button();
+            this.BT_delete = new System.Windows.Forms.Button();
+            this.BT_add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_questions)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,56 +75,6 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Questions";
             // 
-            // BT_modifyQuestion
-            // 
-            this.BT_modifyQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_modifyQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_modifyQuestion.Enabled = false;
-            this.BT_modifyQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_modifyQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_modifyQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BT_modifyQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_modifyQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.BT_modifyQuestion.Image = global::TriviaCrack.Properties.Resources.edit;
-            this.BT_modifyQuestion.Location = new System.Drawing.Point(479, 16);
-            this.BT_modifyQuestion.Name = "BT_modifyQuestion";
-            this.BT_modifyQuestion.Size = new System.Drawing.Size(60, 60);
-            this.BT_modifyQuestion.TabIndex = 6;
-            this.BT_modifyQuestion.UseVisualStyleBackColor = true;
-            // 
-            // BT_deleteQuestion
-            // 
-            this.BT_deleteQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_deleteQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_deleteQuestion.Enabled = false;
-            this.BT_deleteQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_deleteQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_deleteQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BT_deleteQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_deleteQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.BT_deleteQuestion.Image = global::TriviaCrack.Properties.Resources.delete;
-            this.BT_deleteQuestion.Location = new System.Drawing.Point(550, 16);
-            this.BT_deleteQuestion.Name = "BT_deleteQuestion";
-            this.BT_deleteQuestion.Size = new System.Drawing.Size(60, 60);
-            this.BT_deleteQuestion.TabIndex = 5;
-            this.BT_deleteQuestion.UseVisualStyleBackColor = true;
-            // 
-            // BT_addQuestion
-            // 
-            this.BT_addQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_addQuestion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_addQuestion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_addQuestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.BT_addQuestion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.BT_addQuestion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_addQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.BT_addQuestion.Image = global::TriviaCrack.Properties.Resources.add;
-            this.BT_addQuestion.Location = new System.Drawing.Point(408, 16);
-            this.BT_addQuestion.Name = "BT_addQuestion";
-            this.BT_addQuestion.Size = new System.Drawing.Size(60, 60);
-            this.BT_addQuestion.TabIndex = 4;
-            this.BT_addQuestion.UseVisualStyleBackColor = true;
-            // 
             // LB_categories
             // 
             this.LB_categories.BackColor = System.Drawing.Color.White;
@@ -145,6 +95,58 @@
             this.LB_categories.Size = new System.Drawing.Size(126, 280);
             this.LB_categories.TabIndex = 9;
             // 
+            // BT_modify
+            // 
+            this.BT_modify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_modify.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_modify.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_modify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_modify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BT_modify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_modify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.BT_modify.Image = global::TriviaCrack.Properties.Resources.edit;
+            this.BT_modify.Location = new System.Drawing.Point(479, 16);
+            this.BT_modify.Name = "BT_modify";
+            this.BT_modify.Size = new System.Drawing.Size(60, 60);
+            this.BT_modify.TabIndex = 6;
+            this.BT_modify.UseVisualStyleBackColor = true;
+            this.BT_modify.Click += new System.EventHandler(this.BT_addMod_Click);
+            // 
+            // BT_delete
+            // 
+            this.BT_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_delete.Enabled = false;
+            this.BT_delete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BT_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.BT_delete.Image = global::TriviaCrack.Properties.Resources.delete;
+            this.BT_delete.Location = new System.Drawing.Point(550, 16);
+            this.BT_delete.Name = "BT_delete";
+            this.BT_delete.Size = new System.Drawing.Size(60, 60);
+            this.BT_delete.TabIndex = 5;
+            this.BT_delete.UseVisualStyleBackColor = true;
+            this.BT_delete.Click += new System.EventHandler(this.BT_delete_Click);
+            // 
+            // BT_add
+            // 
+            this.BT_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_add.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.BT_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.BT_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.BT_add.Image = global::TriviaCrack.Properties.Resources.add;
+            this.BT_add.Location = new System.Drawing.Point(408, 16);
+            this.BT_add.Name = "BT_add";
+            this.BT_add.Size = new System.Drawing.Size(60, 60);
+            this.BT_add.TabIndex = 4;
+            this.BT_add.UseVisualStyleBackColor = true;
+            this.BT_add.Click += new System.EventHandler(this.BT_addMod_Click);
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,9 +156,9 @@
             this.Controls.Add(this.LB_categories);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DGV_questions);
-            this.Controls.Add(this.BT_modifyQuestion);
-            this.Controls.Add(this.BT_deleteQuestion);
-            this.Controls.Add(this.BT_addQuestion);
+            this.Controls.Add(this.BT_modify);
+            this.Controls.Add(this.BT_delete);
+            this.Controls.Add(this.BT_add);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(640, 421);
@@ -172,9 +174,9 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BT_addQuestion;
-        private System.Windows.Forms.Button BT_deleteQuestion;
-        private System.Windows.Forms.Button BT_modifyQuestion;
+        private System.Windows.Forms.Button BT_add;
+        private System.Windows.Forms.Button BT_delete;
+        private System.Windows.Forms.Button BT_modify;
         private System.Windows.Forms.DataGridView DGV_questions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox LB_categories;

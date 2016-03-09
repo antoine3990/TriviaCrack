@@ -12,8 +12,7 @@ namespace TriviaCrack
     class Player
     {
         private string Name; // Nom du joueur
-        public List<Points> points { get; private set; } // Liste de pointage des catégories
-
+        
         // Accesseurs/Mutateurs
         public string name {
             get { return Name; }
@@ -34,60 +33,30 @@ namespace TriviaCrack
         {
             name = name_;
 
-            points = new List<Points>();
-            for (int i = 0; i < Program.categories.Count; i++)
-                points.Add(new Points(Program.categories[i]));
-
-            // insert into joueur ---------------------------------------------------- INSERT BD
+            // ---------------------------------------------------------------------------------------------- INSERT BD (Insert into joueur)
         }
 
         /// <summary>
         /// Ajoute un point dans la catégorie passée en paramètre.
         /// </summary>
-        /// <param name="category_">La catégorie du point à ajouter</param>
-        public void addPoint(Category category_)
+        /// <param name="category">La catégorie du point à ajouter</param>
+        public void addPoint(string category)
         {
-            int pos = categoryPos(category_.name);
+            int pos = Program.categories.IndexOf(category);
 
             if (pos != -1)
-            {
-                points[pos].addPoint();
-                // update points du joueur ------------------------------------------- UPDATE BD
-            }
+                Points.add(category, name);
             else
                 throw new InvalidOperationException("La catégorie entrée est invalide.");
         }
 
         /// <summary>
-        /// Trouve la position d'une catégorie, selon son nom, dans la liste de catégories.
-        /// </summary>
-        /// <param name="name_">Nom de la catégorie</param>
-        /// <returns>Position (index) de la catégorie</returns>
-        private int categoryPos(string name_)
-        {
-            int exists = -1;
-
-            for (int i = 0; i < points.Count; i++)
-            {
-                if (points[i].category.name == name_)
-                {
-                    exists = i;
-                    break;
-                }
-            }
-
-            return exists;
-        }
-
-        /// <summary>
-        /// Réinitialiser les points à zéro.
+        /// Réinitialise les points du joueur à zéro.
         /// </summary>
         public void resetPoints()
         {
-            foreach (Points p in points)
-                p.resetPoint();
-
-            // Update points du joueur --------------------------------------------------- UPDATE BD
+            for (int i = 0; i < Program.categories.Count; i++)
+                Points.reset(Program.categories[i], name);
         }
     }
 }

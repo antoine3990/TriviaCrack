@@ -31,5 +31,22 @@ namespace TriviaCrack
         {
 
         }
+
+        private void BT_addMod_Click(object sender, EventArgs e)
+        {
+            AddModQuestions form;
+
+            if (((Button)sender).Name.Substring(3) == "modify")
+                form = new AddModQuestions("Histoire".ToLower().Replace("é", "e"), "Est-ce une question a poser?", new List<string>());
+            else
+                form = new AddModQuestions();
+
+            form.ShowDialog();
+        }
+
+        private void BT_delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

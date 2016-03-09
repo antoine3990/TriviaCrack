@@ -36,3 +36,4 @@ C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.Properties.Resour
 C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.csproj.GenerateResource.Cache
 C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.Admin.resources
 C:\Users\zskyl\Documents\Git\TriviaCrack\bin\Debug\Oracle.DataAccess.dll
+C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.AddModQuestions.resources

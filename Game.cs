@@ -298,7 +298,7 @@ namespace TriviaCrack
                     MessageBox.Show(nre.Message.ToString());
                 }
                 
-                LB_pointsCategory.Text = getCategoryPoints(category); // Afficher le score du joueur
+                LB_pointsCategory.Text = Points.get(category); // Afficher le score du joueur
             }
         }
 
@@ -370,7 +370,7 @@ namespace TriviaCrack
         private void correctAnswer(Button sender)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
-            Program.players[Program.currentPlayer].addPoint(Program.categories[getCategoryPos(getCategoryFromAngle(currentRotation))]);
+            Program.players[Program.currentPlayer].points.add(getCategoryFromAngle(currentRotation));
 
             LB_pointsCategory.Text = getCategoryPoints(getCategoryFromAngle(currentRotation));
             LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
@@ -699,19 +699,19 @@ namespace TriviaCrack
         {
             deg %= 360;
 
-            if (deg >= (int)Category.degrees.SCIENCE)
+            if (deg >= (int)Program.degrees.SCIENCE)
                 return "Science";
-            else if (deg >= (int)Category.degrees.ART)
+            else if (deg >= (int)Program.degrees.ART)
                 return "Divertissement";
-            else if (deg >= (int)Category.degrees.SPORT)
+            else if (deg >= (int)Program.degrees.SPORT)
                 return "Géographie";
-            else if (deg >= (int)Category.degrees.AUTRE)
+            else if (deg >= (int)Program.degrees.AUTRE)
                 return "Histoire";
-            else if (deg >= (int)Category.degrees.HISTOIRE)
+            else if (deg >= (int)Program.degrees.HISTOIRE)
                 return "Autre";
-            else if (deg >= (int)Category.degrees.GEOGRAPHIE)
+            else if (deg >= (int)Program.degrees.GEOGRAPHIE)
                 return "Sport";
-            else if (deg >= (int)Category.degrees.DIVERTISSEMENT)
+            else if (deg >= (int)Program.degrees.DIVERTISSEMENT)
                 return "Art";
             else
                 return "Science";
@@ -724,12 +724,12 @@ namespace TriviaCrack
         /// <returns>Le pointage du joueur dans la catégorie choisie</returns>
         private string getCategoryPoints(string category)
         {
-            int posCategory = getCategoryPos(category);
+            int points = Points.get(category);
 
             try
             {
-                if (posCategory != -1)
-                    return Program.players[Program.currentPlayer].points[posCategory].points.ToString();
+                if (points != -1)
+                    return Program.players[Program.currentPlayer].points[points].points.ToString();
             }
             catch (Exception)
             {
@@ -737,19 +737,6 @@ namespace TriviaCrack
             }
 
             return "0";
-        }
-
-        /// <summary>
-        /// Trouve la position de la catégorie dans la liste de catégories.
-        /// </summary>
-        /// <param name="name_">Nom de la catégorie</param>
-        /// <returns>La position de la catégorie</returns>
-        private int getCategoryPos(string name_)
-        {
-            for (int i = 0; i < Program.categories.Count; i++)
-                if (Program.categories[i].name.ToLower() == name_.ToLower()) return i;
-
-            return -1;
         }
 
         /// <summary>
