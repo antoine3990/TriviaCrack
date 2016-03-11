@@ -16,6 +16,7 @@ namespace TriviaCrack
         {
             InitializeComponent();
             initDGV(DGV_questions, "Questions");
+            initListBox();
         }
 
         void initDGV(DataGridView dgv, string name)
@@ -29,7 +30,8 @@ namespace TriviaCrack
 
         void initListBox()
         {
-
+            foreach (string c in Program.categories)
+                LB_categories.Items.Add(c);
         }
 
         private void BT_addMod_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace TriviaCrack
             AddModQuestions form;
 
             if (((Button)sender).Name.Substring(3) == "modify")
-                form = new AddModQuestions("Histoire".ToLower().Replace("é", "e"), "Est-ce une question a poser?", new List<string>());
+                form = new AddModQuestions(LB_categories.GetItemText(LB_categories.SelectedItem).ToLower().Replace("é", "e"), DGV_questions.SelectedRows[0].Cells[0].Value.ToString());
             else
                 form = new AddModQuestions();
 
@@ -46,7 +48,7 @@ namespace TriviaCrack
 
         private void BT_delete_Click(object sender, EventArgs e)
         {
-
+            Question.delete(DGV_questions.SelectedRows[0].Cells[0].Value.ToString());
         }
     }
 }

@@ -42,6 +42,10 @@
             this.LB_title = new System.Windows.Forms.Label();
             this.BT_accept = new System.Windows.Forms.Button();
             this.PB_category = new System.Windows.Forms.PictureBox();
+            this.RB_correct1 = new System.Windows.Forms.RadioButton();
+            this.RB_correct2 = new System.Windows.Forms.RadioButton();
+            this.RB_correct3 = new System.Windows.Forms.RadioButton();
+            this.RB_correct4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.PB_category)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,12 +211,56 @@
             this.PB_category.TabStop = false;
             this.PB_category.Visible = false;
             // 
+            // RB_correct1
+            // 
+            this.RB_correct1.AutoSize = true;
+            this.RB_correct1.Location = new System.Drawing.Point(493, 217);
+            this.RB_correct1.Name = "RB_correct1";
+            this.RB_correct1.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct1.TabIndex = 14;
+            this.RB_correct1.TabStop = true;
+            this.RB_correct1.UseVisualStyleBackColor = true;
+            // 
+            // RB_correct2
+            // 
+            this.RB_correct2.AutoSize = true;
+            this.RB_correct2.Location = new System.Drawing.Point(493, 256);
+            this.RB_correct2.Name = "RB_correct2";
+            this.RB_correct2.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct2.TabIndex = 15;
+            this.RB_correct2.TabStop = true;
+            this.RB_correct2.UseVisualStyleBackColor = true;
+            // 
+            // RB_correct3
+            // 
+            this.RB_correct3.AutoSize = true;
+            this.RB_correct3.Location = new System.Drawing.Point(493, 295);
+            this.RB_correct3.Name = "RB_correct3";
+            this.RB_correct3.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct3.TabIndex = 16;
+            this.RB_correct3.TabStop = true;
+            this.RB_correct3.UseVisualStyleBackColor = true;
+            // 
+            // RB_correct4
+            // 
+            this.RB_correct4.AutoSize = true;
+            this.RB_correct4.Location = new System.Drawing.Point(493, 334);
+            this.RB_correct4.Name = "RB_correct4";
+            this.RB_correct4.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct4.TabIndex = 17;
+            this.RB_correct4.TabStop = true;
+            this.RB_correct4.UseVisualStyleBackColor = true;
+            // 
             // AddModQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(538, 476);
+            this.Controls.Add(this.RB_correct4);
+            this.Controls.Add(this.RB_correct3);
+            this.Controls.Add(this.RB_correct2);
+            this.Controls.Add(this.RB_correct1);
             this.Controls.Add(this.BT_accept);
             this.Controls.Add(this.LB_title);
             this.Controls.Add(this.label6);
@@ -254,5 +302,9 @@
         private System.Windows.Forms.Label LB_title;
         private System.Windows.Forms.Button BT_accept;
         private System.Windows.Forms.PictureBox PB_category;
+        private System.Windows.Forms.RadioButton RB_correct1;
+        private System.Windows.Forms.RadioButton RB_correct2;
+        private System.Windows.Forms.RadioButton RB_correct3;
+        private System.Windows.Forms.RadioButton RB_correct4;
     }
 }

@@ -23,6 +23,11 @@ namespace TriviaCrack
             return new List<string>();
         }
 
+        public static void deleteAll(string question)
+        {
+            // -------------------------------------------------------------------- DELETE BD (tout les réponses de la question)
+        }
+
         /// <summary>
         /// 
         /// </summary>

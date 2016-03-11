@@ -19,7 +19,7 @@ namespace TriviaCrack
             InitializeComponent();
         }
 
-        public AddModQuestions(string category, string question, List<string>answers)
+        public AddModQuestions(string category, string question)
         {
             InitializeComponent();
 
@@ -34,26 +34,56 @@ namespace TriviaCrack
             BT_accept.Text = "Modifier";
 
             TB_question.Text = question;
+
+            List<string> answers = Answer.get(question);
             for (int i = 1; i < answers.Count; i++)
                 Controls["TB_answer" + i.ToString()].Text = answers[i - 1];
         }
 
         private void BT_accept_Click(object sender, EventArgs e)
         {
-            if (BT_accept.Text == "Ajouter")
-                addPlayer();
+            if (!answersNotEmpty())
+                MessageBox.Show("Réponses manquantes.");
+            else if (TB_question.Text == "")
+                MessageBox.Show("Question manquante."); 
+            else if (TB_question.Text.IndexOf('?') == -1)
+                MessageBox.Show("La question entrée n'est pas une question.");
             else
-                modPlayer();
+            {
+                if (BT_accept.Text == "Ajouter")
+                    addQuestion();
+                else
+                    modQuestion();
+            }
         }
 
-        private void addPlayer()
+        private bool answersNotEmpty()
         {
+            for (int i = 1; i < Program.nbAnswers; i++)
+                if (Controls["TB_answer" + i.ToString()].Text == "")
+                    return false;
 
+            return true;
         }
 
-        private void modPlayer()
+        private void addQuestion()
         {
+            Question.add(TB_question.Text, "Histoire");
+            addAnswers(TB_question.Text);
+        }
 
+        private void modQuestion()
+        {
+            Answer.deleteAll(originalQuestion);
+            addAnswers(originalQuestion);
+            
+            Question.modify(originalQuestion, TB_question.Text);
+        }
+
+        private void addAnswers(string question)
+        {
+            for (int i = 0; i < Program.nbAnswers; i++)
+                Answer.add(question, Controls["TB_answer" + i.ToString()].Text, ((RadioButton)Controls["CB_correct" + i.ToString()]).Checked ? 'O' : 'N');
         }
     }
 }

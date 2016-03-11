@@ -16,9 +16,9 @@ namespace TriviaCrack
         /// </summary>
         /// <param name="category">Nom de la catégorie</param>
         /// <param name="playerName">Nom du joueur</param>
-        public static void reset(string category, string playerName)
+        public static void reset(string playerName)
         {
-            // --------------------------------------------------------- UPDATE BD (point de la catégorie = 0)
+            // --------------------------------------------------------- UPDATE BD (point de tout les catégories = 0)
         }
 
         /// <summary>

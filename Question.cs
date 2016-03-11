@@ -29,6 +29,13 @@ namespace TriviaCrack
             return "";
         }
 
+        public static List<string> getAll(string category)
+        {
+            // ------------------------------------------------------------------------------------- GET BD (tout les questions de la catégorie)
+
+            return new List<string>();
+        }
+
         public static int count(string category)
         {
             // ------------------------------------------------------------------------------------- GET BD (count du nombre de questions de la catégorie)

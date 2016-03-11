@@ -31,15 +31,5 @@ namespace TriviaCrack
 
             return new List<string>();
         }
-
-        /// <summary>
-        /// Réinitialise les points du joueur à zéro.
-        /// </summary>
-        /// <param name="name"></param>
-        public static void resetPoints(string name)
-        {
-            for (int i = 0; i < Program.categories.Count; i++)
-                Points.reset(Program.categories[i], name);
-        }
     }
 }
