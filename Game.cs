@@ -95,6 +95,11 @@ namespace TriviaCrack
             sender.FlatAppearance.MouseOverBackColor = Color.FromArgb(col[0], col[1], col[2]);
             sender.FlatAppearance.BorderColor = Color.FromArgb(col[0], col[1], col[2]);
         }
+        private void LB_existPlayer_MouseEnter(object sender, EventArgs e)
+        {
+            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Underline);
+            LB_existPlayer.ForeColor = Color.White;
+        }
 
         #endregion
 
@@ -121,6 +126,11 @@ namespace TriviaCrack
             Button sender = (Button)send;
             sender.FlatAppearance.BorderColor = sender.BackColor;
         }
+        private void LB_existPlayer_MouseLeave(object sender, EventArgs e)
+        {
+            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Regular);
+            LB_existPlayer.ForeColor = Color.FromArgb(120, 120, 120);
+        }
 
         #endregion
 
@@ -138,6 +148,14 @@ namespace TriviaCrack
             Button sender = (Button)send;
             BT_chooseCategory_MouseEnter(send, new EventArgs());
             sender.ForeColor = Color.White;
+        }
+        private void LB_existPlayer_MouseDown(object sender, MouseEventArgs e)
+        {
+            LB_existPlayer.ForeColor = Color.FromArgb(160, 160, 160);
+        }
+        private void LB_existPlayer_MouseUp(object sender, MouseEventArgs e)
+        {
+            LB_existPlayer.ForeColor = Color.White;
         }
 
         #endregion
@@ -241,6 +259,45 @@ namespace TriviaCrack
         {
             BT_nextTurn.Visible = false;
             resetApp();
+        }
+
+        private void BT_newPlayer_Click(object sender, EventArgs e)
+        {
+            PNL_nameSelectionMethod.Visible = false;
+            PNL_nameSelection.Visible = true;
+            PNL_nameSelection.BringToFront();
+        }
+        private void LB_existPlayer_Click(object sender, EventArgs e)
+        {
+            PNL_nameSelectionMethod.Visible = false;
+            PNL_nameSelection_Exists.Visible = true;
+            PNL_nameSelection_Exists.BringToFront();
+
+            fillCBplayers();
+        }
+        private void BT_selectPlayer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.players.Add(CB_namePlayer.Text); // Ajoute le nom à la liste.
+
+                if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
+                {
+                    PNL_nameSelection_Exists.Visible = false; // Fermer ce menu
+                    showPlayerScores();
+                    changePlayer();
+                }
+                else Program.changePlayer(); // Prochain Joueur
+            }
+            catch (InvalidOperationException ioe)
+            {
+                MessageBox.Show(ioe.Message.ToString());
+            }
+
+            string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
+            LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
+
+            fillCBplayers();
         }
 
         #endregion
@@ -548,6 +605,19 @@ namespace TriviaCrack
             BT_addPlayer.Enabled = false;
         }
 
+        /// <summary>
+        /// Rempli le combobox contenant le nom des joueurs présents dans la base de données.
+        /// </summary>
+        private void fillCBplayers()
+        {
+            List<string> names = Player.get();
+
+            CB_namePlayer.Items.Clear();
+            for (int i = 0; i < names.Count; i++)
+                if (Program.players.IndexOf(names[i]) == -1)
+                    CB_namePlayer.Items.Add(names[i]);
+        }
+
         #endregion
 
         #region Animation de la roue
@@ -759,81 +829,5 @@ namespace TriviaCrack
         }
 
         #endregion
-        
-        private void LB_existPlayer_MouseEnter(object sender, EventArgs e)
-        {
-            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Underline);
-            LB_existPlayer.ForeColor = Color.White;
-        }
-
-        private void LB_existPlayer_MouseLeave(object sender, EventArgs e)
-        {
-            LB_existPlayer.Font = new Font(LB_existPlayer.Font.Name, LB_existPlayer.Font.SizeInPoints, FontStyle.Regular);
-            LB_existPlayer.ForeColor = Color.FromArgb(120,120,120);
-        }
-
-        private void LB_existPlayer_MouseDown(object sender, MouseEventArgs e)
-        {
-            LB_existPlayer.ForeColor = Color.FromArgb(160,160,160);
-        }
-
-        private void LB_existPlayer_MouseUp(object sender, MouseEventArgs e)
-        {
-            LB_existPlayer.ForeColor = Color.White;
-        }
-
-        private void BT_newPlayer_Click(object sender, EventArgs e)
-        {
-            PNL_nameSelectionMethod.Visible = false;
-            PNL_nameSelection.Visible = true;
-            PNL_nameSelection.BringToFront();
-        }
-
-        private void LB_existPlayer_Click(object sender, EventArgs e)
-        {
-            PNL_nameSelectionMethod.Visible = false;
-            PNL_nameSelection_Exists.Visible = true;
-            PNL_nameSelection_Exists.BringToFront();
-
-            fillCBplayers();
-        }
-
-        private void BT_selectPlayer_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Program.players.Add(CB_namePlayer.Text); // Ajoute le nom à la liste.
-
-                if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
-                {
-                    PNL_nameSelection_Exists.Visible = false; // Fermer ce menu
-                    showPlayerScores();
-                    changePlayer();
-                }
-                else Program.changePlayer(); // Prochain Joueur
-            }
-            catch (InvalidOperationException ioe)
-            {
-                MessageBox.Show(ioe.Message.ToString());
-            }
-
-            string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
-            LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
-
-            fillCBplayers();
-        }
-
-        /// <summary>
-        /// Rempli le combobox contenant le nom des joueurs présents dans la base de données.
-        /// </summary>
-        private void fillCBplayers()
-        {
-            List<string> names = Player.get();
-
-            CB_namePlayer.Items.Clear();
-            for (int i = 0; i < names.Count; i++)
-                if (Program.players.IndexOf(names[i]) == -1)
-                    CB_namePlayer.Items.Add(names[i]);
-        }
     }
 }
