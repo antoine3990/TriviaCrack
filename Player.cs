@@ -11,9 +11,13 @@ namespace TriviaCrack
     /// </summary>
     static class Player
     {
+        /// <summary>
+        /// Insère un nouveau joueur dans la base de données.
+        /// </summary>
+        /// <param name="name">Nom du joueur</param>
         public static void add(string name)
         {
-            // -------------------------------------------------------------------------- INSERT BD (nom du joueur)
+            //BD.insert();
         }
 
         /// <summary>

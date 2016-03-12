@@ -14,6 +14,13 @@ namespace TriviaCrack
     /// </summary>
     static class BD
     {
+        private static string source = "(DESCRIPTION="
+                + "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)"
+                + "(HOST=mercure.clg.qc.ca)(PORT=1521)))"
+                + "(CONNECT_DATA=(SERVICE_NAME=ORCL.clg.qc.ca)))";
+
+        public static string connString = "Data Source=" + source + ";User Id={0};Password={1};";
+
         /// <summary>
         /// Exécute une commande d'insertion dans la base de données.
         /// </summary>
@@ -22,6 +29,9 @@ namespace TriviaCrack
         /// <param name="args">Liste d'arguments en IN à passer à la base de données</param>
         public static void insert(OracleConnection conn, string package, List<Args> args) 
         {
+            if (args == null)
+                throw new InvalidOperationException("La liste d'arguments passée en paramètre est invalide (null).");
+
             conn.Open(); // Ouvrir la connection
 
             // Définition de l'insertion SQL
@@ -87,6 +97,12 @@ namespace TriviaCrack
             return cmd.Parameters[OUT.name].Value.ToString();
         }
 
+        public static int getInt(OracleConnection conn, string package, List<Args> IN, Args OUT)
+        {
+            OracleCommand cmd = getCMD(conn, package, IN, OUT);
+            return (int)cmd.Parameters[OUT.name].Value;
+        }
+
         private static OracleCommand getCMD(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = new OracleCommand(package.Substring(0, package.IndexOf('.')), conn);
@@ -95,16 +111,19 @@ namespace TriviaCrack
 
             // Argument en OUT
             OracleParameter returns = new OracleParameter(OUT.name, OUT.type);
-            returns.Direction = ParameterDirection.ReturnValue;
+            returns.Direction = OUT.direction;
             cmd.Parameters.Add(returns);
-
-            // Arguments en IN
-            foreach (Args arg in IN)
+            
+            if (IN != null)
             {
-                OracleParameter param = new OracleParameter(arg.name, arg.type);
-                param.Direction = ParameterDirection.Input;
-                param.Value = arg.value;
-                cmd.Parameters.Add(param);
+                // Arguments en IN
+                foreach (Args arg in IN)
+                {
+                    OracleParameter param = new OracleParameter(arg.name, arg.type);
+                    param.Direction = ParameterDirection.Input;
+                    param.Value = arg.value;
+                    cmd.Parameters.Add(param);
+                }
             }
 
             return cmd;
@@ -125,6 +144,27 @@ namespace TriviaCrack
             cmd.ExecuteScalar();
             return (int)cmd.Parameters[OUT.name].Value;
         }
+
+        public static List<string> toList(DataSet ds)
+        {
+            List<string> strings = new List<string>();
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+                strings.Add(dr[0].ToString());
+
+            return strings;
+        }
+
+        /// <summary>
+        /// Initialiser la connection à la base de données.
+        /// </summary>
+        /// <param name="connection">Connection à la base de données Oracle.</param>
+        /// <param name="user">Nom d'utilisateur</param>
+        /// <param name="password">Mot de passe</param>
+        public static void initConnect(OracleConnection connection, string user, string password)
+        {
+            connection.ConnectionString = string.Format(connString, user, password);
+        }
     }
 
     /// <summary>
@@ -135,6 +175,7 @@ namespace TriviaCrack
         public string name { get; private set; }
         public string value { get; private set; }
         public OracleDbType type { get; private set; }
+        public ParameterDirection direction { get; private set; }
 
         /// <summary>
         /// Constructeur paramétrique d'un argument passé en paramètre à une base de données.
@@ -142,11 +183,13 @@ namespace TriviaCrack
         /// <param name="name_">Nom du paramètre</param>
         /// <param name="value_">Valeur du paramètre</param>
         /// <param name="type_">Type du paramètre</param>
-        public Args(string name_, string value_, OracleDbType type_)
+        /// <param name="direction_">Direction du paramètre</param>
+        public Args(string name_, string value_, OracleDbType type_, ParameterDirection direction_ = ParameterDirection.Input)
         {
             name = name_;
             value = value_;
             type = type_;
+            direction = direction_;
         }
     }
 }

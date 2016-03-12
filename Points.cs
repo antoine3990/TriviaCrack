@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.DataAccess.Client;
+using System.Data;
 
 namespace TriviaCrack
 {
@@ -18,7 +20,8 @@ namespace TriviaCrack
         /// <param name="playerName">Nom du joueur</param>
         public static void reset(string playerName)
         {
-            // --------------------------------------------------------- UPDATE BD (point de tout les catégories = 0)
+            int pnum = BD.getInt(Program.conn, "JOUEUR_PAKG.GET_NUM", new List<Args>() { new Args("PNOM", playerName, OracleDbType.Varchar2) }, new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue));
+            BD.modify(Program.conn, "POINTS_PAKG.RESET_POINT", new List<Args>() { new Args("PNOM", playerName, OracleDbType.Int32) });
         }
 
         /// <summary>

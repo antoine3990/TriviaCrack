@@ -218,7 +218,7 @@ namespace TriviaCrack
             Program.pointsToWin = int.Parse(CB_nbPoints.Text);
 
             string[] indexes = { "deux", "trois", "quatre" };
-            LB_nameSelectionNote.Text = LB_nameSelectionNote.Text.Replace("{0}", indexes[Program.nbPlayers - 2]);
+            LB_nameSelectionNote.Text = string.Format(LB_nameSelectionNote.Text, indexes[Program.nbPlayers - 2]);
 
             if (Player.get().Count < 2)
             {
@@ -230,6 +230,9 @@ namespace TriviaCrack
                 PNL_nameSelectionMethod.Visible = true;
                 PNL_nameSelectionMethod.BringToFront();
             }
+
+            PNL_nameSelectionMethod.Visible = true;
+            PNL_nameSelectionMethod.BringToFront();
         }
         private void BT_showOptions_Click(object sender, EventArgs e)
         {

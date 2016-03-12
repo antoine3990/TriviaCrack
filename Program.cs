@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Oracle.DataAccess.Client;
+using System.Data;
 
 namespace TriviaCrack
 {
@@ -20,24 +22,24 @@ namespace TriviaCrack
         public static int pointsToWin { get; set; }
         public static int currentPlayer { get; private set; }
 
+        public static OracleConnection conn = new OracleConnection();
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            BD.initConnect(conn, "bonnevil", "ORACLE1");
+            categories = getCategories();
+
             currentPlayer = 0;
-
-            // TEST
-            //nbPlayers = 2;
-            //players.Add("Antoine");
-            //players.Add("Samuel");
-
+            
             int minPlayers = 2;
             int maxPlayers = 4;
             int minPoints = 2;
             int maxPoints = 5;
-            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Game(minPlayers, maxPlayers, minPoints, maxPoints));
@@ -45,7 +47,7 @@ namespace TriviaCrack
 
         public static void changePlayer()
         {
-            currentPlayer = currentPlayer != nbPlayers - 1? currentPlayer + 1 : 0;
+            currentPlayer = currentPlayer != nbPlayers - 1 ? currentPlayer + 1 : 0;
         }
 
         private static List<string> getCategories()
@@ -54,18 +56,12 @@ namespace TriviaCrack
 
             try
             {
-                categories.Add("Science");
-                categories.Add("Divertissement");
-                categories.Add("Géographie");
-                categories.Add("Histoire");
-                categories.Add("Sport");
-                categories.Add("Art");
-
-                // Get les catégories de la BD --------------------------------------------------------------------------------- GET BD
+                categories.AddRange(new string[] { "Science", "Divertissement", "Géographie", "Histoire", "Sport", "Art" });
+                //categories = BD.toList(BD.getDS(conn, "QUESTION_PAKG.GET_CATEGORIES", null, new Args("ALL_CATEGORIE", null, OracleDbType.RefCursor, ParameterDirection.Output)));
             }
-            catch (InvalidOperationException ioe)
+            catch (Exception e)
             {
-                MessageBox.Show(ioe.Message.ToString());
+                MessageBox.Show(e.Message.ToString());
             }
 
             return categories;
