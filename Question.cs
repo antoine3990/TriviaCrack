@@ -10,6 +10,11 @@ namespace TriviaCrack
     /// </summary>
     static class Question
     {
+        public static string getNum(string question)
+        {
+            return "1"; // -------------------------------------------------------------------------- GET BD (numéro de la question)
+        }
+
         public static string get(string category, string question = null)
         {
             //if (question == null)

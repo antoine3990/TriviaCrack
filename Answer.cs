@@ -16,14 +16,20 @@ namespace TriviaCrack
         /// <returns></returns>
         public static List<string> get(string question)
         {
-            // -------------------------------------------------------------------- GET BD (réponses)
+            string num = Question.getNum(question);
+            List<Args> IN = new List<Args>() { new Args("PNUM", num, OracleDbType.Int32) };
+            Args OUT = new Args("REPONSES", null, OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
-            return new List<string>();
+            // GET - Réponses à la question
+            return BD.toList(BD.getDS(Program.conn, "REPONSE_PAKG.GET_REPONSE", IN, OUT));
         }
 
         public static void deleteAll(string question)
         {
-            // -------------------------------------------------------------------- DELETE BD (tout les réponses de la question)
+            string num = Question.getNum(question);
+
+            // DELETE - Tout les réponses à la question
+            BD.delete(Program.conn, "REPONSE_PAKG.DELETE_REPONSE", new List<Args>() { new Args("NUMQ", num, OracleDbType.Int32) });
         }
 
         /// <summary>
@@ -33,9 +39,12 @@ namespace TriviaCrack
         /// <returns></returns>
         public static string getCorrect(string question)
         {
-            // -------------------------------------------------------------------- GET BD (réponse correcte)
+            string num = Question.getNum(question);
+            List<Args> IN = new List<Args>() { new Args("PNUM", num, OracleDbType.Int32) };
+            Args OUT = new Args("CORRECT", null, OracleDbType.Varchar2, ParameterDirection.ReturnValue);
 
-            return "";
+            // GET - Réponse valide de la question
+            return BD.getString(Program.conn, "REPONSE_PAKG.GET_REPONSE_C", IN, OUT);
         }
 
         /// <summary>
