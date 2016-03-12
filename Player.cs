@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Data;
+using Oracle.DataAccess.Client;
 
 namespace TriviaCrack
 {
@@ -17,23 +15,30 @@ namespace TriviaCrack
         /// <param name="name">Nom du joueur</param>
         public static void add(string name)
         {
-            //BD.insert();
+            // INSERT - joueur "name"
+            BD.insert(Program.conn, "JOUEUR_PAKG.INSERT_JOUEUR", new List<Args>() { new Args("PNOM", name, OracleDbType.Varchar2) });
         }
 
         /// <summary>
-        /// 
+        /// Supprime un joueur de la base de données.
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Nom du joueur</param>
         public static void remove(string name)
         {
-            // -------------------------------------------------------------------------- DELETE BD (nom du joueur)
+            string num = Program.getNumPlayer(name);
+
+            // DELETE - joueur "name"
+            BD.delete(Program.conn, "JOUEUR_PAKG.DELETE_JOUEUR", new List<Args>() { new Args("PNUM", num, OracleDbType.Int32) });
         }
 
+        /// <summary>
+        /// Recherche la liste de tout les joueurs présent dans la base de données.
+        /// </summary>
+        /// <returns>Liste de joueurs existants</returns>
         public static List<string> get()
         {
-            // -------------------------------------------------------------------------- GET BD (joueurs)
-
-            return new List<string>();
+            // GET - tout les joueurs
+            return BD.toList(BD.getDS(Program.conn, "JOUEUR_PAKG.GET_ALL", null, new Args("pALL_JOUEUR", null, OracleDbType.Int32, ParameterDirection.Output)));
         }
     }
 }

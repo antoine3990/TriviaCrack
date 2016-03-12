@@ -63,6 +63,16 @@ namespace TriviaCrack
             insert(conn, package, args);
         }
 
+        /// <summary>
+        /// Exécute une commande de suppression dans la base de données.
+        /// </summary>
+        /// <param name="conn">Connection à la base de données</param>
+        /// <param name="package">Nom du package et de la méthode</param>
+        /// <param name="args">Liste d'arguments en IN à passer à la base de données</param>
+        public static void delete(OracleConnection conn, string package, List<Args> args)
+        {
+            insert(conn, package, args);
+        }
 
         /// <summary>
         /// Recherche plusieurs objets dans la base de données.
