@@ -55,7 +55,9 @@ namespace TriviaCrack
         /// <param name="newAnswer"></param>
         public static void modify(string question, string answer, string newAnswer)
         {
+            List<Args> args = new List<Args>() { new Args()}
             // -------------------------------------------------------------------- UPDATE BD (modifier réponse de question)
+            BD.modify(Program.conn, "REPONSE_PAKG.UPDATE_REPONSE", args);
         }
 
         /// <summary>
