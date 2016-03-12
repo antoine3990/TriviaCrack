@@ -20,8 +20,7 @@ namespace TriviaCrack
         /// <param name="playerName">Nom du joueur</param>
         public static void reset(string playerName)
         {
-            int pnum = BD.getInt(Program.conn, "JOUEUR_PAKG.GET_NUM", new List<Args>() { new Args("PNOM", playerName, OracleDbType.Varchar2) }, new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue));
-            BD.modify(Program.conn, "POINTS_PAKG.RESET_POINT", new List<Args>() { new Args("PNOM", playerName, OracleDbType.Int32) });
+            BD.modify(Program.conn, "POINTS_PAKG.RESET_POINT", new List<Args>() { new Args("PNUM", Program.getNumPlayer(playerName), OracleDbType.Int32) });
         }
 
         /// <summary>

@@ -66,5 +66,12 @@ namespace TriviaCrack
 
             return categories;
         }
+
+        public static string getNumPlayer(string playerName)
+        {
+            return BD.getInt(conn, "JOUEUR_PAKG.GET_NUM", 
+                new List<Args>() { new Args("PNOM", playerName, OracleDbType.Varchar2) }, 
+                new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
+        }
     }
 }
