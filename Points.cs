@@ -17,7 +17,7 @@ namespace TriviaCrack
         public static void reset(string playerName)
         {
             // UPDATE - Points du joueur = 0
-            BD.modify(Program.conn, "POINTS_PAKG.RESET_POINT", new List<Args>() { new Args("PNUM", Program.getNumPlayer(playerName), OracleDbType.Int32) });
+            BD.modify(Program.conn, "POINTS_PAKG.RESET_POINT", new List<Args>() { new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32) });
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace TriviaCrack
         public static int get(string category, string playerName)
         {
             List<Args> IN = new List<Args>() {
-                new Args("PNUM", Program.getNumPlayer(playerName), OracleDbType.Int32),
+                new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)
             };
             Args OUT = new Args("POIN", null, OracleDbType.Int32, ParameterDirection.ReturnValue);

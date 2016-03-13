@@ -26,8 +26,8 @@ namespace TriviaCrack
             originalQuestion = question;
             PB_category.Image = (Image)Properties.Resources.ResourceManager.GetObject(category + "_bg");
 
-            TB_question.Location = new Point(TB_question.Location.X + 31, TB_question.Location.Y);
-            TB_question.Size = new Size(TB_question.Size.Width - 31, TB_question.Size.Height);
+            TB_question.Location = new Point(80, TB_question.Location.Y);
+            TB_question.Size = new Size(407, TB_question.Size.Height);
             PB_category.Visible = true;
 
             LB_title.Text = LB_title.Text.Replace("Ajout", "Modification");

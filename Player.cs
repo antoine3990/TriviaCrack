@@ -25,7 +25,7 @@ namespace TriviaCrack
         /// <param name="name">Nom du joueur</param>
         public static void remove(string name)
         {
-            string num = Program.getNumPlayer(name);
+            string num = Player.getNum(name);
 
             // DELETE - joueur "name"
             BD.delete(Program.conn, "JOUEUR_PAKG.DELETE_JOUEUR", new List<Args>() { new Args("PNUM", num, OracleDbType.Int32) });
@@ -38,7 +38,19 @@ namespace TriviaCrack
         public static List<string> get()
         {
             // GET - tout les joueurs
-            return BD.toList(BD.getDS(Program.conn, "JOUEUR_PAKG.GET_ALL", null, new Args("pALL_JOUEUR", null, OracleDbType.Int32, ParameterDirection.Output)));
+            return BD.toList(BD.getDS(Program.conn, "JOUEUR_PAKG.GET_ALL", null, new Args("pALL_JOUEUR", null, OracleDbType.RefCursor, ParameterDirection.Output)));
+        }
+
+        /// <summary>
+        /// Trouve le numéro unique du joueur dans la base de données selon le nom entré en paramètre.
+        /// </summary>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <returns>Numéro unique du joueur dans la base de données</returns>
+        public static string getNum(string playerName)
+        {
+            return BD.getInt(Program.conn, "JOUEUR_PAKG.GET_NUM",
+                new List<Args>() { new Args("PNOM", playerName, OracleDbType.Varchar2) },
+                new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
         }
     }
 }

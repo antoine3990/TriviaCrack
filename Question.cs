@@ -12,7 +12,9 @@ namespace TriviaCrack
     {
         public static string getNum(string question)
         {
-            return "1"; // -------------------------------------------------------------------------- GET BD (numéro de la question) --- TO DO
+            return BD.getInt(Program.conn, "QUESTION_PAKG.GET_NUM",
+                  new List<Args>() { new Args("PNOM", question, OracleDbType.Varchar2) },
+                  new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
         }
 
         public static string get(string category)

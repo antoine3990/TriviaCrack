@@ -216,7 +216,11 @@ namespace TriviaCrack
             string[] indexes = { "deux", "trois", "quatre" };
             LB_nameSelectionNote.Text = string.Format(LB_nameSelectionNote.Text, indexes[Program.nbPlayers - 2]);
 
-            if (Player.get().Count < 2)
+            int nbPlayers = 0;
+            try { nbPlayers = Player.get().Count; }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+
+            if (nbPlayers < Program.nbPlayers)
             {
                 PNL_nameSelection.Visible = true;
                 PNL_nameSelection.BringToFront();
@@ -226,9 +230,6 @@ namespace TriviaCrack
                 PNL_nameSelectionMethod.Visible = true;
                 PNL_nameSelectionMethod.BringToFront();
             }
-
-            PNL_nameSelectionMethod.Visible = true;
-            PNL_nameSelectionMethod.BringToFront();
         }
         private void BT_showOptions_Click(object sender, EventArgs e)
         {

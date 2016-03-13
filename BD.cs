@@ -84,7 +84,7 @@ namespace TriviaCrack
             DataSet ds = new DataSet();
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
             OracleDataAdapter adapt = new OracleDataAdapter(cmd);
-            adapt.Fill(ds, "0");
+            adapt.Fill(ds, "table");
             adapt.Dispose();
 
             return ds;
@@ -107,7 +107,7 @@ namespace TriviaCrack
         public static int getInt(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
-            return (int)cmd.Parameters[OUT.name].Value;
+            return int.Parse(cmd.Parameters[OUT.name].Value.ToString());
         }
 
         private static OracleCommand getCMD(OracleConnection conn, string package, List<Args> IN, Args OUT)

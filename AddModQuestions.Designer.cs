@@ -46,6 +46,7 @@
             this.RB_correct2 = new System.Windows.Forms.RadioButton();
             this.RB_correct3 = new System.Windows.Forms.RadioButton();
             this.RB_correct4 = new System.Windows.Forms.RadioButton();
+            this.CB_category = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.PB_category)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +56,9 @@
             this.TB_question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TB_question.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_question.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.TB_question.Location = new System.Drawing.Point(49, 116);
+            this.TB_question.Location = new System.Drawing.Point(98, 116);
             this.TB_question.Name = "TB_question";
-            this.TB_question.Size = new System.Drawing.Size(438, 33);
+            this.TB_question.Size = new System.Drawing.Size(389, 33);
             this.TB_question.TabIndex = 0;
             // 
             // label1
@@ -251,12 +252,28 @@
             this.RB_correct4.TabStop = true;
             this.RB_correct4.UseVisualStyleBackColor = true;
             // 
+            // CB_category
+            // 
+            this.CB_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CB_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CB_category.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_category.FormattingEnabled = true;
+            this.CB_category.IntegralHeight = false;
+            this.CB_category.ItemHeight = 23;
+            this.CB_category.Location = new System.Drawing.Point(52, 117);
+            this.CB_category.Name = "CB_category";
+            this.CB_category.Size = new System.Drawing.Size(40, 31);
+            this.CB_category.TabIndex = 18;
+            // 
             // AddModQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(538, 476);
+            this.Controls.Add(this.CB_category);
             this.Controls.Add(this.RB_correct4);
             this.Controls.Add(this.RB_correct3);
             this.Controls.Add(this.RB_correct2);
@@ -306,5 +323,6 @@
         private System.Windows.Forms.RadioButton RB_correct2;
         private System.Windows.Forms.RadioButton RB_correct3;
         private System.Windows.Forms.RadioButton RB_correct4;
+        private System.Windows.Forms.ComboBox CB_category;
     }
 }
