@@ -83,7 +83,7 @@ namespace TriviaCrack
         private void addAnswers(string question)
         {
             for (int i = 0; i < Program.nbAnswers; i++)
-                Answer.add(question, Controls["TB_answer" + i.ToString()].Text, ((RadioButton)Controls["CB_correct" + i.ToString()]).Checked ? 'O' : 'N');
+                Answer.add(question, Controls["TB_answer" + i.ToString()].Text, ((RadioButton)Controls["CB_correct" + i.ToString()]).Checked ? 'o' : 'n');
         }
     }
 }

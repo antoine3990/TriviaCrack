@@ -48,7 +48,10 @@ namespace TriviaCrack
 
         private void BT_delete_Click(object sender, EventArgs e)
         {
-            Question.delete(DGV_questions.SelectedRows[0].Cells[0].Value.ToString());
+            string question = DGV_questions.SelectedRows[0].Cells[0].Value.ToString();
+
+            Answer.deleteAll(question);
+            Question.delete(question);
         }
     }
 }

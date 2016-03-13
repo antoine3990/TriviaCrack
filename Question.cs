@@ -12,36 +12,37 @@ namespace TriviaCrack
     {
         public static string getNum(string question)
         {
-            return "1"; // -------------------------------------------------------------------------- GET BD (numéro de la question)
+            return "1"; // -------------------------------------------------------------------------- GET BD (numéro de la question) --- TO DO
         }
 
-        public static string get(string category, string question = null)
+        public static string get(string category)
         {
-            //if (question == null)
-            // ------------------------------------------------------------------------------------- GET BD (question au hasard dans la catégorie)
-            //else
-            // ------------------------------------------------------------------------------------- GET BD (question indiquée en paramètre)
+            List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
+            Args OUT = new Args("enonce", null, OracleDbType.Varchar2, ParameterDirection.ReturnValue);
 
-            return "";
+            // GET - Question au hasard
+            return BD.getString(Program.conn, "QUESTION_PAKG.QUESTION_HASARD", IN, OUT); 
         }
         
         public static string getCategory(string question)
         {
-            // ------------------------------------------------------------------------------------- GET BD (catégorie de la question)
+            List<Args> IN = new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) };
+            Args OUT = new Args("CATEGORIE_Q", null, OracleDbType.Varchar2, ParameterDirection.ReturnValue);
 
-            return "";
+            // GET - Catégorie de la question
+            return BD.getString(Program.conn, "QUESTION_PAKG.GET_CATEGORIE", IN, OUT);
         }
 
         public static List<string> getAll(string category)
         {
-            // ------------------------------------------------------------------------------------- GET BD (tout les questions de la catégorie)
+            // ------------------------------------------------------------------------------------- GET BD (tout les questions de la catégorie) --- TO DO
 
             return new List<string>();
         }
 
         public static int count(string category)
         {
-            // ------------------------------------------------------------------------------------- GET BD (count du nombre de questions de la catégorie)
+            // ------------------------------------------------------------------------------------- GET BD (count du nombre de questions de la catégorie) --- TO DO
 
             return 0;
         }
