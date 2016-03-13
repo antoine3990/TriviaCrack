@@ -34,19 +34,23 @@ namespace TriviaCrack
             // GET - Catégorie de la question
             return BD.getString(Program.conn, "QUESTION_PAKG.GET_CATEGORIE", IN, OUT);
         }
-
+        // -------------------------------------------------------------------------------------------------------------------------- TO DO (DOWN)
         public static List<string> getAll(string category)
         {
-            // ------------------------------------------------------------------------------------- GET BD (tout les questions de la catégorie) --- TO DO
+            List<Args> IN = new List<Args>() { new Args("", category, OracleDbType.Varchar2) };
+            Args OUT = new Args("", null, OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
-            return new List<string>();
+            // GET - Tout les questions de la catégorie
+            return BD.toList(BD.getDS(Program.conn, "QUESTION_PAKG.GET_ALL", IN, OUT));
         }
 
         public static int count(string category)
         {
-            // ------------------------------------------------------------------------------------- GET BD (count du nombre de questions de la catégorie) --- TO DO
-
-            return 0;
+            List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
+            Args OUT = new Args("COUNT_C", null, OracleDbType.Int32, ParameterDirection.ReturnValue);
+            
+            // GET - Compte du nombre de question de la catégorie
+            return BD.count(Program.conn, "QUESTION_PAKG.COUNT_CATEGORIE", IN, OUT);
         }
 
         /// <summary>
@@ -79,7 +83,8 @@ namespace TriviaCrack
         {
             if (count(getCategory(question)) > 0)
             {
-                // --------------------------------------------------------------------------------- DELETE BD (supprimer question)
+                // DELETE - Question 
+                BD.delete(Program.conn, "QUESTION_PAKG.DELETE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
             }
             else
                 throw new InvalidOperationException("La catégorie ne comporte aucune questions.");

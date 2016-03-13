@@ -353,9 +353,9 @@ namespace TriviaCrack
                 {
                     showAnswers(showQuestion(category)); // Afficher la question et les réponses
                 }
-                catch (NullReferenceException nre)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(nre.Message.ToString());
+                    MessageBox.Show(ex.Message.ToString());
                 }
                 
                 LB_pointsCategory.Text = Points.get(category, Program.players[Program.currentPlayer]).ToString(); // Afficher le score du joueur
@@ -498,13 +498,20 @@ namespace TriviaCrack
         /// </summary>
         private void showPlayerScores()
         {
-            for (int i = 1; i <= Program.players.Count; i++)
+            try
             {
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
-                this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1];
+                for (int i = 1; i <= Program.players.Count; i++)
+                {
+                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Visible = true;
+                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1];
 
-                for (int j = 1; j <= Program.categories.Count; j++)
-                    this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Points.get(Program.categories[j], Program.players[i - 1]).ToString();
+                    for (int j = 1; j <= Program.categories.Count; j++)
+                        this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Points.get(Program.categories[j], Program.players[i - 1]).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
         

@@ -93,9 +93,9 @@ namespace TriviaCrack
 
         public static string getNum(string answer)
         {
-            return BD.getInt(Program.conn, "REPONSE_PAKG.GET_NUM",
+            return BD.getString(Program.conn, "REPONSE_PAKG.GET_NUM",
                new List<Args>() { new Args("PNOM", answer, OracleDbType.Varchar2) },
-               new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
+               new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue));
         }
     }
 }

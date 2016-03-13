@@ -101,12 +101,22 @@ namespace TriviaCrack
         public static string getString(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
+
+            conn.Open();
+            cmd.ExecuteScalar();
+            conn.Close();
+
             return cmd.Parameters[OUT.name].Value.ToString();
         }
 
         public static int getInt(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
+
+            conn.Open();
+            cmd.ExecuteScalar();
+            conn.Close();
+
             return int.Parse(cmd.Parameters[OUT.name].Value.ToString());
         }
 
@@ -115,7 +125,7 @@ namespace TriviaCrack
             OracleCommand cmd = new OracleCommand(package.Substring(0, package.IndexOf('.')), conn);
             cmd.CommandText = package;
             cmd.CommandType = CommandType.StoredProcedure;
-
+            
             // Argument en OUT
             OracleParameter returns = new OracleParameter(OUT.name, OUT.type);
             returns.Direction = OUT.direction;
