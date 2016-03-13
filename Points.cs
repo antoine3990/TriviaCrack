@@ -28,7 +28,7 @@ namespace TriviaCrack
         public static void add(string category, string playerName)
         {
             List<Args> args = new List<Args>() {
-                new Args("PNUM", Program.getNumPlayer(playerName), OracleDbType.Int32),
+                new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)
             };
 

@@ -289,9 +289,9 @@ namespace TriviaCrack
                 }
                 else Program.changePlayer(); // Prochain Joueur
             }
-            catch (InvalidOperationException ioe)
+            catch (Exception ex)
             {
-                MessageBox.Show(ioe.Message.ToString());
+                MessageBox.Show(ex.Message.ToString());
             }
 
             string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
@@ -458,7 +458,7 @@ namespace TriviaCrack
         /// </summary>
         private void addPlayer()
         {
-            if (TB_newName.TextLength > 2 && nameIsValid(TB_newName.Text)) // Si le nom du joueur contient au moins 2 char et est valide.
+            if (TB_newName.TextLength > 2 && TB_newName.TextLength <= Program.maxPlayerLength && nameIsValid(TB_newName.Text)) // Si le nom du joueur contient au moins 2 char et est valide.
             {
                 try
                 {
