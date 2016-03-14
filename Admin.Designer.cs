@@ -83,13 +83,6 @@
             this.LB_categories.ForeColor = System.Drawing.Color.Black;
             this.LB_categories.FormattingEnabled = true;
             this.LB_categories.ItemHeight = 20;
-            this.LB_categories.Items.AddRange(new object[] {
-            "Art",
-            "Divertissement",
-            "Géographie",
-            "Histoire",
-            "Science",
-            "Sport"});
             this.LB_categories.Location = new System.Drawing.Point(12, 91);
             this.LB_categories.Name = "LB_categories";
             this.LB_categories.Size = new System.Drawing.Size(126, 280);

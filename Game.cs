@@ -340,6 +340,8 @@ namespace TriviaCrack
             PNL_category.BringToFront();
 
             string category = LB_category.Text.ToLower().Replace('é', 'e'); // Nom de la catégorie
+            category = category.Substring(0, 1).ToUpper() + category.Substring(1);
+
             if (category == "autre")
                 PNL_category.Visible = true; // Afficher le choix de catégories
             else
@@ -357,8 +359,15 @@ namespace TriviaCrack
                 {
                     MessageBox.Show(ex.Message.ToString());
                 }
-                
-                LB_pointsCategory.Text = Points.get(category, Program.players[Program.currentPlayer]).ToString(); // Afficher le score du joueur
+
+                try
+                {
+                    LB_pointsCategory.Text = Points.get(category, Program.players[Program.currentPlayer]).ToString(); // Afficher le score du joueur
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
         }
 
@@ -478,6 +487,10 @@ namespace TriviaCrack
                 {
                     MessageBox.Show(ioe.Message.ToString());
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
 
                 TB_newName.Text = String.Empty; // Vide le TextBox
                 
@@ -506,7 +519,7 @@ namespace TriviaCrack
                     this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_name" + i.ToString()].Text = Program.players[i - 1];
 
                     for (int j = 1; j <= Program.categories.Count; j++)
-                        this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Points.get(Program.categories[j], Program.players[i - 1]).ToString();
+                        this.PNL_scores.Controls["PNL_score_J" + i.ToString()].Controls["LB_score_" + i.ToString() + j.ToString()].Text = Points.get(Program.categories[j - 1], Program.players[i - 1]).ToString();
                 }
             }
             catch (Exception ex)

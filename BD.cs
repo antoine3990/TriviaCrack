@@ -102,7 +102,8 @@ namespace TriviaCrack
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
 
-            conn.Open();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
             cmd.ExecuteScalar();
             conn.Close();
 
@@ -113,7 +114,8 @@ namespace TriviaCrack
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
 
-            conn.Open();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
             cmd.ExecuteScalar();
             conn.Close();
 
