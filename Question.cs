@@ -21,8 +21,6 @@ namespace TriviaCrack
         {
             List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
             Args OUT = new Args("enonce", null, OracleDbType.Varchar2, ParameterDirection.ReturnValue);
-
-            DataSet ds = BD.getDS(Program.conn, "QUESTION_PAKG.QUESTION_HASARD", IN, OUT);
             
             // GET - Question au hasard
             return BD.getString(Program.conn, "QUESTION_PAKG.QUESTION_HASARD", IN, OUT); 

@@ -57,7 +57,6 @@ namespace TriviaCrack
 
             try
             {
-                //categories.AddRange(new string[] { "Science", "Divertissement", "Géographie", "Histoire", "Sport", "Art" });
                 categories = BD.toList(BD.getDS(conn, "QUESTION_PAKG.GET_CATEGORIES", null, new Args("PALL_CATEGORIE", null, OracleDbType.RefCursor, ParameterDirection.Output)));
             }
             catch (Exception e)

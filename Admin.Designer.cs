@@ -87,6 +87,7 @@
             this.LB_categories.Name = "LB_categories";
             this.LB_categories.Size = new System.Drawing.Size(126, 280);
             this.LB_categories.TabIndex = 9;
+            this.LB_categories.SelectedIndexChanged += new System.EventHandler(this.LB_categories_SelectedIndexChanged);
             // 
             // BT_modify
             // 
