@@ -110,18 +110,6 @@ namespace TriviaCrack
             return cmd.Parameters[OUT.name].Value.ToString();
         }
 
-        public static int getInt(OracleConnection conn, string package, List<Args> IN, Args OUT)
-        {
-            OracleCommand cmd = getCMD(conn, package, IN, OUT);
-
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            cmd.ExecuteScalar();
-            conn.Close();
-
-            return int.Parse(cmd.Parameters[OUT.name].Value.ToString());
-        }
-
         private static OracleCommand getCMD(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = new OracleCommand(package.Substring(0, package.IndexOf('.')), conn);
@@ -129,7 +117,7 @@ namespace TriviaCrack
             cmd.CommandType = CommandType.StoredProcedure;
             
             // Argument en OUT
-            OracleParameter returns = new OracleParameter(OUT.name, OUT.type);
+            OracleParameter returns = new OracleParameter(OUT.name, OUT.type, 1000);
             returns.Direction = OUT.direction;
             cmd.Parameters.Add(returns);
             
@@ -160,8 +148,11 @@ namespace TriviaCrack
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
 
+            conn.Open();
             cmd.ExecuteScalar();
-            return (int)cmd.Parameters[OUT.name].Value;
+            conn.Close();
+
+            return int.Parse(cmd.Parameters[OUT.name].Value.ToString());
         }
 
         public static List<string> toList(DataSet ds)
@@ -183,6 +174,20 @@ namespace TriviaCrack
         public static void initConnect(OracleConnection connection, string user, string password)
         {
             connection.ConnectionString = string.Format(connString, user, password);
+        }
+
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            Random rng = new Random();
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 

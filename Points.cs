@@ -51,7 +51,7 @@ namespace TriviaCrack
             Args OUT = new Args("POIN", null, OracleDbType.Int32, ParameterDirection.ReturnValue);
             
             // GET - Points de la catégorie du joueur
-            return BD.getInt(Program.conn, "POINTS_PAKG.GET_POINT", IN, OUT);
+            return int.Parse(BD.getString(Program.conn, "POINTS_PAKG.GET_POINT", IN, OUT));
         }
     }
 }

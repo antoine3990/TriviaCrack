@@ -110,7 +110,6 @@
             // 
             this.BT_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BT_delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_delete.Enabled = false;
             this.BT_delete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BT_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.BT_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));

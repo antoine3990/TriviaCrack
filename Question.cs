@@ -12,9 +12,9 @@ namespace TriviaCrack
     {
         public static string getNum(string question)
         {
-            return BD.getInt(Program.conn, "QUESTION_PAKG.GET_NUM",
+            return BD.getString(Program.conn, "QUESTION_PAKG.GET_NUM",
                   new List<Args>() { new Args("PNOM", question, OracleDbType.Varchar2) },
-                  new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
+                  new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue));
         }
 
         public static string get(string category)
@@ -34,23 +34,14 @@ namespace TriviaCrack
             // GET - Catégorie de la question
             return BD.getString(Program.conn, "QUESTION_PAKG.GET_CATEGORIE", IN, OUT);
         }
-        // -------------------------------------------------------------------------------------------------------------------------- TO DO (DOWN)
-        public static List<string> getAll(string category)
-        {
-            List<Args> IN = new List<Args>() { new Args("", category, OracleDbType.Varchar2) };
-            Args OUT = new Args("", null, OracleDbType.RefCursor, ParameterDirection.ReturnValue);
 
-            // GET - Tout les questions de la catégorie
-            return BD.toList(BD.getDS(Program.conn, "QUESTION_PAKG.GET_ALL", IN, OUT));
-        }
-
-        public static int count(string category)
+        public static DataSet getAll(string category)
         {
             List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
-            Args OUT = new Args("COUNT_C", null, OracleDbType.Int32, ParameterDirection.ReturnValue);
-            
-            // GET - Compte du nombre de question de la catégorie
-            return BD.count(Program.conn, "QUESTION_PAKG.COUNT_CATEGORIE", IN, OUT);
+            Args OUT = new Args("PALL_Q", null, OracleDbType.RefCursor, ParameterDirection.ReturnValue);
+
+            // GET - Tout les questions de la catégorie
+            return BD.getDS(Program.conn, "QUESTION_PAKG.GET_ALL", IN, OUT);
         }
 
         /// <summary>
@@ -72,7 +63,13 @@ namespace TriviaCrack
         /// <param name="category">Catégorie de la question</param>
         public static void add(string name, string category)
         {
-            // insert into question ------------------------------------------------------------ ADD BD (ajout question à la catégorie)
+            List<Args> args = new List<Args>() {
+                new Args("PENONCER", name, OracleDbType.Varchar2),
+                new Args("PCATEGORIE", category, OracleDbType.Varchar2)
+            };
+
+            // INSERT - Question dans la catégorie
+            BD.insert(Program.conn, "QUESTION_PAKG.ADD_QUESTION", args);
         }
 
         /// <summary>
@@ -81,13 +78,14 @@ namespace TriviaCrack
         /// <param name="question">Texte de la question</param>
         public static void delete(string question)
         {
-            if (count(getCategory(question)) > 0)
-            {
-                // DELETE - Question 
-                BD.delete(Program.conn, "QUESTION_PAKG.DELETE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
-            }
-            else
-                throw new InvalidOperationException("La catégorie ne comporte aucune questions.");
+            // DELETE - Question 
+            BD.delete(Program.conn, "QUESTION_PAKG.DELETE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
+        }
+
+        public static void answered(string question)
+        {
+            // UPDATE - La question est répondue
+            BD.modify(Program.conn, "QUESTION_PAKG.REPONDUE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
         }
     }
 }

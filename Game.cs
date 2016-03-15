@@ -45,6 +45,9 @@ namespace TriviaCrack
             //PNL_wheel.BringToFront();
             //PNL_wheel.Visible = true;
             //PNL_nameSelectionMethod.BringToFront();
+
+            Admin adminForm = new Admin();
+            adminForm.ShowDialog();
         }
 
         /// <summary>
@@ -175,23 +178,25 @@ namespace TriviaCrack
 
             try
             {
-                Button correct = getCorrectAnswer(LB_question.Text);
-                if (correct == null)
-                    throw new InvalidOperationException("Aucune réponse correcte.");
-
                 if (!answerClicked)
                 {
+                    Button correct = getCorrectAnswer(LB_question.Text);
+                    if (correct == null)
+                        throw new InvalidOperationException("Aucune réponse correcte.");
+
+                    Question.answered(LB_question.Text);
+
                     if (correct.Name == sender.Name)
                         correctAnswer(sender);
                     else
                         incorrectAnswer(sender, correct);
+
+                    for (int i = 1; i <= Program.nbAnswers; i++)
+                        this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
+
+                    ShowNextTurn(correct.Name == sender.Name);
                 }
                 answerClicked = true;
-
-                for (int i = 1; i <= Program.nbAnswers; i++)
-                    this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
-
-                ShowNextTurn(correct.Name == sender.Name);
             }
             catch (InvalidOperationException ioe)
             {
@@ -238,6 +243,7 @@ namespace TriviaCrack
         }
         private void BT_showScore_Click(object sender, EventArgs e)
         {
+            showPlayerScores();
             PNL_scores.Visible = true;
             PNL_scores.BringToFront();
         }
@@ -342,14 +348,14 @@ namespace TriviaCrack
             string category = LB_category.Text.ToLower().Replace('é', 'e'); // Nom de la catégorie
             category = category.Substring(0, 1).ToUpper() + category.Substring(1);
 
-            if (category == "autre")
+            if (category == "Autre")
                 PNL_category.Visible = true; // Afficher le choix de catégories
             else
             {
                 PNL_questions.Visible = true; // Afficher la question et les réponses
                 
                 // Modifier l'image du picturebox selon la catégorie
-                PB_question.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(category);
+                PB_question.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(category.ToLower());
 
                 try
                 {
@@ -405,6 +411,8 @@ namespace TriviaCrack
                 throw new NullReferenceException("La question est nulle. Impossible d'importer les réponses.");
 
             List<string> answers = Answer.get(question);
+            answers.Shuffle();
+
             for (int i = 0; i < Program.nbAnswers && i < answers.Count; i++)
                 this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
         }
@@ -419,7 +427,7 @@ namespace TriviaCrack
         {
             try
             {
-                for (int i = 0; i < Answer.count(question); i++)
+                for (int i = 1; i <= Answer.count(question); i++)
                     if (this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Text == Answer.getCorrect(question))
                         return (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
             }
@@ -820,6 +828,12 @@ namespace TriviaCrack
             Program.changePlayer();
             LB_questions_playerName.Text = Program.players[Program.currentPlayer];
             LB_wheel_playerName.Text = Program.players[Program.currentPlayer];
+
+            if (Player.isAdmin(Program.players[Program.currentPlayer]))
+                BT_showOptions.Visible = true;
+            else
+                BT_showOptions.Visible = false;
+
             Update();
         }
 
