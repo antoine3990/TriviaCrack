@@ -60,8 +60,8 @@ namespace TriviaCrack
             if (!answersNotEmpty())
                 MessageBox.Show("Réponses manquantes.");
             else if (TB_question.Text == "")
-                MessageBox.Show("Question manquante."); 
-            else if (TB_question.Text.IndexOf('?') == -1)
+                MessageBox.Show("Question manquante.");
+            else if (TB_question.Text[TB_question.TextLength - 1] != '?')
                 MessageBox.Show("La question entrée n'est pas une question.");
             else
             {
@@ -69,9 +69,9 @@ namespace TriviaCrack
                     addQuestion();
                 else
                     modQuestion();
-            }
 
-            this.Close();
+                this.Close();
+            }
         }
 
         private bool answersNotEmpty()
@@ -85,24 +85,45 @@ namespace TriviaCrack
 
         private void addQuestion()
         {
-            Question.add(TB_question.Text, "Histoire");
-            addAnswers(TB_question.Text);
+            try
+            {
+                Question.add(TB_question.Text, "Histoire");
+                addAnswers(TB_question.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void modQuestion()
         {
-            Answer.deleteAll(originalQuestion);
-            addAnswers(originalQuestion);
-            
-            Question.modify(originalQuestion, TB_question.Text);
+            try
+            {
+                Answer.deleteAll(originalQuestion);
+                addAnswers(originalQuestion);
+
+                Question.modify(originalQuestion, TB_question.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void addAnswers(string question)
         {
-            for (int i = 1; i <= Program.nbAnswers; i++)
+            try
             {
-                char correct = ((RadioButton)Controls["RB_correct" + i.ToString()]).Checked ? 'o' : 'n';
-                Answer.add(question, Controls["TB_answer" + i.ToString()].Text, correct);
+                for (int i = 1; i <= Program.nbAnswers; i++)
+                {
+                    char correct = ((RadioButton)Controls["RB_correct" + i.ToString()]).Checked ? 'o' : 'n';
+                    Answer.add(question, Controls["TB_answer" + i.ToString()].Text, correct);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
     }

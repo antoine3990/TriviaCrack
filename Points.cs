@@ -27,6 +27,7 @@ namespace TriviaCrack
         /// <param name="playerName">Nom du joueur</param>
         public static void add(string category, string playerName)
         {
+            category.Replace('é','e');
             List<Args> args = new List<Args>() {
                 new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)
@@ -44,6 +45,7 @@ namespace TriviaCrack
         /// <returns>Le pointage de la catégorie</returns>
         public static int get(string category, string playerName)
         {
+            category.Replace('é', 'e');
             List<Args> IN = new List<Args>() {
                 new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)

@@ -55,10 +55,19 @@ namespace TriviaCrack
 
         private void BT_delete_Click(object sender, EventArgs e)
         {
-            string question = DGV_questions.SelectedRows[0].Cells[0].Value.ToString();
+            try
+            {
+                string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
 
-            Answer.deleteAll(question);
-            Question.delete(question);
+                Answer.deleteAll(question);
+                Question.delete(question);
+
+                fillDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void LB_categories_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +90,7 @@ namespace TriviaCrack
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+            Update();
         }
     }
 }

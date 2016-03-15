@@ -178,11 +178,17 @@ namespace TriviaCrack
 
             try
             {
+                Button correct = getCorrectAnswer(LB_question.Text);
+
+                if (correct == null)
+                    throw new InvalidOperationException("Aucune réponse correcte.");
+
                 if (!answerClicked)
                 {
-                    Button correct = getCorrectAnswer(LB_question.Text);
-                    if (correct == null)
-                        throw new InvalidOperationException("Aucune réponse correcte.");
+                    for (int i = 1; i <= Program.nbAnswers; i++)
+                        Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
+
+                    ShowNextTurn(correct.Name == sender.Name);
 
                     Question.answered(LB_question.Text);
 
@@ -190,12 +196,10 @@ namespace TriviaCrack
                         correctAnswer(sender);
                     else
                         incorrectAnswer(sender, correct);
-
-                    for (int i = 1; i <= Program.nbAnswers; i++)
-                        this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
-
-                    ShowNextTurn(correct.Name == sender.Name);
                 }
+
+                Refresh();
+
                 answerClicked = true;
             }
             catch (InvalidOperationException ioe)
@@ -447,9 +451,9 @@ namespace TriviaCrack
         private void correctAnswer(Button sender)
         {
             sender.FlatAppearance.BorderColor = Color.FromArgb(67, 205, 80);
-            Points.add(getCategoryFromAngle(currentRotation), Program.players[Program.currentPlayer]);
+            Points.add(LB_category.Text.Replace('é', 'e'), Program.players[Program.currentPlayer]);
 
-            LB_pointsCategory.Text = Points.get(getCategoryFromAngle(currentRotation), Program.players[Program.currentPlayer]).ToString();
+            LB_pointsCategory.Text = Points.get(LB_category.Text.Replace('é','e'), Program.players[Program.currentPlayer]).ToString();
             LB_pointsCategory.ForeColor = Color.FromArgb(67, 205, 80);
             Update();
         }
@@ -829,10 +833,17 @@ namespace TriviaCrack
             LB_questions_playerName.Text = Program.players[Program.currentPlayer];
             LB_wheel_playerName.Text = Program.players[Program.currentPlayer];
 
-            if (Player.isAdmin(Program.players[Program.currentPlayer]))
-                BT_showOptions.Visible = true;
-            else
-                BT_showOptions.Visible = false;
+            try
+            {
+                if (Player.isAdmin(Program.players[Program.currentPlayer]))
+                    BT_showOptions.Visible = true;
+                else
+                    BT_showOptions.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
 
             Update();
         }
@@ -843,14 +854,6 @@ namespace TriviaCrack
         private void resetApp()
         {
             PNL_questions.BackColor = PNL_scores.BackColor;
-
-            for (int i = 1; i <= Program.nbAnswers; i++)
-            {
-                Button BT = (Button)this.Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
-                BT.Cursor = Cursors.Hand;
-                BT.FlatAppearance.BorderColor = Color.FromArgb(120, 120, 120);
-            }
-
             LB_pointsCategory.ForeColor = Color.White;
             PNL_questions.Enabled = false;
             PNL_wheel.BringToFront();
@@ -860,6 +863,18 @@ namespace TriviaCrack
             answerClicked = false;
             currentRotation = 0;
             PB_wheel.Image = Properties.Resources.wheel;
+            LB_category.ForeColor = Color.FromArgb(90, 90, 90);
+
+            for (int i = 1; i <= Program.nbAnswers; i++)
+            {
+                Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].MouseClick += BT_answer_Click;
+                Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].MouseEnter += BT_answer_MouseEnter;
+                Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].MouseLeave += BT_answer_MouseLeave;
+
+                Button BT = (Button)Controls["PNL_questions"].Controls["BT_answer" + i.ToString()];
+                BT.Cursor = Cursors.Hand;
+                BT.FlatAppearance.BorderColor = Color.FromArgb(120, 120, 120);
+            }
         }
 
         #endregion

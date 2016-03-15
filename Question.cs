@@ -79,7 +79,7 @@ namespace TriviaCrack
         public static void delete(string question)
         {
             // DELETE - Question 
-            BD.delete(Program.conn, "QUESTION_PAKG.DELETE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
+            BD.delete(Program.conn, "QUESTION_PAKG.DELETE_QUESTION", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
         }
 
         public static void answered(string question)

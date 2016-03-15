@@ -53,9 +53,9 @@ namespace TriviaCrack
 
         public static bool isAdmin(string playerName)
         {
-            return bool.Parse(BD.getString(Program.conn, "JOUEUR_PAKG.IS_ADMIN", 
-                new List<Args>() { new Args("PNUM", getNum(playerName), OracleDbType.Int32) }, 
-                new Args("ADMINI", null, OracleDbType.Boolean, ParameterDirection.ReturnValue)));
+            return int.Parse(BD.getString(Program.conn, "JOUEUR_PAKG.IS_ADMIN",
+                new List<Args>() { new Args("PNUM", getNum(playerName), OracleDbType.Int32) },
+                new Args("ADMINI", null, OracleDbType.Int32, ParameterDirection.ReturnValue))) == 1;
         }
     }
 }
