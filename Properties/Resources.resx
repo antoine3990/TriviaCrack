@@ -139,6 +139,9 @@
   <data name="art_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\art_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="art_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\art_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="autre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\autre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,6 +157,9 @@
   <data name="divertissement_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\divertissement_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="divertissement_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\divertissement_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,11 +169,17 @@
   <data name="geographie_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\geographie_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="geographie_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\geographie_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="histoire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\histoire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="histoire_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\histoire_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="histoire_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\histoire_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="incorrect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\incorrect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,6 +205,9 @@
   <data name="science_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\science_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="science_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\science_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="score" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\score.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -216,6 +231,9 @@
   </data>
   <data name="sport_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\sport_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sport_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\sport_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="start_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\start_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

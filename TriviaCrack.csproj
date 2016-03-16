@@ -218,6 +218,24 @@
   <ItemGroup>
     <None Include="_resources\incorrect.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\art_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\divertissement_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\geographie_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\histoire_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\science_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\sport_small.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

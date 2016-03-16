@@ -133,6 +133,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap art_small {
+            get {
+                object obj = ResourceManager.GetObject("art_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap autre {
             get {
                 object obj = ResourceManager.GetObject("autre", resourceCulture);
@@ -183,6 +193,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap divertissement_small {
+            get {
+                object obj = ResourceManager.GetObject("divertissement_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -213,6 +233,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap geographie_small {
+            get {
+                object obj = ResourceManager.GetObject("geographie_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap histoire {
             get {
                 object obj = ResourceManager.GetObject("histoire", resourceCulture);
@@ -226,6 +256,16 @@ namespace TriviaCrack.Properties {
         internal static System.Drawing.Bitmap histoire_bg {
             get {
                 object obj = ResourceManager.GetObject("histoire_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap histoire_small {
+            get {
+                object obj = ResourceManager.GetObject("histoire_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,6 +353,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap science_small {
+            get {
+                object obj = ResourceManager.GetObject("science_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap score {
             get {
                 object obj = ResourceManager.GetObject("score", resourceCulture);
@@ -386,6 +436,16 @@ namespace TriviaCrack.Properties {
         internal static System.Drawing.Bitmap sport_bg {
             get {
                 object obj = ResourceManager.GetObject("sport_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sport_small {
+            get {
+                object obj = ResourceManager.GetObject("sport_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
