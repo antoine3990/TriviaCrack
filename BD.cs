@@ -36,13 +36,16 @@ namespace TriviaCrack
             cmd.CommandText = package;
             cmd.CommandType = CommandType.StoredProcedure;
 
-            // Arguments en IN
-            foreach (Args arg in args)
+            if (args != null)
             {
-                OracleParameter param = new OracleParameter(arg.name, arg.type);
-                param.Direction = ParameterDirection.Input;
-                param.Value = arg.value;
-                cmd.Parameters.Add(param);
+                // Arguments en IN
+                foreach (Args arg in args)
+                {
+                    OracleParameter param = new OracleParameter(arg.name, arg.type);
+                    param.Direction = ParameterDirection.Input;
+                    param.Value = arg.value;
+                    cmd.Parameters.Add(param);
+                }
             }
 
             cmd.ExecuteNonQuery(); // Exécuter la query

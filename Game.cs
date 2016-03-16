@@ -42,9 +42,6 @@ namespace TriviaCrack
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
             PNL_main.BringToFront();
-            //PNL_wheel.BringToFront();
-            //PNL_wheel.Visible = true;
-            //PNL_nameSelectionMethod.BringToFront();
 
             Admin adminForm = new Admin();
             adminForm.ShowDialog();

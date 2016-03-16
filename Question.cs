@@ -87,5 +87,10 @@ namespace TriviaCrack
             // UPDATE - La question est répondue
             BD.modify(Program.conn, "QUESTION_PAKG.REPONDUE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
         }
+
+        public static void reset()
+        {
+            BD.modify(Program.conn, "QUESTION_PAKG.RESET_QUESTION", null);
+        }
     }
 }
