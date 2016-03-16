@@ -42,9 +42,6 @@ namespace TriviaCrack
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
             PNL_main.BringToFront();
-
-            Admin adminForm = new Admin();
-            adminForm.ShowDialog();
         }
 
         /// <summary>
@@ -305,6 +302,27 @@ namespace TriviaCrack
             LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
 
             fillCBplayers();
+        }
+
+        private void BT_info_Click(object sender, EventArgs e)
+        {
+            LB_nameSelectionNote.Visible = !LB_nameSelectionNote.Visible;
+            BT_info.Location = new Point(95, 576);
+
+            if (LB_nameSelectionWarning.Visible)
+                LB_nameSelectionWarning.Visible = false;
+        }
+        private void BT_warning_Click(object sender, EventArgs e)
+        {
+            if (!LB_nameSelectionWarning.Visible)
+                BT_info.Location = new Point(395, 576);
+            else
+                BT_info.Location = new Point(95, 576);
+
+            LB_nameSelectionWarning.Visible = !LB_nameSelectionWarning.Visible;
+
+            if (LB_nameSelectionNote.Visible)
+                LB_nameSelectionNote.Visible = false;
         }
 
         #endregion
@@ -874,28 +892,12 @@ namespace TriviaCrack
             }
         }
 
+
         #endregion
 
-        private void BT_info_Click(object sender, EventArgs e)
+        private void BT_admin_Click(object sender, EventArgs e)
         {
-            LB_nameSelectionNote.Visible = !LB_nameSelectionNote.Visible;
-            BT_info.Location = new Point(95,576);
 
-            if (LB_nameSelectionWarning.Visible)
-                LB_nameSelectionWarning.Visible = false;
-        }
-
-        private void BT_warning_Click(object sender, EventArgs e)
-        {
-            if (!LB_nameSelectionWarning.Visible)
-                BT_info.Location = new Point(395, 576);
-            else
-                BT_info.Location = new Point(95, 576);
-
-            LB_nameSelectionWarning.Visible = !LB_nameSelectionWarning.Visible;
-
-            if (LB_nameSelectionNote.Visible)
-                LB_nameSelectionNote.Visible = false;
         }
     }
 }

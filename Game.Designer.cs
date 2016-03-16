@@ -116,6 +116,7 @@
             this.LB_nameCount_Exists = new System.Windows.Forms.Label();
             this.BT_selectPlayer = new System.Windows.Forms.Button();
             this.CB_namePlayer = new System.Windows.Forms.ComboBox();
+            this.BT_admin = new System.Windows.Forms.Button();
             this.PNL_questions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
@@ -919,6 +920,7 @@
             // 
             // PNL_main
             // 
+            this.PNL_main.Controls.Add(this.BT_admin);
             this.PNL_main.Controls.Add(this.CB_nbJoueurs);
             this.PNL_main.Controls.Add(this.panel1);
             this.PNL_main.Controls.Add(this.BT_start);
@@ -964,9 +966,9 @@
             this.BT_start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BT_start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BT_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_start.Location = new System.Drawing.Point(58, 518);
+            this.BT_start.Location = new System.Drawing.Point(116, 518);
             this.BT_start.Name = "BT_start";
-            this.BT_start.Size = new System.Drawing.Size(406, 106);
+            this.BT_start.Size = new System.Drawing.Size(348, 106);
             this.BT_start.TabIndex = 114;
             this.BT_start.UseVisualStyleBackColor = false;
             this.BT_start.Click += new System.EventHandler(this.BT_start_Click);
@@ -1413,12 +1415,32 @@
             this.CB_namePlayer.Size = new System.Drawing.Size(427, 67);
             this.CB_namePlayer.TabIndex = 2;
             // 
+            // BT_admin
+            // 
+            this.BT_admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_admin.BackgroundImage = global::TriviaCrack.Properties.Resources.settings;
+            this.BT_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_admin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_admin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_admin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_admin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_admin.Location = new System.Drawing.Point(41, 543);
+            this.BT_admin.Name = "BT_admin";
+            this.BT_admin.Size = new System.Drawing.Size(60, 60);
+            this.BT_admin.TabIndex = 116;
+            this.BT_admin.UseVisualStyleBackColor = false;
+            this.BT_admin.Click += new System.EventHandler(this.BT_admin_Click);
+            this.BT_admin.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
+            this.BT_admin.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_nameSelectionMethod);
             this.Controls.Add(this.PNL_nameSelection_Exists);
             this.Controls.Add(this.PNL_wheel);
@@ -1426,7 +1448,6 @@
             this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_category);
             this.Controls.Add(this.PNL_scores);
-            this.Controls.Add(this.PNL_main);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1551,6 +1572,7 @@
         private System.Windows.Forms.Button BT_info;
         private System.Windows.Forms.Label LB_nameSelectionWarning;
         private System.Windows.Forms.Button BT_warning;
+        private System.Windows.Forms.Button BT_admin;
     }
 }
 
