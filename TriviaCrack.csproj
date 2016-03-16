@@ -212,6 +212,12 @@
   <ItemGroup>
     <None Include="_resources\warning.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\incorrect.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

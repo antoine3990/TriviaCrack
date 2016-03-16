@@ -52,8 +52,19 @@ namespace TriviaCrack
         /// <param name="category">Nouvelle catégorie de la question</param>
         public static void modify(string question, string newName = null, string category = null)
         {
-            // if (newName != null) ---------------------------------------------------------------- UPDATE BD (modifier le texte de la question)
-            // if (category != null) --------------------------------------------------------------- UPDATE BD (modifier la catégorie de la question)
+            List<Args> args = new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) };
+
+            if (newName != null)
+            {
+                args.Add(new Args("PNEW_ENONCER", newName, OracleDbType.Varchar2));
+                BD.modify(Program.conn, "QUESTION_PAKG.UPDATE_ENONCER", args);
+                args.RemoveAt(args.Count - 1);
+            }
+            if (category != null)
+            {
+                args.Add(new Args("PNEW_CATEGORIE", newName, OracleDbType.Varchar2));
+                BD.modify(Program.conn, "QUESTION_PAKG.UPDATE_CATEGORIE", args);
+            }
         }
 
         /// <summary>

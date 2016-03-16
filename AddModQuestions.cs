@@ -24,11 +24,7 @@ namespace TriviaCrack
             InitializeComponent();
 
             originalQuestion = question;
-            PB_category.Image = (Image)Properties.Resources.ResourceManager.GetObject(category.ToLower() + "_bg");
-
-            TB_question.Location = new Point(80, TB_question.Location.Y);
-            TB_question.Size = new Size(407, TB_question.Size.Height);
-            PB_category.Visible = true;
+            //(Image)Properties.Resources.ResourceManager.GetObject(category.ToLower() + "_bg");
             CB_category.Visible = false;
 
             LB_title.Text = LB_title.Text.Replace("Ajout", "Modification");
@@ -125,6 +121,16 @@ namespace TriviaCrack
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void RB_correct_CheckedChanged(object send, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)send;
+            
+            for (int i = 1; i <= Program.nbAnswers; i++)
+                Controls["RB_correct" + i.ToString()].BackgroundImage = Properties.Resources.incorrect;
+
+            rb.BackgroundImage = Properties.Resources.correct;
         }
     }
 }

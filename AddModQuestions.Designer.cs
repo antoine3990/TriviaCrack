@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddModQuestions));
             this.TB_question = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,13 +42,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.LB_title = new System.Windows.Forms.Label();
             this.BT_accept = new System.Windows.Forms.Button();
-            this.PB_category = new System.Windows.Forms.PictureBox();
             this.RB_correct1 = new System.Windows.Forms.RadioButton();
             this.RB_correct2 = new System.Windows.Forms.RadioButton();
             this.RB_correct3 = new System.Windows.Forms.RadioButton();
             this.RB_correct4 = new System.Windows.Forms.RadioButton();
             this.CB_category = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.PB_category)).BeginInit();
             this.SuspendLayout();
             // 
             // TB_question
@@ -56,9 +55,9 @@
             this.TB_question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TB_question.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_question.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.TB_question.Location = new System.Drawing.Point(98, 116);
+            this.TB_question.Location = new System.Drawing.Point(95, 116);
             this.TB_question.Name = "TB_question";
-            this.TB_question.Size = new System.Drawing.Size(389, 33);
+            this.TB_question.Size = new System.Drawing.Size(392, 33);
             this.TB_question.TabIndex = 0;
             // 
             // label1
@@ -200,57 +199,65 @@
             this.BT_accept.UseVisualStyleBackColor = true;
             this.BT_accept.Click += new System.EventHandler(this.BT_accept_Click);
             // 
-            // PB_category
-            // 
-            this.PB_category.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PB_category.Image = global::TriviaCrack.Properties.Resources.divertissement_bg;
-            this.PB_category.Location = new System.Drawing.Point(52, 116);
-            this.PB_category.Name = "PB_category";
-            this.PB_category.Size = new System.Drawing.Size(20, 33);
-            this.PB_category.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_category.TabIndex = 13;
-            this.PB_category.TabStop = false;
-            this.PB_category.Visible = false;
-            // 
             // RB_correct1
             // 
-            this.RB_correct1.AutoSize = true;
-            this.RB_correct1.Location = new System.Drawing.Point(493, 217);
+            this.RB_correct1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RB_correct1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct1.BackgroundImage")));
+            this.RB_correct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct1.FlatAppearance.BorderSize = 0;
+            this.RB_correct1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RB_correct1.Location = new System.Drawing.Point(493, 213);
             this.RB_correct1.Name = "RB_correct1";
-            this.RB_correct1.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct1.Size = new System.Drawing.Size(20, 20);
             this.RB_correct1.TabIndex = 14;
             this.RB_correct1.TabStop = true;
             this.RB_correct1.UseVisualStyleBackColor = true;
+            this.RB_correct1.CheckedChanged += new System.EventHandler(this.RB_correct_CheckedChanged);
             // 
             // RB_correct2
             // 
-            this.RB_correct2.AutoSize = true;
-            this.RB_correct2.Location = new System.Drawing.Point(493, 256);
+            this.RB_correct2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RB_correct2.BackgroundImage = global::TriviaCrack.Properties.Resources.incorrect;
+            this.RB_correct2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct2.FlatAppearance.BorderSize = 0;
+            this.RB_correct2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RB_correct2.Location = new System.Drawing.Point(493, 252);
             this.RB_correct2.Name = "RB_correct2";
-            this.RB_correct2.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct2.Size = new System.Drawing.Size(20, 20);
             this.RB_correct2.TabIndex = 15;
             this.RB_correct2.TabStop = true;
             this.RB_correct2.UseVisualStyleBackColor = true;
+            this.RB_correct2.CheckedChanged += new System.EventHandler(this.RB_correct_CheckedChanged);
             // 
             // RB_correct3
             // 
-            this.RB_correct3.AutoSize = true;
-            this.RB_correct3.Location = new System.Drawing.Point(493, 295);
+            this.RB_correct3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RB_correct3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct3.BackgroundImage")));
+            this.RB_correct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct3.FlatAppearance.BorderSize = 0;
+            this.RB_correct3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RB_correct3.Location = new System.Drawing.Point(493, 291);
             this.RB_correct3.Name = "RB_correct3";
-            this.RB_correct3.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct3.Size = new System.Drawing.Size(20, 20);
             this.RB_correct3.TabIndex = 16;
             this.RB_correct3.TabStop = true;
             this.RB_correct3.UseVisualStyleBackColor = true;
+            this.RB_correct3.CheckedChanged += new System.EventHandler(this.RB_correct_CheckedChanged);
             // 
             // RB_correct4
             // 
-            this.RB_correct4.AutoSize = true;
-            this.RB_correct4.Location = new System.Drawing.Point(493, 334);
+            this.RB_correct4.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RB_correct4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct4.BackgroundImage")));
+            this.RB_correct4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct4.FlatAppearance.BorderSize = 0;
+            this.RB_correct4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RB_correct4.Location = new System.Drawing.Point(493, 330);
             this.RB_correct4.Name = "RB_correct4";
-            this.RB_correct4.Size = new System.Drawing.Size(14, 13);
+            this.RB_correct4.Size = new System.Drawing.Size(20, 20);
             this.RB_correct4.TabIndex = 17;
             this.RB_correct4.TabStop = true;
             this.RB_correct4.UseVisualStyleBackColor = true;
+            this.RB_correct4.CheckedChanged += new System.EventHandler(this.RB_correct_CheckedChanged);
             // 
             // CB_category
             // 
@@ -261,7 +268,7 @@
             this.CB_category.FormattingEnabled = true;
             this.CB_category.IntegralHeight = false;
             this.CB_category.ItemHeight = 23;
-            this.CB_category.Location = new System.Drawing.Point(52, 117);
+            this.CB_category.Location = new System.Drawing.Point(49, 117);
             this.CB_category.Name = "CB_category";
             this.CB_category.Size = new System.Drawing.Size(40, 31);
             this.CB_category.TabIndex = 18;
@@ -291,13 +298,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TB_question);
-            this.Controls.Add(this.PB_category);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(554, 515);
             this.MinimumSize = new System.Drawing.Size(554, 515);
             this.Name = "AddModQuestions";
             this.Text = "AddModQuestions";
-            ((System.ComponentModel.ISupportInitialize)(this.PB_category)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +323,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LB_title;
         private System.Windows.Forms.Button BT_accept;
-        private System.Windows.Forms.PictureBox PB_category;
         private System.Windows.Forms.RadioButton RB_correct1;
         private System.Windows.Forms.RadioButton RB_correct2;
         private System.Windows.Forms.RadioButton RB_correct3;
