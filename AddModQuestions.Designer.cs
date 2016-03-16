@@ -55,9 +55,9 @@
             this.TB_question.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TB_question.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TB_question.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.TB_question.Location = new System.Drawing.Point(95, 116);
+            this.TB_question.Location = new System.Drawing.Point(100, 116);
             this.TB_question.Name = "TB_question";
-            this.TB_question.Size = new System.Drawing.Size(392, 33);
+            this.TB_question.Size = new System.Drawing.Size(387, 33);
             this.TB_question.TabIndex = 0;
             // 
             // label1
@@ -278,6 +278,7 @@
             // CB_category
             // 
             this.CB_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CB_category.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CB_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -285,10 +286,10 @@
             this.CB_category.ForeColor = System.Drawing.Color.White;
             this.CB_category.FormattingEnabled = true;
             this.CB_category.IntegralHeight = false;
-            this.CB_category.ItemHeight = 23;
-            this.CB_category.Location = new System.Drawing.Point(49, 117);
+            this.CB_category.ItemHeight = 27;
+            this.CB_category.Location = new System.Drawing.Point(49, 115);
             this.CB_category.Name = "CB_category";
-            this.CB_category.Size = new System.Drawing.Size(40, 29);
+            this.CB_category.Size = new System.Drawing.Size(44, 33);
             this.CB_category.TabIndex = 18;
             this.CB_category.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.CB_category_DrawItem);
             // 

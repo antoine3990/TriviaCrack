@@ -63,6 +63,7 @@
             this.DGV_questions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DGV_questions.Size = new System.Drawing.Size(457, 280);
             this.DGV_questions.TabIndex = 7;
+            this.DGV_questions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_questions_CellDoubleClick);
             // 
             // label2
             // 

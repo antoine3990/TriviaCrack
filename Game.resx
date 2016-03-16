@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="LB_nameSelectionWarning.Text" xml:space="preserve">
-    <value>Si un des joueurs sélectionné dans la section "Joueurs existants" détient plus de points dans une catégorie que le nombre de points pour gagner la partie, les points de tout les joueurs participant seront remis à 0.</value>
+    <value>Si un des joueurs sélectionné dans la section "Joueurs existants" détient plus de points dans tout les catégories que le nombre de points pour gagner la partie, les points de tout les joueurs participant seront remis à 0.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>26</value>

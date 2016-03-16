@@ -16,3 +16,6 @@ C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.csprojResolve
 C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.Game.resources
 C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.Properties.Resources.resources
 C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.csproj.GenerateResource.Cache
+C:\Users\Antoine\Documents\Git\TriviaCrack\bin\Release\Oracle.DataAccess.dll
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.AddModQuestions.resources
+C:\Users\Antoine\Documents\Git\TriviaCrack\obj\Release\TriviaCrack.Admin.resources

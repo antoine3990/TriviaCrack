@@ -62,7 +62,7 @@ namespace TriviaCrack
             }
             if (category != null)
             {
-                args.Add(new Args("PNEW_CATEGORIE", newName, OracleDbType.Varchar2));
+                args.Add(new Args("PNEW_CATEGORIE", category, OracleDbType.Varchar2));
                 BD.modify(Program.conn, "QUESTION_PAKG.UPDATE_CATEGORIE", args);
             }
         }

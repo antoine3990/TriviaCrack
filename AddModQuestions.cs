@@ -13,6 +13,7 @@ namespace TriviaCrack
     public partial class AddModQuestions : Form
     {
         private string originalQuestion;
+        private ToolTip toolTip_question = new ToolTip();
 
         public AddModQuestions()
         {
@@ -26,11 +27,13 @@ namespace TriviaCrack
             fillComboBox(category);
 
             originalQuestion = question;
-            //(Image)Properties.Resources.ResourceManager.GetObject(category.ToLower() + "_bg");
+            toolTip_question.SetToolTip(TB_question, question);
 
             LB_title.Text = LB_title.Text.Replace("Ajout", "Modification");
             BT_accept.Text = "Modifier";
             TB_question.Text = question;
+            TB_question.SelectionStart = 0;
+            TB_question.SelectionLength = 0;
 
             List<string> answers = new List<string>();
             int correctAnswer = 1;
@@ -105,7 +108,7 @@ namespace TriviaCrack
         {
             try
             {
-                Question.add(TB_question.Text, "Histoire");
+                Question.add(TB_question.Text, Program.categories[CB_category.SelectedIndex]);
                 addAnswers(TB_question.Text);
             }
             catch (Exception ex)
@@ -120,8 +123,8 @@ namespace TriviaCrack
             {
                 Answer.deleteAll(originalQuestion);
                 addAnswers(originalQuestion);
-
-                Question.modify(originalQuestion, TB_question.Text);
+                
+                Question.modify(originalQuestion, TB_question.Text, Program.categories[CB_category.SelectedIndex]);
             }
             catch (Exception ex)
             {
@@ -160,8 +163,10 @@ namespace TriviaCrack
             e.DrawBackground();
             e.DrawFocusRectangle();
 
-            // (Image)Properties.Resources.ResourceManager.GetObject(Items[e.Index].ToString())
-            e.Graphics.DrawImage(Properties.Resources.art, e.Bounds.Left, e.Bounds.Top);
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45,45,45)), e.Bounds);
+
+            e.Graphics.DrawImage((Image)Properties.Resources.ResourceManager.GetObject(CB_category.Items[e.Index].ToString() + "_small"), e.Bounds.Left, e.Bounds.Top);
         }
     }
 }

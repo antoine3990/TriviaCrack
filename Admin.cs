@@ -92,5 +92,12 @@ namespace TriviaCrack
             }
             Update();
         }
+
+        private void DGV_questions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
+            AddModQuestions form = new AddModQuestions(Question.getCategory(question), question);
+            form.ShowDialog();
+        }
     }
 }
