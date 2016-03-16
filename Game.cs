@@ -911,21 +911,28 @@ namespace TriviaCrack
 
         private void BT_verifyAdmin_Click(object sender, EventArgs e)
         {
-            if (!Player.exists(TB_isAdmin.Text))
+            try
             {
-                MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
-                TB_isAdmin.Clear();
+                if (!Player.exists(TB_isAdmin.Text))
+                {
+                    MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
+                    TB_isAdmin.Clear();
+                }
+                else if (!Player.isAdmin(TB_isAdmin.Text))
+                {
+                    MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
+                    TB_isAdmin.Clear();
+                }
+                else
+                {
+                    PNL_isAdmin.Visible = false;
+                    PNL_adminChoice.Visible = true;
+                    PNL_adminChoice.BringToFront();
+                }
             }
-            else if (!Player.isAdmin(TB_isAdmin.Text))
+            catch (Exception ex)
             {
-                MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
-                TB_isAdmin.Clear();
-            }
-            else
-            {
-                PNL_isAdmin.Visible = false;
-                PNL_adminChoice.Visible = true;
-                PNL_adminChoice.BringToFront();
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 

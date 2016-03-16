@@ -41,6 +41,7 @@ C:\Users\zskyl\Documents\Git\TriviaCrack\bin\Debug\TriviaCrack.exe.config
 C:\Users\zskyl\Documents\Git\TriviaCrack\bin\Debug\TriviaCrack.exe
 C:\Users\zskyl\Documents\Git\TriviaCrack\bin\Debug\TriviaCrack.pdb
 C:\Users\zskyl\Documents\Git\TriviaCrack\bin\Debug\Oracle.DataAccess.dll
+C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.csprojResolveAssemblyReference.cache
 C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.AddModPlayers.resources
 C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.AddModQuestions.resources
 C:\Users\zskyl\Documents\Git\TriviaCrack\obj\Debug\TriviaCrack.AdminPlayers.resources
