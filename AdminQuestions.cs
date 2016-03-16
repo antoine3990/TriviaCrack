@@ -11,9 +11,9 @@ using Oracle.DataAccess.Client;
 
 namespace TriviaCrack
 {
-    public partial class Admin : Form
+    public partial class AdminQuestions : Form
     {
-        public Admin()
+        public AdminQuestions()
         {
             InitializeComponent();
             initListBox();
@@ -98,6 +98,8 @@ namespace TriviaCrack
             string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
             AddModQuestions form = new AddModQuestions(Question.getCategory(question), question);
             form.ShowDialog();
+
+            fillDGV();
         }
     }
 }

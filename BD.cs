@@ -29,7 +29,8 @@ namespace TriviaCrack
             if (args == null)
                 throw new InvalidOperationException("La liste d'arguments passée en paramètre est invalide (null).");
 
-            conn.Open(); // Ouvrir la connection
+            if (conn.State == ConnectionState.Closed)
+                conn.Open(); // Ouvrir la connection
 
             // Définition de l'insertion SQL
             OracleCommand cmd = new OracleCommand(package.Substring(0, package.IndexOf('.')), conn);
@@ -151,7 +152,8 @@ namespace TriviaCrack
         {
             OracleCommand cmd = getCMD(conn, package, IN, OUT);
 
-            conn.Open();
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
             cmd.ExecuteScalar();
             conn.Close();
 

@@ -42,6 +42,9 @@ namespace TriviaCrack
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
             PNL_main.BringToFront();
+
+            PNL_adminChoice.Visible = true;
+            PNL_adminChoice.BringToFront();
         }
 
         /// <summary>
@@ -76,9 +79,10 @@ namespace TriviaCrack
             if (!error_addPlayer)
             {
                 Button sender = (Button)send;
-                string name = sender.Name.Substring(3) + "_white";
+                string name = sender.Name.Substring(3) + "_hover";
                 sender.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(name);
                 sender.FlatAppearance.BorderColor = Color.White;
+                sender.ForeColor = Color.FromArgb(180, 180, 180);
             }
         }
         private void BT_chooseCategory_MouseEnter(object send, EventArgs e)
@@ -108,9 +112,10 @@ namespace TriviaCrack
             if ((!error_addPlayer && (PNL_nameSelection.Visible == true && TB_newName.TextLength > 2)) || PNL_main.Visible == true || PNL_nameSelection_Exists.Visible == true)
             {
                 Button sender = (Button)send;
-                string name = sender.Name.Substring(3) + "_grey";
+                string name = sender.Name.Substring(3);
                 sender.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(name);
                 sender.FlatAppearance.BorderColor = Color.FromArgb(65, 65, 65);
+                sender.ForeColor = Color.FromArgb(120, 120, 120);
             }
 
         }
@@ -236,7 +241,7 @@ namespace TriviaCrack
         }
         private void BT_showOptions_Click(object sender, EventArgs e)
         {
-            Admin adminPanel = new Admin();
+            AdminQuestions adminPanel = new AdminQuestions();
             adminPanel.ShowDialog();
         }
         private void BT_showScore_Click(object sender, EventArgs e)
@@ -277,7 +282,7 @@ namespace TriviaCrack
             PNL_nameSelection_Exists.Visible = true;
             PNL_nameSelection_Exists.BringToFront();
 
-            fillCBplayers();
+            fillCBplayers(CB_namePlayer);
         }
         private void BT_selectPlayer_Click(object sender, EventArgs e)
         {
@@ -301,7 +306,7 @@ namespace TriviaCrack
             string[] nums = { "premier", "deuxième", "troisième", "quatrième" };
             LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
 
-            fillCBplayers();
+            fillCBplayers(CB_namePlayer);
         }
 
         private void BT_info_Click(object sender, EventArgs e)
@@ -514,9 +519,9 @@ namespace TriviaCrack
                 {
                     MessageBox.Show(ioe.Message.ToString());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("Nom d'utilisateur déja existant. Veuillez en choisir un nouveau.");
                 }
 
                 TB_newName.Text = String.Empty; // Vide le TextBox
@@ -655,14 +660,16 @@ namespace TriviaCrack
         /// <summary>
         /// Rempli le combobox contenant le nom des joueurs présents dans la base de données.
         /// </summary>
-        private void fillCBplayers()
+        private void fillCBplayers(ComboBox cb)
         {
             List<string> names = Player.get();
 
-            CB_namePlayer.Items.Clear();
+            cb.Items.Clear();
             for (int i = 0; i < names.Count; i++)
                 if (Program.players.IndexOf(names[i]) == -1)
-                    CB_namePlayer.Items.Add(names[i]);
+                    cb.Items.Add(names[i]);
+
+            cb.SelectedIndex = 0;
         }
 
         #endregion
@@ -712,8 +719,8 @@ namespace TriviaCrack
             currentRotation += rotation;
             LB_category.Invoke(new Action(() => LB_category.Text = getCategoryFromAngle(currentRotation)));
 
-            PB_wheel.Image = Properties.Resources.wheel;
-            PB_wheel.Invoke(new Action(() => PB_wheel.Image = rotateImage(PB_wheel.Image, currentRotation)));
+            Image rotated = rotateImage(Properties.Resources.wheel, currentRotation);
+            PB_wheel.Image = rotated;
         }
 
         /// <summary>
@@ -899,38 +906,51 @@ namespace TriviaCrack
         {
             PNL_isAdmin.Visible = true;
             PNL_isAdmin.BringToFront();
+            TB_isAdmin.Clear();
         }
 
         private void BT_verifyAdmin_Click(object sender, EventArgs e)
         {
             if (!Player.exists(TB_isAdmin.Text))
+            {
                 MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
+                TB_isAdmin.Clear();
+            }
             else if (!Player.isAdmin(TB_isAdmin.Text))
+            {
                 MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
+                TB_isAdmin.Clear();
+            }
             else
             {
                 PNL_isAdmin.Visible = false;
                 PNL_adminChoice.Visible = true;
                 PNL_adminChoice.BringToFront();
             }
-
-            TB_isAdmin.Clear();
         }
 
         private void BT_adminJoueurs_Click(object sender, EventArgs e)
         {
-
+            AdminPlayers adminForm = new AdminPlayers(int.Parse(CB_nbPoints.Text),TB_isAdmin.Text);
+            adminForm.ShowDialog();
         }
 
         private void BT_adminQuestions_Click(object sender, EventArgs e)
         {
-            Admin adminForm = new Admin();
+            AdminQuestions adminForm = new AdminQuestions();
             adminForm.ShowDialog();
         }
 
         private void BT_exitIsAdmin_Click(object sender, EventArgs e)
         {
             PNL_isAdmin.Visible = false;
+            PNL_main.Visible = true;
+            PNL_main.BringToFront();
+        }
+
+        private void BT_exitAdminChoice_Click(object sender, EventArgs e)
+        {
+            PNL_adminChoice.Visible = false;
             PNL_main.Visible = true;
             PNL_main.BringToFront();
         }

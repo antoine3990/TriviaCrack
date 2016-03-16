@@ -15,6 +15,7 @@ namespace TriviaCrack
         public static int maxTextLength = 200; // Longeur maximale des questions/réponses
         public static int maxPlayerLength = 40; // Longueur maximale du nom des joueurs
         public const int nbAnswers = 4; // Nombre de questions
+        public static int maxPoints = 5;
 
         public static List<string> players = new List<string>();
         public static List<string> categories = new List<string>();
@@ -39,7 +40,6 @@ namespace TriviaCrack
             int minPlayers = 2;
             int maxPlayers = 4;
             int minPoints = 2;
-            int maxPoints = 5;
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

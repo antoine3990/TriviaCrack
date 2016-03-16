@@ -28,6 +28,7 @@ namespace TriviaCrack
 
             originalQuestion = question;
             toolTip_question.SetToolTip(TB_question, question);
+            Text = "Modifier une question";
 
             LB_title.Text = LB_title.Text.Replace("Ajout", "Modification");
             BT_accept.Text = "Modifier";

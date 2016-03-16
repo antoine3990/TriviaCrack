@@ -1,6 +1,6 @@
 ﻿namespace TriviaCrack
 {
-    partial class Admin
+    partial class AdminQuestions
     {
         /// <summary>
         /// Required designer variable.
@@ -141,7 +141,7 @@
             this.BT_add.UseVisualStyleBackColor = true;
             this.BT_add.Click += new System.EventHandler(this.BT_addMod_Click);
             // 
-            // Admin
+            // AdminQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +157,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(640, 421);
             this.MinimumSize = new System.Drawing.Size(640, 421);
-            this.Name = "Admin";
+            this.Name = "AdminQuestions";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Panneau d\'administrateurs";
             ((System.ComponentModel.ISupportInitialize)(this.DGV_questions)).EndInit();

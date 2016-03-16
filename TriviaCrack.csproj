@@ -47,17 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddModPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddModPlayers.Designer.cs">
+      <DependentUpon>AddModPlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddModQuestions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddModQuestions.Designer.cs">
       <DependentUpon>AddModQuestions.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin.cs">
+    <Compile Include="AdminPlayers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin.Designer.cs">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <Compile Include="AdminPlayers.Designer.cs">
+      <DependentUpon>AdminPlayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminQuestions.Designer.cs">
+      <DependentUpon>AdminQuestions.cs</DependentUpon>
     </Compile>
     <Compile Include="Answer.cs" />
     <Compile Include="BD.cs" />
@@ -72,11 +84,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
+    <EmbeddedResource Include="AddModPlayers.resx">
+      <DependentUpon>AddModPlayers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddModQuestions.resx">
       <DependentUpon>AddModQuestions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin.resx">
-      <DependentUpon>Admin.cs</DependentUpon>
+    <EmbeddedResource Include="AdminPlayers.resx">
+      <DependentUpon>AdminPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminQuestions.resx">
+      <DependentUpon>AdminQuestions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
@@ -241,6 +259,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="_resources\admin_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\admin_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\selectPlayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\selectPlayer_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\start_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\exitAdminChoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\exitAdminChoice_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\exitIsAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\exitIsAdmin_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\verifyAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\verifyAdmin_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_resources\addPlayer_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -121,23 +121,26 @@
   <data name="add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="addPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\addPlayer_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="addPlayer_darkgrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\addPlayer_darkgrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addPlayer_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\addPlayer_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addPlayer_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\addPlayer_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addPlayer_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\addPlayer_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addPlayer_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\addPlayer_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="admin_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="admin_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\admin_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="admin_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\admin_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -168,6 +171,18 @@
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitAdminChoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\exitAdminChoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitAdminChoice_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\exitAdminChoice_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitIsAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\exitIsAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitIsAdmin_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\exitIsAdmin_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="geographie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\geographie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,14 +235,14 @@
   <data name="score_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\score_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="selectPlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\selectPlayer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="selectPlayer_darkgrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\selectPlayer_darkgrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="selectPlayer_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\selectPlayer_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="selectPlayer_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\selectPlayer_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="selectPlayer_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\selectPlayer_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,14 +256,20 @@
   <data name="sport_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\sport_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="start_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\start_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="start_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\_resources\start_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="start_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\start_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="triangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="verifyAdmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\verifyAdmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="verifyAdmin_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\verifyAdmin_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

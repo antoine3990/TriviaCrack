@@ -322,7 +322,9 @@
             this.MaximumSize = new System.Drawing.Size(554, 515);
             this.MinimumSize = new System.Drawing.Size(554, 515);
             this.Name = "AddModQuestions";
-            this.Text = "AddModQuestions";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Ajouter une question";
             this.ResumeLayout(false);
             this.PerformLayout();
 

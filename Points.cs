@@ -45,7 +45,7 @@ namespace TriviaCrack
         /// <returns>Le pointage de la catégorie</returns>
         public static int get(string category, string playerName)
         {
-            category.Replace('é', 'e');
+            category = (category.Substring(0, 1).ToUpper() + category.Substring(1)).Replace('é', 'e');
             List<Args> IN = new List<Args>() {
                 new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)

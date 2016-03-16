@@ -73,6 +73,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addPlayer {
+            get {
+                object obj = ResourceManager.GetObject("addPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addPlayer_darkgrey {
             get {
                 object obj = ResourceManager.GetObject("addPlayer_darkgrey", resourceCulture);
@@ -83,9 +93,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addPlayer_grey {
+        internal static System.Drawing.Bitmap addPlayer_hover {
             get {
-                object obj = ResourceManager.GetObject("addPlayer_grey", resourceCulture);
+                object obj = ResourceManager.GetObject("addPlayer_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +113,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap addPlayer_white {
+        internal static System.Drawing.Bitmap admin {
             get {
-                object obj = ResourceManager.GetObject("addPlayer_white", resourceCulture);
+                object obj = ResourceManager.GetObject("admin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap admin_white {
+        internal static System.Drawing.Bitmap admin_hover {
             get {
-                object obj = ResourceManager.GetObject("admin_white", resourceCulture);
+                object obj = ResourceManager.GetObject("admin_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +236,46 @@ namespace TriviaCrack.Properties {
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitAdminChoice {
+            get {
+                object obj = ResourceManager.GetObject("exitAdminChoice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitAdminChoice_hover {
+            get {
+                object obj = ResourceManager.GetObject("exitAdminChoice_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitIsAdmin {
+            get {
+                object obj = ResourceManager.GetObject("exitIsAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exitIsAdmin_hover {
+            get {
+                object obj = ResourceManager.GetObject("exitIsAdmin_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,6 +453,16 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap selectPlayer {
+            get {
+                object obj = ResourceManager.GetObject("selectPlayer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap selectPlayer_darkgrey {
             get {
                 object obj = ResourceManager.GetObject("selectPlayer_darkgrey", resourceCulture);
@@ -413,19 +473,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap selectPlayer_grey {
+        internal static System.Drawing.Bitmap selectPlayer_hover {
             get {
-                object obj = ResourceManager.GetObject("selectPlayer_grey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap selectPlayer_white {
-            get {
-                object obj = ResourceManager.GetObject("selectPlayer_white", resourceCulture);
+                object obj = ResourceManager.GetObject("selectPlayer_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,9 +523,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap start_grey {
+        internal static System.Drawing.Bitmap start {
             get {
-                object obj = ResourceManager.GetObject("start_grey", resourceCulture);
+                object obj = ResourceManager.GetObject("start", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +533,9 @@ namespace TriviaCrack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap start_white {
+        internal static System.Drawing.Bitmap start_hover {
             get {
-                object obj = ResourceManager.GetObject("start_white", resourceCulture);
+                object obj = ResourceManager.GetObject("start_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -496,6 +546,26 @@ namespace TriviaCrack.Properties {
         internal static System.Drawing.Bitmap triangle {
             get {
                 object obj = ResourceManager.GetObject("triangle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap verifyAdmin {
+            get {
+                object obj = ResourceManager.GetObject("verifyAdmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap verifyAdmin_hover {
+            get {
+                object obj = ResourceManager.GetObject("verifyAdmin_hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
