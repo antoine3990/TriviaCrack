@@ -57,5 +57,12 @@ namespace TriviaCrack
                 new List<Args>() { new Args("PNUM", getNum(playerName), OracleDbType.Int32) },
                 new Args("ADMINI", null, OracleDbType.Int32, ParameterDirection.ReturnValue))) == 1;
         }
+
+        public static bool exists(string playerName)
+        {
+            return int.Parse(BD.getString(Program.conn, "JOUEUR_PAKG.EXISTE",
+                new List<Args>() { new Args("PNUM", getNum(playerName), OracleDbType.Int32) },
+                new Args("EXIST", null, OracleDbType.Int32, ParameterDirection.ReturnValue))) == 1;
+        }
     }
 }

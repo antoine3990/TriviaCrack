@@ -85,6 +85,7 @@
             this.PB_score = new System.Windows.Forms.PictureBox();
             this.BT_quitScores = new System.Windows.Forms.Button();
             this.PNL_main = new System.Windows.Forms.Panel();
+            this.BT_admin = new System.Windows.Forms.Button();
             this.CB_nbJoueurs = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BT_start = new System.Windows.Forms.Button();
@@ -116,7 +117,16 @@
             this.LB_nameCount_Exists = new System.Windows.Forms.Label();
             this.BT_selectPlayer = new System.Windows.Forms.Button();
             this.CB_namePlayer = new System.Windows.Forms.ComboBox();
-            this.BT_admin = new System.Windows.Forms.Button();
+            this.PNL_isAdmin = new System.Windows.Forms.Panel();
+            this.BT_verifyAdmin = new System.Windows.Forms.Button();
+            this.TB_isAdmin = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PNL_adminChoice = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BT_adminJoueurs = new System.Windows.Forms.Button();
+            this.BT_adminQuestions = new System.Windows.Forms.Button();
+            this.BT_exitIsAdmin = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.PNL_questions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
@@ -135,6 +145,8 @@
             this.PNL_category.SuspendLayout();
             this.PNL_nameSelectionMethod.SuspendLayout();
             this.PNL_nameSelection_Exists.SuspendLayout();
+            this.PNL_isAdmin.SuspendLayout();
+            this.PNL_adminChoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // BT_answer2
@@ -932,6 +944,25 @@
             this.PNL_main.Size = new System.Drawing.Size(535, 662);
             this.PNL_main.TabIndex = 50;
             // 
+            // BT_admin
+            // 
+            this.BT_admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_admin.BackgroundImage = global::TriviaCrack.Properties.Resources.admin_grey;
+            this.BT_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_admin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_admin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_admin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_admin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_admin.Location = new System.Drawing.Point(41, 543);
+            this.BT_admin.Name = "BT_admin";
+            this.BT_admin.Size = new System.Drawing.Size(60, 60);
+            this.BT_admin.TabIndex = 116;
+            this.BT_admin.UseVisualStyleBackColor = false;
+            this.BT_admin.Click += new System.EventHandler(this.BT_admin_Click);
+            this.BT_admin.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
+            this.BT_admin.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
+            // 
             // CB_nbJoueurs
             // 
             this.CB_nbJoueurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
@@ -1415,24 +1446,148 @@
             this.CB_namePlayer.Size = new System.Drawing.Size(427, 67);
             this.CB_namePlayer.TabIndex = 2;
             // 
-            // BT_admin
+            // PNL_isAdmin
             // 
-            this.BT_admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_admin.BackgroundImage = global::TriviaCrack.Properties.Resources.settings;
-            this.BT_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BT_admin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BT_admin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.BT_admin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BT_admin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BT_admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BT_admin.Location = new System.Drawing.Point(41, 543);
-            this.BT_admin.Name = "BT_admin";
-            this.BT_admin.Size = new System.Drawing.Size(60, 60);
-            this.BT_admin.TabIndex = 116;
-            this.BT_admin.UseVisualStyleBackColor = false;
-            this.BT_admin.Click += new System.EventHandler(this.BT_admin_Click);
-            this.BT_admin.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
-            this.BT_admin.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
+            this.PNL_isAdmin.Controls.Add(this.BT_exitIsAdmin);
+            this.PNL_isAdmin.Controls.Add(this.BT_verifyAdmin);
+            this.PNL_isAdmin.Controls.Add(this.TB_isAdmin);
+            this.PNL_isAdmin.Controls.Add(this.label4);
+            this.PNL_isAdmin.Location = new System.Drawing.Point(0, 0);
+            this.PNL_isAdmin.Name = "PNL_isAdmin";
+            this.PNL_isAdmin.Size = new System.Drawing.Size(535, 662);
+            this.PNL_isAdmin.TabIndex = 55;
+            // 
+            // BT_verifyAdmin
+            // 
+            this.BT_verifyAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_verifyAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_verifyAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_verifyAdmin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_verifyAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_verifyAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_verifyAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_verifyAdmin.Location = new System.Drawing.Point(120, 528);
+            this.BT_verifyAdmin.Name = "BT_verifyAdmin";
+            this.BT_verifyAdmin.Size = new System.Drawing.Size(361, 87);
+            this.BT_verifyAdmin.TabIndex = 116;
+            this.BT_verifyAdmin.UseVisualStyleBackColor = false;
+            this.BT_verifyAdmin.Click += new System.EventHandler(this.BT_verifyAdmin_Click);
+            // 
+            // TB_isAdmin
+            // 
+            this.TB_isAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.TB_isAdmin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TB_isAdmin.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TB_isAdmin.ForeColor = System.Drawing.Color.White;
+            this.TB_isAdmin.Location = new System.Drawing.Point(54, 331);
+            this.TB_isAdmin.Name = "TB_isAdmin";
+            this.TB_isAdmin.Size = new System.Drawing.Size(427, 66);
+            this.TB_isAdmin.TabIndex = 3;
+            this.TB_isAdmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.label4.Location = new System.Drawing.Point(54, 265);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(427, 55);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nom d\'administrateur";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PNL_adminChoice
+            // 
+            this.PNL_adminChoice.Controls.Add(this.button1);
+            this.PNL_adminChoice.Controls.Add(this.label5);
+            this.PNL_adminChoice.Controls.Add(this.BT_adminJoueurs);
+            this.PNL_adminChoice.Controls.Add(this.BT_adminQuestions);
+            this.PNL_adminChoice.Location = new System.Drawing.Point(0, 0);
+            this.PNL_adminChoice.Name = "PNL_adminChoice";
+            this.PNL_adminChoice.Size = new System.Drawing.Size(535, 662);
+            this.PNL_adminChoice.TabIndex = 56;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Calibri Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.label5.Location = new System.Drawing.Point(95, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(348, 52);
+            this.label5.TabIndex = 117;
+            this.label5.Text = "Éffectuer des modifications sur des";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BT_adminJoueurs
+            // 
+            this.BT_adminJoueurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_adminJoueurs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_adminJoueurs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_adminJoueurs.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_adminJoueurs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_adminJoueurs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_adminJoueurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_adminJoueurs.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_adminJoueurs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BT_adminJoueurs.Location = new System.Drawing.Point(95, 264);
+            this.BT_adminJoueurs.Name = "BT_adminJoueurs";
+            this.BT_adminJoueurs.Size = new System.Drawing.Size(348, 83);
+            this.BT_adminJoueurs.TabIndex = 116;
+            this.BT_adminJoueurs.Text = "Joueurs";
+            this.BT_adminJoueurs.UseVisualStyleBackColor = false;
+            this.BT_adminJoueurs.Click += new System.EventHandler(this.BT_adminJoueurs_Click);
+            // 
+            // BT_adminQuestions
+            // 
+            this.BT_adminQuestions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_adminQuestions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_adminQuestions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_adminQuestions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_adminQuestions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_adminQuestions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_adminQuestions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_adminQuestions.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BT_adminQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BT_adminQuestions.Location = new System.Drawing.Point(95, 359);
+            this.BT_adminQuestions.Name = "BT_adminQuestions";
+            this.BT_adminQuestions.Size = new System.Drawing.Size(348, 83);
+            this.BT_adminQuestions.TabIndex = 115;
+            this.BT_adminQuestions.Text = "Questions";
+            this.BT_adminQuestions.UseVisualStyleBackColor = false;
+            this.BT_adminQuestions.Click += new System.EventHandler(this.BT_adminQuestions_Click);
+            // 
+            // BT_exitIsAdmin
+            // 
+            this.BT_exitIsAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_exitIsAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BT_exitIsAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_exitIsAdmin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_exitIsAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_exitIsAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_exitIsAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_exitIsAdmin.Location = new System.Drawing.Point(49, 541);
+            this.BT_exitIsAdmin.Name = "BT_exitIsAdmin";
+            this.BT_exitIsAdmin.Size = new System.Drawing.Size(60, 60);
+            this.BT_exitIsAdmin.TabIndex = 117;
+            this.BT_exitIsAdmin.UseVisualStyleBackColor = false;
+            this.BT_exitIsAdmin.Click += new System.EventHandler(this.BT_exitIsAdmin_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.button1.Location = new System.Drawing.Point(153, 547);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 72);
+            this.button1.TabIndex = 118;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Game
             // 
@@ -1440,12 +1595,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_adminChoice);
+            this.Controls.Add(this.PNL_isAdmin);
             this.Controls.Add(this.PNL_main);
+            this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_nameSelectionMethod);
             this.Controls.Add(this.PNL_nameSelection_Exists);
             this.Controls.Add(this.PNL_wheel);
             this.Controls.Add(this.PNL_questions);
-            this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_category);
             this.Controls.Add(this.PNL_scores);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1480,6 +1637,9 @@
             this.PNL_nameSelectionMethod.ResumeLayout(false);
             this.PNL_nameSelectionMethod.PerformLayout();
             this.PNL_nameSelection_Exists.ResumeLayout(false);
+            this.PNL_isAdmin.ResumeLayout(false);
+            this.PNL_isAdmin.PerformLayout();
+            this.PNL_adminChoice.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1573,6 +1733,16 @@
         private System.Windows.Forms.Label LB_nameSelectionWarning;
         private System.Windows.Forms.Button BT_warning;
         private System.Windows.Forms.Button BT_admin;
+        private System.Windows.Forms.Panel PNL_isAdmin;
+        private System.Windows.Forms.TextBox TB_isAdmin;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BT_verifyAdmin;
+        private System.Windows.Forms.Panel PNL_adminChoice;
+        private System.Windows.Forms.Button BT_adminJoueurs;
+        private System.Windows.Forms.Button BT_adminQuestions;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BT_exitIsAdmin;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -133,6 +133,12 @@
   <data name="addPlayer_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\addPlayer_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="admin_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="admin_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\_resources\admin_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\_resources\art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

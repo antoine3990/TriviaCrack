@@ -897,7 +897,42 @@ namespace TriviaCrack
 
         private void BT_admin_Click(object sender, EventArgs e)
         {
+            PNL_isAdmin.Visible = true;
+            PNL_isAdmin.BringToFront();
+        }
 
+        private void BT_verifyAdmin_Click(object sender, EventArgs e)
+        {
+            if (!Player.exists(TB_isAdmin.Text))
+                MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
+            else if (!Player.isAdmin(TB_isAdmin.Text))
+                MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
+            else
+            {
+                PNL_isAdmin.Visible = false;
+                PNL_adminChoice.Visible = true;
+                PNL_adminChoice.BringToFront();
+            }
+
+            TB_isAdmin.Clear();
+        }
+
+        private void BT_adminJoueurs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BT_adminQuestions_Click(object sender, EventArgs e)
+        {
+            Admin adminForm = new Admin();
+            adminForm.ShowDialog();
+        }
+
+        private void BT_exitIsAdmin_Click(object sender, EventArgs e)
+        {
+            PNL_isAdmin.Visible = false;
+            PNL_main.Visible = true;
+            PNL_main.BringToFront();
         }
     }
 }
