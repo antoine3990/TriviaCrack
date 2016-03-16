@@ -204,7 +204,11 @@
             this.RB_correct1.Appearance = System.Windows.Forms.Appearance.Button;
             this.RB_correct1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct1.BackgroundImage")));
             this.RB_correct1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RB_correct1.FlatAppearance.BorderSize = 0;
+            this.RB_correct1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.RB_correct1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RB_correct1.Location = new System.Drawing.Point(493, 213);
             this.RB_correct1.Name = "RB_correct1";
@@ -219,7 +223,11 @@
             this.RB_correct2.Appearance = System.Windows.Forms.Appearance.Button;
             this.RB_correct2.BackgroundImage = global::TriviaCrack.Properties.Resources.incorrect;
             this.RB_correct2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RB_correct2.FlatAppearance.BorderSize = 0;
+            this.RB_correct2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.RB_correct2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RB_correct2.Location = new System.Drawing.Point(493, 252);
             this.RB_correct2.Name = "RB_correct2";
@@ -234,7 +242,11 @@
             this.RB_correct3.Appearance = System.Windows.Forms.Appearance.Button;
             this.RB_correct3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct3.BackgroundImage")));
             this.RB_correct3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RB_correct3.FlatAppearance.BorderSize = 0;
+            this.RB_correct3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.RB_correct3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RB_correct3.Location = new System.Drawing.Point(493, 291);
             this.RB_correct3.Name = "RB_correct3";
@@ -249,7 +261,11 @@
             this.RB_correct4.Appearance = System.Windows.Forms.Appearance.Button;
             this.RB_correct4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RB_correct4.BackgroundImage")));
             this.RB_correct4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.RB_correct4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RB_correct4.FlatAppearance.BorderSize = 0;
+            this.RB_correct4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.RB_correct4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.RB_correct4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RB_correct4.Location = new System.Drawing.Point(493, 330);
             this.RB_correct4.Name = "RB_correct4";
@@ -262,16 +278,19 @@
             // CB_category
             // 
             this.CB_category.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.CB_category.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.CB_category.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_category.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CB_category.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CB_category.ForeColor = System.Drawing.Color.White;
             this.CB_category.FormattingEnabled = true;
             this.CB_category.IntegralHeight = false;
             this.CB_category.ItemHeight = 23;
             this.CB_category.Location = new System.Drawing.Point(49, 117);
             this.CB_category.Name = "CB_category";
-            this.CB_category.Size = new System.Drawing.Size(40, 31);
+            this.CB_category.Size = new System.Drawing.Size(40, 29);
             this.CB_category.TabIndex = 18;
+            this.CB_category.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.CB_category_DrawItem);
             // 
             // AddModQuestions
             // 

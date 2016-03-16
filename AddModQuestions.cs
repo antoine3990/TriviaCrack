@@ -17,19 +17,19 @@ namespace TriviaCrack
         public AddModQuestions()
         {
             InitializeComponent();
+            fillComboBox(null);
         }
 
         public AddModQuestions(string category, string question)
         {
             InitializeComponent();
+            fillComboBox(category);
 
             originalQuestion = question;
             //(Image)Properties.Resources.ResourceManager.GetObject(category.ToLower() + "_bg");
-            CB_category.Visible = false;
 
             LB_title.Text = LB_title.Text.Replace("Ajout", "Modification");
             BT_accept.Text = "Modifier";
-
             TB_question.Text = question;
 
             List<string> answers = new List<string>();
@@ -51,14 +51,27 @@ namespace TriviaCrack
             ((RadioButton)Controls["RB_correct" + correctAnswer.ToString()]).Checked = true;
         }
 
+        private void fillComboBox(string category)
+        {
+            foreach (string cat in Program.categories)
+                CB_category.Items.Add(cat.ToLower().Replace('é', 'e'));
+
+            if (category == null)
+                CB_category.SelectedIndex = 0;
+            else
+                CB_category.SelectedIndex = Program.categories.IndexOf(category);
+        }
+
         private void BT_accept_Click(object sender, EventArgs e)
         {
-            if (!answersNotEmpty())
+            if (answersEmpty())
                 MessageBox.Show("Réponses manquantes.");
             else if (TB_question.Text == "")
-                MessageBox.Show("Question manquante.");
-            else if (TB_question.Text[TB_question.TextLength - 1] != '?')
+                MessageBox.Show("Question invalide.");
+            else if (TB_question.Text.IndexOf('?') != TB_question.TextLength - 1)
                 MessageBox.Show("La question entrée n'est pas une question.");
+            else if (!RadioBoxChecked())
+                MessageBox.Show("Aucune bonne réponse n'a été sélectionnée.");
             else
             {
                 if (BT_accept.Text == "Ajouter")
@@ -70,13 +83,22 @@ namespace TriviaCrack
             }
         }
 
-        private bool answersNotEmpty()
+        private bool RadioBoxChecked()
+        {
+            for (int i = 1; i <= Program.nbAnswers; i++)
+                if (((RadioButton)Controls["RB_correct" + i.ToString()]).Checked)
+                    return true;
+
+            return false;
+        }
+
+        private bool answersEmpty()
         {
             for (int i = 1; i < Program.nbAnswers; i++)
                 if (Controls["TB_answer" + i.ToString()].Text == "")
-                    return false;
+                    return true;
 
-            return true;
+            return false;
         }
 
         private void addQuestion()
@@ -131,6 +153,15 @@ namespace TriviaCrack
                 Controls["RB_correct" + i.ToString()].BackgroundImage = Properties.Resources.incorrect;
 
             rb.BackgroundImage = Properties.Resources.correct;
+        }
+
+        private void CB_category_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawFocusRectangle();
+
+            // (Image)Properties.Resources.ResourceManager.GetObject(Items[e.Index].ToString())
+            e.Graphics.DrawImage(Properties.Resources.art, e.Bounds.Left, e.Bounds.Top);
         }
     }
 }
