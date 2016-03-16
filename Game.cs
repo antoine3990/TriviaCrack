@@ -878,5 +878,27 @@ namespace TriviaCrack
         }
 
         #endregion
+
+        private void BT_info_Click(object sender, EventArgs e)
+        {
+            LB_nameSelectionNote.Visible = !LB_nameSelectionNote.Visible;
+            BT_info.Location = new Point(95,576);
+
+            if (LB_nameSelectionWarning.Visible)
+                LB_nameSelectionWarning.Visible = false;
+        }
+
+        private void BT_warning_Click(object sender, EventArgs e)
+        {
+            if (!LB_nameSelectionWarning.Visible)
+                BT_info.Location = new Point(395, 576);
+            else
+                BT_info.Location = new Point(95, 576);
+
+            LB_nameSelectionWarning.Visible = !LB_nameSelectionWarning.Visible;
+
+            if (LB_nameSelectionNote.Visible)
+                LB_nameSelectionNote.Visible = false;
+        }
     }
 }
