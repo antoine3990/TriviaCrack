@@ -10,7 +10,7 @@ namespace TriviaCrack
     static class Points
     {
         /// <summary>
-        /// Réinitialise les points de la catégorie à zéro.
+        /// Réinitialise les points de tout les catégories du joueur.
         /// </summary>
         /// <param name="category">Nom de la catégorie</param>
         /// <param name="playerName">Nom du joueur</param>

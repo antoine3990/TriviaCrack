@@ -23,6 +23,10 @@ namespace TriviaCrack
             return BD.toList(BD.getDS(Program.conn, "REPONSE_PAKG.GET_REPONSE", IN, OUT));
         }
 
+        /// <summary>
+        /// Supprime tout les réponses de la question passée en paramètre.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
         public static void deleteAll(string question)
         {
             // DELETE - Tout les réponses à la question
@@ -44,11 +48,11 @@ namespace TriviaCrack
         }
 
         /// <summary>
-        /// Modifie le texte d'une réponse
+        /// Modifie le texte d'une réponse.
         /// </summary>
-        /// <param name="answer"></param>
-        /// <param name="newAnswer"></param>
-        public static void modify(string answer, string newAnswer) // -------------------------------------------------------------------------------- UNUSED
+        /// <param name="answer">Texte de la réponse</param>
+        /// <param name="newAnswer">Nouveau texte de la réponse</param>
+        public static void modify(string answer, string newAnswer)
         {
             List<Args> args = new List<Args>() {
                 new Args("PNUMR", getNum(answer), OracleDbType.Int32),
@@ -62,14 +66,19 @@ namespace TriviaCrack
         /// <summary>
         /// Modifie l'état de la réponse (correcte/incorrecte).
         /// </summary>
-        /// <param name="question"></param>
-        /// <param name="answer"></param>
-        public static void modify(string answer) // -------------------------------------------------------------------------------------------------- UNUSED
+        /// <param name="answer">Texte de la réponse</param>
+        public static void modify(string answer)
         {
             // UPDATE - État de la réponse
             BD.modify(Program.conn, "REPONSE_PAKG.UPDATE_REPONSE_C", new List<Args>() { new Args("PNUMR", getNum(answer), OracleDbType.Int32) });
         }
 
+        /// <summary>
+        /// Ajoute une réponse à la question passée en paramètre.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
+        /// <param name="answer">Texte de la réponse</param>
+        /// <param name="correct">L'état de la réponse (correcte/incorrecte)</param>
         public static void add(string question, string answer, char correct)
         {
             List<Args> args = new List<Args>() {
@@ -82,6 +91,11 @@ namespace TriviaCrack
             BD.insert(Program.conn, "REPONSE_PAKG.ADD_REPONSE", args);
         }
 
+        /// <summary>
+        /// Compte le nombre de réponses à une question.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
+        /// <returns>Nombre de réponses</returns>
         public static int count(string question)
         {
             List<Args> IN = new List<Args>() { new Args("PNUMQ", Question.getNum(question), OracleDbType.Int32) };
@@ -91,6 +105,11 @@ namespace TriviaCrack
             return BD.count(Program.conn, "REPONSE_PAKG.COUNT_REPONSE", IN, OUT);
         }
 
+        /// <summary>
+        /// Trouve le numéro unique dans la base de données de la réponse passée en paramètre.
+        /// </summary>
+        /// <param name="answer">Texte de la réponse</param>
+        /// <returns>Numéro unique de la réponse</returns>
         public static string getNum(string answer)
         {
             return BD.getString(Program.conn, "REPONSE_PAKG.GET_NUM",

@@ -292,6 +292,12 @@ namespace TriviaCrack
                     PNL_nameSelection_Exists.Visible = false; // Fermer ce menu
                     showPlayerScores();
                     changePlayer();
+
+                    if (!validPointsPlayer())
+                    {
+                        foreach (string player in Program.players)
+                            Points.reset(player);
+                    }
                 }
                 else Program.changePlayer(); // Prochain Joueur
             }
@@ -325,6 +331,69 @@ namespace TriviaCrack
 
             if (LB_nameSelectionNote.Visible)
                 LB_nameSelectionNote.Visible = false;
+        }
+
+        private void BT_admin_Click(object sender, EventArgs e)
+        {
+            PNL_isAdmin.Visible = true;
+            PNL_isAdmin.BringToFront();
+            TB_isAdmin.Clear();
+        }
+        private void BT_verifyAdmin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Player.exists(TB_isAdmin.Text))
+                {
+                    MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
+                    TB_isAdmin.Clear();
+                }
+                else if (!Player.isAdmin(TB_isAdmin.Text))
+                {
+                    MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
+                    TB_isAdmin.Clear();
+                }
+                else
+                {
+                    PNL_isAdmin.Visible = false;
+                    PNL_adminChoice.Visible = true;
+                    PNL_adminChoice.BringToFront();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+        private void BT_adminJoueurs_Click(object sender, EventArgs e)
+        {
+            AdminPlayers adminForm = new AdminPlayers(TB_isAdmin.Text);
+            adminForm.ShowDialog();
+        }
+        private void BT_adminQuestions_Click(object sender, EventArgs e)
+        {
+            AdminQuestions adminForm = new AdminQuestions();
+            adminForm.ShowDialog();
+        }
+        private void BT_exitIsAdmin_Click(object sender, EventArgs e)
+        {
+            PNL_isAdmin.Visible = false;
+            PNL_main.Visible = true;
+            PNL_main.BringToFront();
+        }
+        private void BT_exitAdminChoice_Click(object sender, EventArgs e)
+        {
+            LB_resetQuestions.Enabled = true;
+            PB_resetedQuestions.Visible = false;
+            PNL_adminChoice.Visible = false;
+            PNL_main.Visible = true;
+            PNL_main.BringToFront();
+        }
+        private void LB_resetQuestions_Click(object sender, EventArgs e)
+        {
+            Question.reset();
+            PB_resetedQuestions.Visible = true;
+            LB_resetQuestions.Enabled = false;
         }
 
         #endregion
@@ -669,6 +738,28 @@ namespace TriviaCrack
             cb.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Vérifie si le pointage des joueurs doit être remis à 0.
+        /// </summary>
+        /// <returns>La validité du pointage</returns>
+        private bool validPointsPlayer()
+        {
+            bool tooMuchPoints = true;
+            foreach (string player in Program.players)
+            {
+                foreach (string category in Program.categories)
+                {
+                    if (Points.get(category, player) < Program.pointsToWin)
+                        tooMuchPoints = false;
+                }
+
+                if (tooMuchPoints)
+                    return false;
+            }
+
+            return true;
+        }
+
         #endregion
 
         #region Animation de la roue
@@ -898,65 +989,5 @@ namespace TriviaCrack
 
 
         #endregion
-
-        private void BT_admin_Click(object sender, EventArgs e)
-        {
-            PNL_isAdmin.Visible = true;
-            PNL_isAdmin.BringToFront();
-            TB_isAdmin.Clear();
-        }
-
-        private void BT_verifyAdmin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!Player.exists(TB_isAdmin.Text))
-                {
-                    MessageBox.Show("Le nom d'utilisateur entré n'existe pas.");
-                    TB_isAdmin.Clear();
-                }
-                else if (!Player.isAdmin(TB_isAdmin.Text))
-                {
-                    MessageBox.Show("Le nom d'utilisateur entré n'est pas un administrateur.");
-                    TB_isAdmin.Clear();
-                }
-                else
-                {
-                    PNL_isAdmin.Visible = false;
-                    PNL_adminChoice.Visible = true;
-                    PNL_adminChoice.BringToFront();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
-
-        private void BT_adminJoueurs_Click(object sender, EventArgs e)
-        {
-            AdminPlayers adminForm = new AdminPlayers(int.Parse(CB_nbPoints.Text),TB_isAdmin.Text);
-            adminForm.ShowDialog();
-        }
-
-        private void BT_adminQuestions_Click(object sender, EventArgs e)
-        {
-            AdminQuestions adminForm = new AdminQuestions();
-            adminForm.ShowDialog();
-        }
-
-        private void BT_exitIsAdmin_Click(object sender, EventArgs e)
-        {
-            PNL_isAdmin.Visible = false;
-            PNL_main.Visible = true;
-            PNL_main.BringToFront();
-        }
-
-        private void BT_exitAdminChoice_Click(object sender, EventArgs e)
-        {
-            PNL_adminChoice.Visible = false;
-            PNL_main.Visible = true;
-            PNL_main.BringToFront();
-        }
     }
 }

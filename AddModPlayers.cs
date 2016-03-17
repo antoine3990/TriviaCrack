@@ -50,7 +50,6 @@ namespace TriviaCrack
 
             Update();
         }
-
         private void fillComboBoxes()
         {
             for (int i = 0; i < Program.categories.Count; i++)
@@ -80,7 +79,6 @@ namespace TriviaCrack
             }
             Update();
         }
-
         private void BT_accept_Click(object sender, EventArgs e)
         {
             if (validScore())

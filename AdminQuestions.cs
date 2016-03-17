@@ -27,7 +27,6 @@ namespace TriviaCrack
             dgv.RowHeadersVisible = false;
             dgv.AllowUserToAddRows = false;
         }
-
         void initListBox()
         {
             foreach (string c in Program.categories)
@@ -35,46 +34,6 @@ namespace TriviaCrack
 
             LB_categories.SelectedIndex = 0;
         }
-
-        private void BT_addMod_Click(object sender, EventArgs e)
-        {
-            AddModQuestions form;
-
-            string category = LB_categories.GetItemText(LB_categories.SelectedItem).ToLower().Replace("é", "e");
-            category = category.Substring(0, 1).ToUpper() + category.Substring(1);
-
-            if (((Button)sender).Name.Substring(3) == "modify")
-                form = new AddModQuestions(category, DGV_questions.CurrentRow.Cells[0].Value.ToString());
-            else
-                form = new AddModQuestions();
-
-            form.ShowDialog();
-
-            fillDGV();
-        }
-
-        private void BT_delete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
-
-                Answer.deleteAll(question);
-                Question.delete(question);
-
-                fillDGV();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-        }
-
-        private void LB_categories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            fillDGV();
-        }
-
         private void fillDGV()
         {
             string category = LB_categories.GetItemText(LB_categories.SelectedItem).ToLower().Replace("é", "e");
@@ -93,12 +52,49 @@ namespace TriviaCrack
             Update();
         }
 
+        private void BT_addMod_Click(object sender, EventArgs e)
+        {
+            AddModQuestions form;
+
+            string category = LB_categories.GetItemText(LB_categories.SelectedItem).ToLower().Replace("é", "e");
+            category = category.Substring(0, 1).ToUpper() + category.Substring(1);
+
+            if (((Button)sender).Name.Substring(3) == "modify")
+                form = new AddModQuestions(category, DGV_questions.CurrentRow.Cells[0].Value.ToString());
+            else
+                form = new AddModQuestions();
+
+            form.ShowDialog();
+
+            fillDGV();
+        }
+        private void BT_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
+
+                Answer.deleteAll(question);
+                Question.delete(question);
+
+                fillDGV();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
         private void DGV_questions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string question = DGV_questions.CurrentRow.Cells[0].Value.ToString();
             AddModQuestions form = new AddModQuestions(Question.getCategory(question), question);
             form.ShowDialog();
 
+            fillDGV();
+        }
+
+        private void LB_categories_SelectedIndexChanged(object sender, EventArgs e)
+        {
             fillDGV();
         }
     }

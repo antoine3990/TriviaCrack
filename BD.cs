@@ -26,9 +26,6 @@ namespace TriviaCrack
         /// <param name="args">Liste d'arguments en IN à passer à la base de données</param>
         public static void insert(OracleConnection conn, string package, List<Args> args) 
         {
-            if (args == null)
-                throw new InvalidOperationException("La liste d'arguments passée en paramètre est invalide (null).");
-
             if (conn.State == ConnectionState.Closed)
                 conn.Open(); // Ouvrir la connection
 
@@ -181,6 +178,11 @@ namespace TriviaCrack
             connection.ConnectionString = string.Format(connString, user, password);
         }
 
+        /// <summary>
+        /// Réorganize aléatoirement une liste.
+        /// </summary>
+        /// <typeparam name="T">Type de la liste</typeparam>
+        /// <param name="list">Liste a "randomize"</param>
         public static void Shuffle<T>(this IList<T> list)
         {
             Random rng = new Random();

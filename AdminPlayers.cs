@@ -13,12 +13,10 @@ namespace TriviaCrack
     public partial class AdminPlayers : Form
     {
         string admin;
-        int maxPoints;
 
-        public AdminPlayers(int PointsToWin, string name)
+        public AdminPlayers(string name)
         {
             admin = name;
-            maxPoints = PointsToWin;
 
             InitializeComponent();
             fillCBplayers(CB_players);
@@ -44,7 +42,6 @@ namespace TriviaCrack
 
             fillCBplayers(CB_players);
         }
-
         private void BT_modify_Click(object sender, EventArgs e)
         {
             AddModPlayers form = new AddModPlayers(CB_players.SelectedItem.ToString());
@@ -52,7 +49,6 @@ namespace TriviaCrack
 
             fillCBplayers(CB_players);
         }
-
         private void BT_delete_Click(object sender, EventArgs e)
         {
             Player.remove(CB_players.Text);

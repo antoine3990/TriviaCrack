@@ -10,6 +10,11 @@ namespace TriviaCrack
     /// </summary>
     static class Question
     {
+        /// <summary>
+        /// Trouve le numéro unique dans la base de données de la question passée en paramètre.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
+        /// <returns>Numéro unique de la question</returns>
         public static string getNum(string question)
         {
             return BD.getString(Program.conn, "QUESTION_PAKG.GET_NUM",
@@ -17,6 +22,11 @@ namespace TriviaCrack
                   new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue));
         }
 
+        /// <summary>
+        /// Trouve une question au hasard dans la liste de question de la catégorie passée en paramètre.
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <returns>Question au hasard</returns>
         public static string get(string category)
         {
             List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
@@ -26,6 +36,11 @@ namespace TriviaCrack
             return BD.getString(Program.conn, "QUESTION_PAKG.QUESTION_HASARD", IN, OUT); 
         }
         
+        /// <summary>
+        /// Trouve la catégorie de la question passée en paramètre.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
+        /// <returns>Catégorie de la question</returns>
         public static string getCategory(string question)
         {
             List<Args> IN = new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) };
@@ -35,6 +50,11 @@ namespace TriviaCrack
             return BD.getString(Program.conn, "QUESTION_PAKG.GET_CATEGORIE", IN, OUT);
         }
 
+        /// <summary>
+        /// Recherche la liste de questions selon la catégorie passée en paramètre.
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <returns>La liste de question</returns>
         public static DataSet getAll(string category)
         {
             List<Args> IN = new List<Args>() { new Args("PCATEGORIE", category, OracleDbType.Varchar2) };
@@ -93,12 +113,19 @@ namespace TriviaCrack
             BD.delete(Program.conn, "QUESTION_PAKG.DELETE_QUESTION", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
         }
 
+        /// <summary>
+        /// Modifie l'état d'une question à 'répondue'.
+        /// </summary>
+        /// <param name="question">Texte de la question</param>
         public static void answered(string question)
         {
             // UPDATE - La question est répondue
             BD.modify(Program.conn, "QUESTION_PAKG.REPONDUE", new List<Args>() { new Args("PNUM", getNum(question), OracleDbType.Int32) });
         }
 
+        /// <summary>
+        /// Réinitialise les questions à leurs état original (non-répondues).
+        /// </summary>
         public static void reset()
         {
             BD.modify(Program.conn, "QUESTION_PAKG.RESET_QUESTION", null);

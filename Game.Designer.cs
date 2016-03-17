@@ -123,10 +123,12 @@
             this.TB_isAdmin = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PNL_adminChoice = new System.Windows.Forms.Panel();
+            this.LB_resetQuestions = new System.Windows.Forms.Label();
             this.BT_exitAdminChoice = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.BT_adminJoueurs = new System.Windows.Forms.Button();
             this.BT_adminQuestions = new System.Windows.Forms.Button();
+            this.PB_resetedQuestions = new System.Windows.Forms.PictureBox();
             this.PNL_questions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
@@ -147,6 +149,7 @@
             this.PNL_nameSelection_Exists.SuspendLayout();
             this.PNL_isAdmin.SuspendLayout();
             this.PNL_adminChoice.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PB_resetedQuestions)).BeginInit();
             this.SuspendLayout();
             // 
             // BT_answer2
@@ -1522,6 +1525,8 @@
             // 
             // PNL_adminChoice
             // 
+            this.PNL_adminChoice.Controls.Add(this.PB_resetedQuestions);
+            this.PNL_adminChoice.Controls.Add(this.LB_resetQuestions);
             this.PNL_adminChoice.Controls.Add(this.BT_exitAdminChoice);
             this.PNL_adminChoice.Controls.Add(this.label5);
             this.PNL_adminChoice.Controls.Add(this.BT_adminJoueurs);
@@ -1531,6 +1536,23 @@
             this.PNL_adminChoice.Size = new System.Drawing.Size(535, 662);
             this.PNL_adminChoice.TabIndex = 56;
             this.PNL_adminChoice.Visible = false;
+            // 
+            // LB_resetQuestions
+            // 
+            this.LB_resetQuestions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LB_resetQuestions.Font = new System.Drawing.Font("Calibri Light", 13F);
+            this.LB_resetQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.LB_resetQuestions.Location = new System.Drawing.Point(95, 443);
+            this.LB_resetQuestions.Name = "LB_resetQuestions";
+            this.LB_resetQuestions.Size = new System.Drawing.Size(349, 52);
+            this.LB_resetQuestions.TabIndex = 119;
+            this.LB_resetQuestions.Text = "Remettre les questions comme \'Non-répondues\'.";
+            this.LB_resetQuestions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LB_resetQuestions.Click += new System.EventHandler(this.LB_resetQuestions_Click);
+            this.LB_resetQuestions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LB_existPlayer_MouseDown);
+            this.LB_resetQuestions.MouseEnter += new System.EventHandler(this.LB_existPlayer_MouseEnter);
+            this.LB_resetQuestions.MouseLeave += new System.EventHandler(this.LB_existPlayer_MouseLeave);
+            this.LB_resetQuestions.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LB_existPlayer_MouseUp);
             // 
             // BT_exitAdminChoice
             // 
@@ -1557,7 +1579,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Calibri Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.label5.Location = new System.Drawing.Point(95, 196);
+            this.label5.Location = new System.Drawing.Point(95, 178);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(348, 52);
             this.label5.TabIndex = 117;
@@ -1575,7 +1597,7 @@
             this.BT_adminJoueurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_adminJoueurs.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_adminJoueurs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.BT_adminJoueurs.Location = new System.Drawing.Point(95, 264);
+            this.BT_adminJoueurs.Location = new System.Drawing.Point(95, 246);
             this.BT_adminJoueurs.Name = "BT_adminJoueurs";
             this.BT_adminJoueurs.Size = new System.Drawing.Size(348, 83);
             this.BT_adminJoueurs.TabIndex = 116;
@@ -1596,7 +1618,7 @@
             this.BT_adminQuestions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BT_adminQuestions.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BT_adminQuestions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.BT_adminQuestions.Location = new System.Drawing.Point(95, 359);
+            this.BT_adminQuestions.Location = new System.Drawing.Point(95, 341);
             this.BT_adminQuestions.Name = "BT_adminQuestions";
             this.BT_adminQuestions.Size = new System.Drawing.Size(348, 83);
             this.BT_adminQuestions.TabIndex = 115;
@@ -1606,14 +1628,25 @@
             this.BT_adminQuestions.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
             this.BT_adminQuestions.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
             // 
+            // PB_resetedQuestions
+            // 
+            this.PB_resetedQuestions.BackgroundImage = global::TriviaCrack.Properties.Resources.correct;
+            this.PB_resetedQuestions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PB_resetedQuestions.Location = new System.Drawing.Point(418, 461);
+            this.PB_resetedQuestions.Name = "PB_resetedQuestions";
+            this.PB_resetedQuestions.Size = new System.Drawing.Size(25, 25);
+            this.PB_resetedQuestions.TabIndex = 120;
+            this.PB_resetedQuestions.TabStop = false;
+            this.PB_resetedQuestions.Visible = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
-            this.Controls.Add(this.PNL_nameSelection_Exists);
             this.Controls.Add(this.PNL_adminChoice);
+            this.Controls.Add(this.PNL_nameSelection_Exists);
             this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_isAdmin);
             this.Controls.Add(this.PNL_nameSelectionMethod);
@@ -1657,6 +1690,7 @@
             this.PNL_isAdmin.ResumeLayout(false);
             this.PNL_isAdmin.PerformLayout();
             this.PNL_adminChoice.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PB_resetedQuestions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1760,6 +1794,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button BT_exitIsAdmin;
         private System.Windows.Forms.Button BT_exitAdminChoice;
+        private System.Windows.Forms.Label LB_resetQuestions;
+        private System.Windows.Forms.PictureBox PB_resetedQuestions;
     }
 }
 

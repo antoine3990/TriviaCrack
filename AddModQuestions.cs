@@ -86,6 +86,26 @@ namespace TriviaCrack
                 this.Close();
             }
         }
+        private void RB_correct_CheckedChanged(object send, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)send;
+
+            for (int i = 1; i <= Program.nbAnswers; i++)
+                Controls["RB_correct" + i.ToString()].BackgroundImage = Properties.Resources.incorrect;
+
+            rb.BackgroundImage = Properties.Resources.correct;
+        }
+
+        private void CB_category_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawFocusRectangle();
+
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45, 45, 45)), e.Bounds);
+
+            e.Graphics.DrawImage((Image)Properties.Resources.ResourceManager.GetObject(CB_category.Items[e.Index].ToString() + "_small"), e.Bounds.Left, e.Bounds.Top);
+        }
 
         private bool RadioBoxChecked()
         {
@@ -95,7 +115,6 @@ namespace TriviaCrack
 
             return false;
         }
-
         private bool answersEmpty()
         {
             for (int i = 1; i < Program.nbAnswers; i++)
@@ -117,7 +136,6 @@ namespace TriviaCrack
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-
         private void modQuestion()
         {
             try
@@ -132,7 +150,6 @@ namespace TriviaCrack
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-
         private void addAnswers(string question)
         {
             try
@@ -147,27 +164,6 @@ namespace TriviaCrack
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-        }
-
-        private void RB_correct_CheckedChanged(object send, EventArgs e)
-        {
-            RadioButton rb = (RadioButton)send;
-            
-            for (int i = 1; i <= Program.nbAnswers; i++)
-                Controls["RB_correct" + i.ToString()].BackgroundImage = Properties.Resources.incorrect;
-
-            rb.BackgroundImage = Properties.Resources.correct;
-        }
-
-        private void CB_category_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            e.DrawBackground();
-            e.DrawFocusRectangle();
-
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(45,45,45)), e.Bounds);
-
-            e.Graphics.DrawImage((Image)Properties.Resources.ResourceManager.GetObject(CB_category.Items[e.Index].ToString() + "_small"), e.Bounds.Left, e.Bounds.Top);
         }
     }
 }
