@@ -27,7 +27,7 @@ namespace TriviaCrack
         /// <param name="playerName">Nom du joueur</param>
         public static void add(string category, string playerName)
         {
-            category.Replace('é','e');
+            category = (category.Substring(0, 1).ToUpper() + category.Substring(1)).Replace('é', 'e');
             List<Args> args = new List<Args>() {
                 new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
                 new Args("PCATEGORIE", category, OracleDbType.Varchar2)
@@ -54,6 +54,26 @@ namespace TriviaCrack
             
             // GET - Points de la catégorie du joueur
             return int.Parse(BD.getString(Program.conn, "POINTS_PAKG.GET_POINT", IN, OUT));
+        }
+
+        /// <summary>
+        /// Ajuste le nombre de points d'une catégorie selon le pointage passé en paramètre.
+        /// </summary>
+        /// <param name="category">Nom de la catégorie</param>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <param name="points">Nouveau pointage de la catégorie</param>
+        public static void set(string category, string playerName, int points)
+        {
+            category = (category.Substring(0, 1).ToUpper() + category.Substring(1)).Replace('é', 'e');
+
+            List<Args> args = new List<Args>() {
+                new Args("PNUM", Player.getNum(playerName), OracleDbType.Int32),
+                new Args("PCATEGORIE", category, OracleDbType.Varchar2),
+                new Args("NEW_POINT", points.ToString(), OracleDbType.Int32)
+            };
+
+            // UPDATE - Point de la catégorie du joueur = points
+            BD.modify(Program.conn, "POINTS_PAKG.UPDATE_POINT", args);
         }
     }
 }

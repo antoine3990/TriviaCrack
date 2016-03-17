@@ -42,9 +42,6 @@ namespace TriviaCrack
 
             InitMain(minPlayers, maxPlayers, minPointsToWin, maxPointsToWin);
             PNL_main.BringToFront();
-
-            PNL_adminChoice.Visible = true;
-            PNL_adminChoice.BringToFront();
         }
 
         /// <summary>

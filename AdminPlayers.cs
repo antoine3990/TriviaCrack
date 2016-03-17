@@ -39,7 +39,7 @@ namespace TriviaCrack
 
         private void BT_add_Click(object sender, EventArgs e)
         {
-            AddModPlayers form = new AddModPlayers(maxPoints);
+            AddModPlayers form = new AddModPlayers();
             form.ShowDialog();
 
             fillCBplayers(CB_players);
@@ -47,7 +47,7 @@ namespace TriviaCrack
 
         private void BT_modify_Click(object sender, EventArgs e)
         {
-            AddModPlayers form = new AddModPlayers(maxPoints, CB_players.SelectedItem.ToString());
+            AddModPlayers form = new AddModPlayers(CB_players.SelectedItem.ToString());
             form.ShowDialog();
 
             fillCBplayers(CB_players);

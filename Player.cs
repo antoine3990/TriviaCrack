@@ -51,6 +51,11 @@ namespace TriviaCrack
                 new Args("PNUM", null, OracleDbType.Int32, ParameterDirection.ReturnValue)).ToString();
         }
 
+        /// <summary>
+        /// Vérifie si le joueur est un administrateur.
+        /// </summary>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <returns>Vrai si le joueur est administrateur. Faux dans le cas contraire.</returns>
         public static bool isAdmin(string playerName)
         {
             return int.Parse(BD.getString(Program.conn, "JOUEUR_PAKG.IS_ADMIN",
@@ -58,11 +63,32 @@ namespace TriviaCrack
                 new Args("ADMINI", null, OracleDbType.Int32, ParameterDirection.ReturnValue))) == 1;
         }
 
+        /// <summary>
+        /// Vérifie si le joueur existe.
+        /// </summary>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <returns>Vrai si le joueur existe. Faux dans le cas contraire.</returns>
         public static bool exists(string playerName)
         {
             return int.Parse(BD.getString(Program.conn, "JOUEUR_PAKG.EXISTE",
                 new List<Args>() { new Args("PNUM", playerName, OracleDbType.Varchar2) },
                 new Args("SELECTED", null, OracleDbType.Int32, ParameterDirection.ReturnValue))) == 1;
+        }
+
+        /// <summary>
+        /// Change le status d'administrateur du joueur passé en paramètre.
+        /// </summary>
+        /// <param name="playerName">Nom du joueur</param>
+        /// <param name="isAdmin">1 si le joueur est administrateur, 0 dans le cas contraire</param>
+        public static void setAdmin(string playerName, bool isAdmin)
+        {
+            string admin = isAdmin ? "1" : "0";
+            List<Args> args = new List<Args>() {
+                new Args("PNUM", getNum(playerName), OracleDbType.Int32),
+                new Args("PADMIN", admin, OracleDbType.Int32)
+            };
+
+            BD.modify(Program.conn, "JOUEUR_PAKG.SET_ADMIN", args);
         }
     }
 }

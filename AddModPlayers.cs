@@ -12,23 +12,19 @@ namespace TriviaCrack
 {
     public partial class AddModPlayers : Form
     {
-        int maxPoints;
-
-        public AddModPlayers(int pointsToWin)
+        public AddModPlayers()
         {
             InitializeComponent();
-            maxPoints = pointsToWin;
             fillComboBoxes();
         }
 
-        public AddModPlayers(int pointsToWin, string name)
+        public AddModPlayers(string name)
         {
             InitializeComponent();
 
             TB_name.Text = name;
             TB_name.Enabled = false;
             TB_name.ForeColor = Color.White;
-            maxPoints = pointsToWin;
 
             BT_accept.Text = "Modifier";
             Text = "Modifier un joueur";
@@ -87,14 +83,48 @@ namespace TriviaCrack
 
         private void BT_accept_Click(object sender, EventArgs e)
         {
-            if (BT_accept.Text == "Modifier")
+            if (validScore())
             {
+                try
+                {
+                    if (BT_accept.Text == "Ajouter")
+                        Player.add(TB_name.Text);
 
+                    BT_accept.Text = "Modifier";
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Nom de joueur déjà présent dans la base de données.");
+                }
+
+                if (BT_accept.Text == "Modifier")
+                {
+                    Player.setAdmin(TB_name.Text, BT_admin.Tag.ToString() == "yes");
+
+                    for (int i = 0; i < Program.categories.Count; i++)
+                    {
+                        string category = Program.categories[i];
+                        int points = int.Parse(Controls["CB_" + category.ToLower().Replace('é', 'e')].Text);
+                        Points.set(category, TB_name.Text, points);
+                    }
+
+                    this.Close();
+                }
             }
             else
-            {
+                MessageBox.Show("Un joueur ne peut avoir le nombre maximal de points dans tout les catégories.");
+        }
 
+        private bool validScore()
+        {
+            for (int i = 0; i < Program.categories.Count; i++)
+            {
+                int points = int.Parse(Controls["CB_" + Program.categories[i].ToLower().Replace('é', 'e')].Text);
+                if (points < Program.maxPoints)
+                    return true;
             }
+
+            return false;
         }
     }
 }
