@@ -24,10 +24,12 @@ namespace TriviaCrack
     public partial class Game : Form
     {
         Random rand = new Random(); // Générateur de nombre aléatoire
+        ToolTip toolTip_question = new ToolTip(); // Tooltip pour montrer la question entière
         
         private int currentRotation = 0; // Rotation (en degrées) de la roue
         private bool wheelClicked = false; // Vrai si la roue a été cliquée
         private bool answerClicked = false; // Vrai si une réponse a été cliquée
+        private const string noQuestionsLeft = "Aucune questions non-répondues";
 
         /// <summary>
         /// Constructeur paramétrique de la fenêtre principale de jeu.
@@ -170,36 +172,41 @@ namespace TriviaCrack
 
         private void BT_answer_Click(object send, EventArgs e)
         {
-            Button sender = (Button)send;
-
-            try
+            if (LB_question.Text == noQuestionsLeft)
+                MessageBox.Show(noQuestionsLeft + ".\nVeuillez réinitialiser les questions puis recommencer la partie.");
+            else
             {
-                Button correct = getCorrectAnswer(LB_question.Text);
+                Button sender = (Button)send;
 
-                if (correct == null)
-                    throw new InvalidOperationException("Aucune réponse correcte.");
-
-                if (!answerClicked)
+                try
                 {
-                    for (int i = 1; i <= Program.nbAnswers; i++)
-                        Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
-                    
-                    Question.answered(LB_question.Text);
+                    Button correct = getCorrectAnswer(LB_question.Text);
 
-                    if (correct.Name == sender.Name)
-                        correctAnswer(sender);
-                    else
-                        incorrectAnswer(sender, correct);
+                    if (correct == null)
+                        throw new InvalidOperationException("Aucune réponse correcte.");
 
-                    ShowNextTurn(sender == correct);
+                    if (!answerClicked)
+                    {
+                        for (int i = 1; i <= Program.nbAnswers; i++)
+                            Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
+
+                        Question.answered(LB_question.Text);
+
+                        if (correct.Name == sender.Name)
+                            correctAnswer(sender);
+                        else
+                            incorrectAnswer(sender, correct);
+
+                        ShowNextTurn(sender == correct);
+                    }
+                    Refresh();
+
+                    answerClicked = true;
                 }
-                Refresh();
-
-                answerClicked = true;
-            }
-            catch (InvalidOperationException ioe)
-            {
-                MessageBox.Show(ioe.Message.ToString());
+                catch (InvalidOperationException ioe)
+                {
+                    MessageBox.Show(ioe.Message.ToString());
+                }
             }
         }
         private async void ShowNextTurn(bool correct)
@@ -315,7 +322,7 @@ namespace TriviaCrack
             LB_nameCount_Exists.Text = "Nom du " + nums[Program.currentPlayer] + " joueur"; // Modification du label avec le bon # de joueur
 
             fillCBplayers(CB_namePlayer);
-        }
+        } 
 
         private void BT_info_Click(object sender, EventArgs e)
         {
@@ -493,14 +500,16 @@ namespace TriviaCrack
             {
                 string question = Question.get(category);
                 LB_question.Text = question;
+                toolTip_question.SetToolTip(LB_question, question);
                 return question;
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
+                LB_question.Text = noQuestionsLeft;
                 MessageBox.Show("Cette catégorie ne contient aucune question.");
             }
 
-            return null;
+            return noQuestionsLeft;
         }
 
         /// <summary>
@@ -509,14 +518,14 @@ namespace TriviaCrack
         /// <param name="question">La question à retrouver les réponses</param>
         private void showAnswers(string question)
         {
-            if (question == null)
-                throw new NullReferenceException("La question est nulle. Impossible d'importer les réponses.");
+            if (question != noQuestionsLeft)
+            {
+                List<string> answers = Answer.get(question);
+                answers.Shuffle();
 
-            List<string> answers = Answer.get(question);
-            answers.Shuffle();
-
-            for (int i = 0; i < Program.nbAnswers && i < answers.Count; i++)
-                this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
+                for (int i = 0; i < Program.nbAnswers && i < answers.Count; i++)
+                    this.PNL_questions.Controls["BT_answer" + (i + 1).ToString()].Text = answers[i];
+            }
         }
 
         /// <summary>
