@@ -54,12 +54,11 @@ namespace TriviaCrack
         {
             for (int i = 0; i < Program.categories.Count; i++)
             {
-                for (int j = 0; j <= Program.maxPoints; j++)
-                {
-                    string category = Program.categories[i].ToLower().Replace('é', 'e');
+                string category = Program.categories[i].ToLower().Replace('é', 'e');
+                for (int j = 0; j <= 10; j++)
                     ((ComboBox)Controls["CB_" + category]).Items.Add(j);
-                    ((ComboBox)Controls["CB_" + category]).SelectedIndex = 0;
-                }
+
+                ((ComboBox)Controls["CB_" + category]).SelectedIndex = 0;
             }
 
             Update();

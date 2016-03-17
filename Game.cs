@@ -1014,6 +1014,11 @@ namespace TriviaCrack
             LB_winner.Text = String.Format(LB_winner.Text, winner);
             PNL_winner.Visible = true;
             PNL_winner.BringToFront();
+
+            foreach (string player in Program.players)
+                Points.reset(player);
+
+            Program.players.Clear();
         }
 
         #endregion
