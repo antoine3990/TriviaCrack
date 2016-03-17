@@ -111,6 +111,14 @@ namespace TriviaCrack
             return cmd.Parameters[OUT.name].Value.ToString();
         }
 
+        /// <summary>
+        /// Créé la commande prête à être envoyée à la base de données.
+        /// </summary>
+        /// <param name="conn">Connection à la base de données</param>
+        /// <param name="package">Nom du package et de la méthode</param>
+        /// <param name="IN">Liste d'arguments en IN à passer à la base de données</param>
+        /// <param name="OUT">Argument de retour de la base de données</param>
+        /// <returns>La commange prête à être envoyée à la base de données</returns>
         private static OracleCommand getCMD(OracleConnection conn, string package, List<Args> IN, Args OUT)
         {
             OracleCommand cmd = new OracleCommand(package.Substring(0, package.IndexOf('.')), conn);
@@ -157,6 +165,11 @@ namespace TriviaCrack
             return int.Parse(cmd.Parameters[OUT.name].Value.ToString());
         }
 
+        /// <summary>
+        /// Créé une liste de chaines contenant la donnée des premières colonnes de tout les lignes d'un dataset.
+        /// </summary>
+        /// <param name="ds">Dataset à transférer dans une liste</param>
+        /// <returns>Liste de chaines</returns>
         public static List<string> toList(DataSet ds)
         {
             List<string> strings = new List<string>();
