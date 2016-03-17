@@ -121,6 +121,7 @@
             this.Controls.Add(this.BT_add);
             this.Controls.Add(this.LB_name);
             this.Controls.Add(this.CB_players);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminPlayers";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

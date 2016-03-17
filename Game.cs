@@ -183,17 +183,16 @@ namespace TriviaCrack
                 {
                     for (int i = 1; i <= Program.nbAnswers; i++)
                         Controls["PNL_questions"].Controls["BT_answer" + i.ToString()].Cursor = Cursors.Default;
-
-                    ShowNextTurn(correct.Name == sender.Name);
-
+                    
                     Question.answered(LB_question.Text);
 
                     if (correct.Name == sender.Name)
                         correctAnswer(sender);
                     else
                         incorrectAnswer(sender, correct);
-                }
 
+                    ShowNextTurn(sender == correct);
+                }
                 Refresh();
 
                 answerClicked = true;
@@ -206,9 +205,15 @@ namespace TriviaCrack
         private async void ShowNextTurn(bool correct)
         {
             await Task.Delay(4000);
-            PNL_questions.BackColor = BT_nextTurn.BackColor;
-            BT_nextTurn.Text = correct ? "Tourner la roulette à nouveau" : "Tour du prochain joueur";
-            BT_nextTurn.Visible = true;
+
+            if (victory())
+                endGame(Program.players[Program.currentPlayer]);
+            else
+            {
+                PNL_questions.BackColor = BT_nextTurn.BackColor;
+                BT_nextTurn.Text = correct ? "Tourner la roulette à nouveau" : "Tour du prochain joueur";
+                BT_nextTurn.Visible = true;
+            }
         }
 
         private void BT_start_Click(object sender, EventArgs e)
@@ -394,6 +399,13 @@ namespace TriviaCrack
             Question.reset();
             PB_resetedQuestions.Visible = true;
             LB_resetQuestions.Enabled = false;
+        }
+
+        private void BT_goToMain_Click(object sender, EventArgs e)
+        {
+            resetApp();
+            PNL_main.Visible = true;
+            PNL_main.BringToFront();
         }
 
         #endregion
@@ -987,7 +999,24 @@ namespace TriviaCrack
             }
         }
 
+        private bool victory()
+        {
+            foreach (string category in Program.categories)
+            {
+                if (Points.get(category, Program.players[Program.currentPlayer]) < Program.pointsToWin)
+                    return false;
+            }
+
+            return true;
+        }
+        private void endGame(string winner)
+        {
+            LB_winner.Text = String.Format(LB_winner.Text, winner);
+            PNL_winner.Visible = true;
+            PNL_winner.BringToFront();
+        }
 
         #endregion
+
     }
 }

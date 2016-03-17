@@ -123,12 +123,16 @@
             this.TB_isAdmin = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PNL_adminChoice = new System.Windows.Forms.Panel();
+            this.PB_resetedQuestions = new System.Windows.Forms.PictureBox();
             this.LB_resetQuestions = new System.Windows.Forms.Label();
             this.BT_exitAdminChoice = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.BT_adminJoueurs = new System.Windows.Forms.Button();
             this.BT_adminQuestions = new System.Windows.Forms.Button();
-            this.PB_resetedQuestions = new System.Windows.Forms.PictureBox();
+            this.PNL_winner = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.BT_goToMain = new System.Windows.Forms.Button();
+            this.LB_winner = new System.Windows.Forms.Label();
             this.PNL_questions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_vLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PB_question)).BeginInit();
@@ -150,6 +154,7 @@
             this.PNL_isAdmin.SuspendLayout();
             this.PNL_adminChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_resetedQuestions)).BeginInit();
+            this.PNL_winner.SuspendLayout();
             this.SuspendLayout();
             // 
             // BT_answer2
@@ -1537,6 +1542,17 @@
             this.PNL_adminChoice.TabIndex = 56;
             this.PNL_adminChoice.Visible = false;
             // 
+            // PB_resetedQuestions
+            // 
+            this.PB_resetedQuestions.BackgroundImage = global::TriviaCrack.Properties.Resources.correct;
+            this.PB_resetedQuestions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PB_resetedQuestions.Location = new System.Drawing.Point(418, 461);
+            this.PB_resetedQuestions.Name = "PB_resetedQuestions";
+            this.PB_resetedQuestions.Size = new System.Drawing.Size(25, 25);
+            this.PB_resetedQuestions.TabIndex = 120;
+            this.PB_resetedQuestions.TabStop = false;
+            this.PB_resetedQuestions.Visible = false;
+            // 
             // LB_resetQuestions
             // 
             this.LB_resetQuestions.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1628,16 +1644,57 @@
             this.BT_adminQuestions.MouseEnter += new System.EventHandler(this.BT_MouseEnter);
             this.BT_adminQuestions.MouseLeave += new System.EventHandler(this.BT_MouseLeave);
             // 
-            // PB_resetedQuestions
+            // PNL_winner
             // 
-            this.PB_resetedQuestions.BackgroundImage = global::TriviaCrack.Properties.Resources.correct;
-            this.PB_resetedQuestions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PB_resetedQuestions.Location = new System.Drawing.Point(418, 461);
-            this.PB_resetedQuestions.Name = "PB_resetedQuestions";
-            this.PB_resetedQuestions.Size = new System.Drawing.Size(25, 25);
-            this.PB_resetedQuestions.TabIndex = 120;
-            this.PB_resetedQuestions.TabStop = false;
-            this.PB_resetedQuestions.Visible = false;
+            this.PNL_winner.Controls.Add(this.LB_winner);
+            this.PNL_winner.Controls.Add(this.BT_goToMain);
+            this.PNL_winner.Controls.Add(this.label6);
+            this.PNL_winner.Location = new System.Drawing.Point(0, 0);
+            this.PNL_winner.Name = "PNL_winner";
+            this.PNL_winner.Size = new System.Drawing.Size(535, 662);
+            this.PNL_winner.TabIndex = 57;
+            this.PNL_winner.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Calibri Light", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.Location = new System.Drawing.Point(0, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(534, 123);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Victoire!";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BT_goToMain
+            // 
+            this.BT_goToMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_goToMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BT_goToMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BT_goToMain.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
+            this.BT_goToMain.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BT_goToMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BT_goToMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BT_goToMain.Font = new System.Drawing.Font("Calibri Light", 16F);
+            this.BT_goToMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.BT_goToMain.Location = new System.Drawing.Point(109, 492);
+            this.BT_goToMain.Name = "BT_goToMain";
+            this.BT_goToMain.Size = new System.Drawing.Size(310, 75);
+            this.BT_goToMain.TabIndex = 115;
+            this.BT_goToMain.Text = "Retourner au menu principal";
+            this.BT_goToMain.UseVisualStyleBackColor = false;
+            this.BT_goToMain.Click += new System.EventHandler(this.BT_goToMain_Click);
+            // 
+            // LB_winner
+            // 
+            this.LB_winner.Font = new System.Drawing.Font("Calibri Light", 17F);
+            this.LB_winner.ForeColor = System.Drawing.Color.White;
+            this.LB_winner.Location = new System.Drawing.Point(0, 344);
+            this.LB_winner.Name = "LB_winner";
+            this.LB_winner.Size = new System.Drawing.Size(534, 48);
+            this.LB_winner.TabIndex = 116;
+            this.LB_winner.Text = "Le gagnant est {0}.";
+            this.LB_winner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Game
             // 
@@ -1645,12 +1702,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
+            this.Controls.Add(this.PNL_winner);
+            this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_adminChoice);
             this.Controls.Add(this.PNL_nameSelection_Exists);
             this.Controls.Add(this.PNL_nameSelection);
             this.Controls.Add(this.PNL_isAdmin);
             this.Controls.Add(this.PNL_nameSelectionMethod);
-            this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_wheel);
             this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_category);
@@ -1691,6 +1749,7 @@
             this.PNL_isAdmin.PerformLayout();
             this.PNL_adminChoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_resetedQuestions)).EndInit();
+            this.PNL_winner.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1796,6 +1855,10 @@
         private System.Windows.Forms.Button BT_exitAdminChoice;
         private System.Windows.Forms.Label LB_resetQuestions;
         private System.Windows.Forms.PictureBox PB_resetedQuestions;
+        private System.Windows.Forms.Panel PNL_winner;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button BT_goToMain;
+        private System.Windows.Forms.Label LB_winner;
     }
 }
 

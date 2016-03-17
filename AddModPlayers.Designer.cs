@@ -309,6 +309,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LB_title);
             this.Controls.Add(this.TB_name);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddModPlayers";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
