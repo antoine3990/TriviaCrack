@@ -591,8 +591,14 @@ namespace TriviaCrack
                 try
                 {
                     string name = addUpperCase(filterName(TB_newName.Text));
-                    Player.add(name);
-                    Program.players.Add(name); // Ajoute le nom à la liste.
+
+                    if (!Player.exists(name))
+                    {
+                        Player.add(name);
+                        Program.players.Add(name); // Ajoute le nom à la liste.
+                    }
+                    else
+                        throw new Exception();
 
                     if (Program.currentPlayer == Program.nbPlayers - 1) // Si le nombre de joueur choisi est atteint, stop.
                     {

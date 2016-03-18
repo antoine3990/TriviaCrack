@@ -1703,8 +1703,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
-            this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_winner);
+            this.Controls.Add(this.PNL_questions);
             this.Controls.Add(this.PNL_main);
             this.Controls.Add(this.PNL_adminChoice);
             this.Controls.Add(this.PNL_nameSelection_Exists);
